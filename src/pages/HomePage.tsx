@@ -2,77 +2,83 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { R } from "../theme";
 import { HERO, STATS, STEPS, CTA, QUALIFIERS } from "../content";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 export function HomePage() {
+  const m = useIsMobile();
+  const px = m ? "0 24px" : "0 64px";
+
   return (
     <>
-      {/* ─── BAND 1: Hero — 50/50 split, brand brackets in the right card ─── */}
+      {/* ─── BAND 1: Hero ─── */}
       <section style={{ background: R.heroBg, padding: "0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "70vh" }}>
-          <div style={{ padding: "96px 48px 96px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: `1px solid ${R.border}` }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 24 }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", minHeight: m ? "auto" : "70vh" }}>
+          <div style={{ padding: m ? "56px 24px 48px" : "96px 48px 96px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: m ? "none" : `1px solid ${R.border}` }}>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: m ? 16 : 24 }}>
               {HERO.eyebrow}
             </div>
-            <h1 style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.05, letterSpacing: -2, margin: "0 0 28px", color: R.accent }}>
+            <h1 style={{ fontSize: m ? 34 : 56, fontWeight: 700, lineHeight: 1.05, letterSpacing: m ? -1 : -2, margin: "0 0 20px", color: R.accent }}>
               The hotel management company for{" "}
               <span style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 independent hotels.
               </span>
             </h1>
-            <p style={{ fontSize: 16, color: R.text, maxWidth: 520, lineHeight: 1.7, margin: "0 0 40px" }}>
+            <p style={{ fontSize: m ? 14 : 16, color: R.text, maxWidth: 520, lineHeight: 1.7, margin: "0 0 32px" }}>
               {HERO.subheadline}
             </p>
-            <div style={{ display: "flex", gap: 14 }}>
+            <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: 14 }}>
               <Link to="/apply" style={{
                 background: R.teal, color: "#0F1215", border: `1px solid ${R.teal}`,
                 padding: "14px 30px", borderRadius: 8, fontWeight: 700, fontSize: 14,
-                cursor: "pointer", letterSpacing: 0.2, display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none",
+                cursor: "pointer", letterSpacing: 0.2, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none",
               }}>
                 {HERO.primaryCta} <ArrowRight size={15} />
               </Link>
               <Link to="/approach" style={{
                 background: "transparent", color: R.text, border: `1px solid ${R.border}`,
                 padding: "14px 26px", borderRadius: 8, fontWeight: 600, fontSize: 14,
-                cursor: "pointer", letterSpacing: 0.2, textDecoration: "none",
+                cursor: "pointer", letterSpacing: 0.2, textDecoration: "none", textAlign: "center",
               }}>
                 {HERO.secondaryCta}
               </Link>
             </div>
           </div>
-          <div style={{ padding: "96px 64px 96px 48px", display: "flex", alignItems: "center" }}>
-            <div style={{
-              width: "100%", aspectRatio: "1.1", background: R.card, border: `1px solid ${R.border}`,
-              borderRadius: 16, padding: "44px 40px", display: "flex", flexDirection: "column", justifyContent: "space-between",
-              position: "relative", overflow: "hidden",
-            }}>
-              <div style={{ position: "absolute", top: -100, right: -100, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${R.teal}30 0%, transparent 70%)`, pointerEvents: "none" }} />
-              <div style={{ position: "absolute", bottom: -100, left: -100, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${R.gold}30 0%, transparent 70%)`, pointerEvents: "none" }} />
-              <div style={{ position: "relative" }}>&nbsp;</div>
-              <div style={{ position: "relative", textAlign: "center" }}>
-                <div style={{ fontSize: 48, fontWeight: 700, color: R.accent, letterSpacing: 2, display: "flex", alignItems: "center", justifyContent: "center", gap: 18 }}>
-                  <span style={{ color: R.teal, fontSize: 78, fontWeight: 300 }}>(</span>
-                  ROCKENUE
-                  <span style={{ color: R.gold, fontSize: 78, fontWeight: 300 }}>)</span>
+          {!m && (
+            <div style={{ padding: "96px 64px 96px 48px", display: "flex", alignItems: "center" }}>
+              <div style={{
+                width: "100%", aspectRatio: "1.1", background: R.card, border: `1px solid ${R.border}`,
+                borderRadius: 16, padding: "44px 40px", display: "flex", flexDirection: "column", justifyContent: "space-between",
+                position: "relative", overflow: "hidden",
+              }}>
+                <div style={{ position: "absolute", top: -100, right: -100, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${R.teal}30 0%, transparent 70%)`, pointerEvents: "none" }} />
+                <div style={{ position: "absolute", bottom: -100, left: -100, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${R.gold}30 0%, transparent 70%)`, pointerEvents: "none" }} />
+                <div style={{ position: "relative" }}>&nbsp;</div>
+                <div style={{ position: "relative", textAlign: "center" }}>
+                  <div style={{ fontSize: 48, fontWeight: 700, color: R.accent, letterSpacing: 2, display: "flex", alignItems: "center", justifyContent: "center", gap: 18 }}>
+                    <span style={{ color: R.teal, fontSize: 78, fontWeight: 300 }}>(</span>
+                    ROCKENUE
+                    <span style={{ color: R.gold, fontSize: 78, fontWeight: 300 }}>)</span>
+                  </div>
+                </div>
+                <div style={{ position: "relative", fontSize: 11, color: R.textDim, letterSpacing: 2, textTransform: "uppercase", textAlign: "center", fontWeight: 500 }}>
+                  Hotel management · Est. 2019
                 </div>
               </div>
-              <div style={{ position: "relative", fontSize: 11, color: R.textDim, letterSpacing: 2, textTransform: "uppercase", textAlign: "center", fontWeight: 500 }}>
-                Hotel management · Est. 2019
-              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
 
       {/* ─── BAND 2: Stats ─── */}
-      <section style={{ background: R.darkBand, padding: "60px 0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 64px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <section style={{ background: R.darkBand, padding: m ? "40px 0" : "60px 0", borderBottom: `1px solid ${R.border}` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr 1fr" : `repeat(${STATS.length}, 1fr)`, gap: m ? 24 : 0 }}>
           {STATS.map((s, i) => (
-            <div key={i} style={{ textAlign: "center", flex: 1, position: "relative", padding: "0 16px" }}>
-              {i > 0 && <div style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)", height: 48, width: 1, background: R.border }} />}
-              <div style={{ fontSize: 48, fontWeight: 700, letterSpacing: -1.8, lineHeight: 1, background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <div key={i} style={{ textAlign: "center", position: "relative", padding: m ? "12px 0" : "0 16px" }}>
+              {!m && i > 0 && <div style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)", height: 48, width: 1, background: R.border }} />}
+              <div style={{ fontSize: m ? 32 : 48, fontWeight: 700, letterSpacing: -1.8, lineHeight: 1, background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 {s.value}
               </div>
-              <div style={{ fontSize: 11, color: R.textMid, marginTop: 12, fontWeight: 600, letterSpacing: 0.5, lineHeight: 1.4 }}>
+              <div style={{ fontSize: m ? 10 : 11, color: R.textMid, marginTop: 8, fontWeight: 600, letterSpacing: 0.5, lineHeight: 1.4 }}>
                 {s.label}
               </div>
             </div>
@@ -81,20 +87,18 @@ export function HomePage() {
       </section>
 
       {/* ─── BAND 3: Services ─── */}
-      <section style={{ background: R.bg, padding: "96px 0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 64px" }}>
-          <div style={{ marginBottom: 48 }}>
-            <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.gold, marginBottom: 16 }}>
-              Services
-            </p>
-            <h2 style={{ fontSize: 42, fontWeight: 700, letterSpacing: -1.4, color: R.accent, margin: "0 0 18px", lineHeight: 1.1 }}>
+      <section style={{ background: R.bg, padding: m ? "56px 0" : "96px 0", borderBottom: `1px solid ${R.border}` }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: px }}>
+          <div style={{ marginBottom: m ? 32 : 48 }}>
+            <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.gold, marginBottom: 16 }}>Services</p>
+            <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 700, letterSpacing: m ? -0.8 : -1.4, color: R.accent, margin: "0 0 14px", lineHeight: 1.1 }}>
               Four ways we work with hotels.
             </h2>
             <p style={{ fontSize: 14, color: R.textMid, maxWidth: 520, lineHeight: 1.65, margin: 0 }}>
               Each function delivered by a specialist team, powered by proprietary technology, and aligned to your hotel's commercial objectives.
             </p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(4, 1fr)", gap: 16 }}>
             {([
               { num: "01", title: "Full Service Management", summary: "The core of what we do. This is what happens when a hotel joins the network." },
               { num: "02", title: "Leasing & Management", summary: "For asset owners looking for hands-off, professionally managed returns." },
@@ -115,21 +119,19 @@ export function HomePage() {
       </section>
 
       {/* ─── BAND 4: Intelligence ─── */}
-      <section style={{ background: R.heroBg, padding: "96px 0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 64px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+      <section style={{ background: R.heroBg, padding: m ? "56px 0" : "96px 0", borderBottom: `1px solid ${R.border}` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 32 : 64, alignItems: "center" }}>
           <div>
             <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.teal, marginBottom: 16 }}>Intelligence</p>
-            <h2 style={{ fontSize: 40, fontWeight: 700, letterSpacing: -1.3, color: R.accent, margin: "0 0 22px", lineHeight: 1.1 }}>
+            <h2 style={{ fontSize: m ? 28 : 40, fontWeight: 700, letterSpacing: m ? -0.8 : -1.3, color: R.accent, margin: "0 0 18px", lineHeight: 1.1 }}>
               Dedicated AI hardware. Every signal, every city.
             </h2>
-            <p style={{ fontSize: 15, lineHeight: 1.7, color: R.text, maxWidth: 480, margin: "0 0 28px" }}>
+            <p style={{ fontSize: m ? 14 : 15, lineHeight: 1.7, color: R.text, maxWidth: 480, margin: "0 0 28px" }}>
               The pricing engine runs on dedicated GPU infrastructure processing flight search data, event calendars, OTA signals, and booking velocity across entire cities simultaneously. Every signal is retained. The result is a deep behavioural dataset of hospitality markets — demand formation, pricing response, supply elasticity, seasonal structure — growing since the day we started collecting.
             </p>
-            <div style={{ display: "flex", gap: 32 }}>
-              <div>
-                <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, letterSpacing: -0.5, background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>5M+</div>
-                <div style={{ fontSize: 12, color: R.textDim, fontWeight: 500, marginTop: 6 }}>Data points processed daily</div>
-              </div>
+            <div>
+              <div style={{ fontSize: 26, fontWeight: 700, lineHeight: 1, letterSpacing: -0.5, background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>5M+</div>
+              <div style={{ fontSize: 12, color: R.textDim, fontWeight: 500, marginTop: 6 }}>Data points processed daily</div>
             </div>
           </div>
           <div style={{ background: R.card, border: `1px solid ${R.border}`, borderRadius: 14, overflow: "hidden" }}>
@@ -175,20 +177,20 @@ export function HomePage() {
       </section>
 
       {/* ─── BAND 5: Application ─── */}
-      <section style={{ background: R.bg, padding: "96px 0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 64px", display: "grid", gridTemplateColumns: "1fr 2fr", gap: 56 }}>
+      <section style={{ background: R.bg, padding: m ? "56px 0" : "96px 0", borderBottom: `1px solid ${R.border}` }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 2fr", gap: m ? 32 : 56 }}>
           <div>
             <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.gold, marginBottom: 16 }}>Application</p>
-            <h2 style={{ fontSize: 42, fontWeight: 700, letterSpacing: -1.4, color: R.accent, margin: "0 0 18px", lineHeight: 1.1 }}>Three steps to onboarding</h2>
+            <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 700, letterSpacing: m ? -0.8 : -1.4, color: R.accent, margin: "0 0 14px", lineHeight: 1.1 }}>Three steps to onboarding</h2>
             <p style={{ fontSize: 14, color: R.textMid, maxWidth: 280, lineHeight: 1.65, margin: 0 }}>We move quickly. Submission to live operation in 30 days for properties that qualify.</p>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr 1fr", gap: 16 }}>
             {STEPS.map((step, i) => {
               const accent = i === 0 ? R.teal : i === 1 ? R.gold : R.teal;
               return (
-                <div key={step.num} style={{ position: "relative", padding: "32px 26px", background: R.card, borderRadius: 12, border: `1px solid ${R.border}`, overflow: "hidden" }}>
-                  <div style={{ fontSize: 36, fontWeight: 700, color: accent, letterSpacing: -1, marginBottom: 16, lineHeight: 1 }}>{step.num}</div>
-                  <h3 style={{ fontSize: 17, fontWeight: 700, color: R.accent, margin: "0 0 10px" }}>{step.title}</h3>
+                <div key={step.num} style={{ position: "relative", padding: m ? "24px 20px" : "32px 26px", background: R.card, borderRadius: 12, border: `1px solid ${R.border}`, overflow: "hidden" }}>
+                  <div style={{ fontSize: m ? 28 : 36, fontWeight: 700, color: accent, letterSpacing: -1, marginBottom: 12, lineHeight: 1 }}>{step.num}</div>
+                  <h3 style={{ fontSize: m ? 15 : 17, fontWeight: 700, color: R.accent, margin: "0 0 10px" }}>{step.title}</h3>
                   <p style={{ fontSize: 13, lineHeight: 1.6, color: R.text, margin: 0 }}>{step.desc}</p>
                 </div>
               );
@@ -198,11 +200,11 @@ export function HomePage() {
       </section>
 
       {/* ─── BAND 6: CTA ─── */}
-      <section style={{ background: R.darkBand, padding: "0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 64px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, minHeight: 320, alignItems: "center" }}>
-          <div style={{ padding: "72px 0" }}>
-            <h2 style={{ fontSize: 38, fontWeight: 700, letterSpacing: -1.2, color: R.accent, margin: "0 0 18px", lineHeight: 1.15 }}>{CTA.title}</h2>
-            <p style={{ fontSize: 15, color: R.text, margin: "0 0 32px", maxWidth: 460, lineHeight: 1.65 }}>{CTA.body}</p>
+      <section style={{ background: R.darkBand, padding: m ? "48px 0" : "0", borderBottom: `1px solid ${R.border}` }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 32 : 56, minHeight: m ? "auto" : 320, alignItems: "center" }}>
+          <div style={{ padding: m ? "0" : "72px 0" }}>
+            <h2 style={{ fontSize: m ? 28 : 38, fontWeight: 700, letterSpacing: m ? -0.8 : -1.2, color: R.accent, margin: "0 0 14px", lineHeight: 1.15 }}>{CTA.title}</h2>
+            <p style={{ fontSize: m ? 14 : 15, color: R.text, margin: "0 0 28px", maxWidth: 460, lineHeight: 1.65 }}>{CTA.body}</p>
             <Link to="/apply" style={{
               background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`,
               color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14,
@@ -211,7 +213,7 @@ export function HomePage() {
               {CTA.primary} <ArrowRight size={15} />
             </Link>
           </div>
-          <div style={{ padding: "72px 0" }}>
+          <div style={{ padding: m ? "0" : "72px 0" }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 1.5, color: R.textMid, textTransform: "uppercase", marginBottom: 18 }}>What we look for</div>
             <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
               {QUALIFIERS.map((item, i) => (
@@ -226,32 +228,34 @@ export function HomePage() {
       </section>
 
       {/* ─── Partners Strip ─── */}
-      <section style={{ background: R.darkBand, padding: "44px 0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 64px" }}>
-          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.textDim, textAlign: "center", marginBottom: 28 }}>Strategic partners</div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <div style={{ opacity: 0.45, display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 22, height: 22, borderRadius: 4, background: R.border, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: 0, height: 0, borderLeft: "5px solid transparent", borderRight: "5px solid transparent", borderBottom: `9px solid ${R.textMid}` }} />
+      {!m && (
+        <section style={{ background: R.darkBand, padding: "44px 0", borderBottom: `1px solid ${R.border}` }}>
+          <div style={{ maxWidth: 1200, margin: "0 auto", padding: px }}>
+            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.textDim, textAlign: "center", marginBottom: 28 }}>Strategic partners</div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div style={{ opacity: 0.45, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ width: 22, height: 22, borderRadius: 4, background: R.border, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: 0, height: 0, borderLeft: "5px solid transparent", borderRight: "5px solid transparent", borderBottom: `9px solid ${R.textMid}` }} />
+                </div>
+                <span style={{ fontSize: 13, fontWeight: 700, color: R.text, letterSpacing: 0.5 }}>MEYDAN</span>
+                <span style={{ fontSize: 10, fontWeight: 500, color: R.textDim }}>FREE ZONE</span>
               </div>
-              <span style={{ fontSize: 13, fontWeight: 700, color: R.text, letterSpacing: 0.5 }}>MEYDAN</span>
-              <span style={{ fontSize: 10, fontWeight: 500, color: R.textDim }}>FREE ZONE</span>
-            </div>
-            <div style={{ opacity: 0.45 }}><span style={{ fontSize: 15, fontWeight: 700, color: R.text, letterSpacing: -0.3 }}>cloud</span><span style={{ fontSize: 15, fontWeight: 700, color: R.teal, letterSpacing: -0.3 }}>beds</span></div>
-            <div style={{ opacity: 0.45, display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 20, height: 20, borderRadius: 10, border: `1.5px solid ${R.textMid}`, display: "flex", alignItems: "center", justifyContent: "center" }}><div style={{ width: 8, height: 8, borderRadius: 4, background: R.textMid }} /></div>
-              <div><div style={{ fontSize: 11, fontWeight: 700, color: R.text, letterSpacing: 0.3, lineHeight: 1 }}>DUBAI CHAMBER</div><div style={{ fontSize: 8, color: R.textDim, letterSpacing: 0.5, lineHeight: 1 }}>OF COMMERCE</div></div>
-            </div>
-            <div style={{ opacity: 0.45 }}><span style={{ fontSize: 14, fontWeight: 800, color: R.text, letterSpacing: 1 }}>ATM</span><span style={{ fontSize: 9, color: R.textDim, marginLeft: 5, fontWeight: 500, letterSpacing: 0.3 }}>Arabian Travel Market</span></div>
-            <div style={{ opacity: 0.45 }}><span style={{ fontSize: 16, fontWeight: 700, color: R.text, letterSpacing: -0.3 }}>mews</span></div>
-            <div style={{ opacity: 0.45, display: "flex", alignItems: "center", gap: 4 }}>
-              <span style={{ color: R.teal, fontSize: 16, fontWeight: 200 }}>(</span>
-              <span style={{ fontSize: 10, fontWeight: 700, color: R.text, letterSpacing: 1.2 }}>MARKET PULSE</span>
-              <span style={{ color: R.teal, fontSize: 16, fontWeight: 200 }}>)</span>
+              <div style={{ opacity: 0.45 }}><span style={{ fontSize: 15, fontWeight: 700, color: R.text, letterSpacing: -0.3 }}>cloud</span><span style={{ fontSize: 15, fontWeight: 700, color: R.teal, letterSpacing: -0.3 }}>beds</span></div>
+              <div style={{ opacity: 0.45, display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ width: 20, height: 20, borderRadius: 10, border: `1.5px solid ${R.textMid}`, display: "flex", alignItems: "center", justifyContent: "center" }}><div style={{ width: 8, height: 8, borderRadius: 4, background: R.textMid }} /></div>
+                <div><div style={{ fontSize: 11, fontWeight: 700, color: R.text, letterSpacing: 0.3, lineHeight: 1 }}>DUBAI CHAMBER</div><div style={{ fontSize: 8, color: R.textDim, letterSpacing: 0.5, lineHeight: 1 }}>OF COMMERCE</div></div>
+              </div>
+              <div style={{ opacity: 0.45 }}><span style={{ fontSize: 14, fontWeight: 800, color: R.text, letterSpacing: 1 }}>ATM</span><span style={{ fontSize: 9, color: R.textDim, marginLeft: 5, fontWeight: 500, letterSpacing: 0.3 }}>Arabian Travel Market</span></div>
+              <div style={{ opacity: 0.45 }}><span style={{ fontSize: 16, fontWeight: 700, color: R.text, letterSpacing: -0.3 }}>mews</span></div>
+              <div style={{ opacity: 0.45, display: "flex", alignItems: "center", gap: 4 }}>
+                <span style={{ color: R.teal, fontSize: 16, fontWeight: 200 }}>(</span>
+                <span style={{ fontSize: 10, fontWeight: 700, color: R.text, letterSpacing: 1.2 }}>MARKET PULSE</span>
+                <span style={{ color: R.teal, fontSize: 16, fontWeight: 200 }}>)</span>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }
