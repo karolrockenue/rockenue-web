@@ -1,25 +1,27 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { R } from "../theme";
-import { NAV_LINKS, FOOTER } from "../content";
+import { FOOTER } from "../content";
 
-const NAV_ROUTES: Record<string, string> = {
-  Services: "/services",
-  Portfolio: "/",       // no dedicated page yet — link to home
-  Markets: "/approach", // markets section lives on approach page
-  "Market Pulse": "/",  // external product — link home for now
-  About: "/about",
-};
+const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
+  { label: "Services", to: "/services" },
+  { label: "About", to: "/about" },
+  { label: "Our Approach", to: "/approach" },
+  { label: "Market Pulse", to: "https://www.market-pulse.io", external: true },
+  { label: "Contact", to: "/contact" },
+];
 
 const FOOTER_ROUTES: Record<string, string> = {
   Approach: "/approach",
-  Markets: "/approach",
   Contact: "/contact",
   "Full Service Management": "/services",
   "Leasing & Management": "/services",
   "Hotel Sales & Acquisitions": "/services",
   "Research & Intelligence": "/services",
-  "Market Pulse": "/",
   "Apply for Management": "/apply",
+};
+
+const FOOTER_EXTERNAL: Record<string, string> = {
+  "Market Pulse": "https://www.market-pulse.io",
 };
 
 const LEGAL_ROUTES: Record<string, string> = {
@@ -46,12 +48,18 @@ export function Layout() {
           <span style={{ color: R.gold, fontSize: 26, fontWeight: 300, lineHeight: 1 }}>)</span>
         </Link>
         <div style={{ display: "flex", gap: 32, fontSize: 13, color: R.textMid, fontWeight: 500 }}>
-          {NAV_LINKS.map((item) => {
-            const to = NAV_ROUTES[item] || "/";
-            const active = location.pathname === to && to !== "/";
+          {NAV_ITEMS.map((item) => {
+            if (item.external) {
+              return (
+                <a key={item.label} href={item.to} target="_blank" rel="noopener noreferrer" style={{ color: R.textMid, textDecoration: "none", transition: "color 0.2s" }}>
+                  {item.label}
+                </a>
+              );
+            }
+            const active = location.pathname === item.to;
             return (
-              <Link key={item} to={to} style={{ color: active ? R.accent : R.textMid, textDecoration: "none", transition: "color 0.2s" }}>
-                {item}
+              <Link key={item.label} to={item.to} style={{ color: active ? R.accent : R.textMid, textDecoration: "none", transition: "color 0.2s" }}>
+                {item.label}
               </Link>
             );
           })}
@@ -91,11 +99,20 @@ export function Layout() {
                     {col.heading}
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                    {col.links.map((link) => (
-                      <Link key={link} to={FOOTER_ROUTES[link] || "/"} style={{ fontSize: 13, color: R.textDim, textDecoration: "none" }}>
-                        {link}
-                      </Link>
-                    ))}
+                    {col.links.map((link) => {
+                      if (FOOTER_EXTERNAL[link]) {
+                        return (
+                          <a key={link} href={FOOTER_EXTERNAL[link]} target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: R.textDim, textDecoration: "none" }}>
+                            {link}
+                          </a>
+                        );
+                      }
+                      return (
+                        <Link key={link} to={FOOTER_ROUTES[link] || "/"} style={{ fontSize: 13, color: R.textDim, textDecoration: "none" }}>
+                          {link}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               );

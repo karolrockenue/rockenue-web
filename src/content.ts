@@ -127,7 +127,7 @@ export const FOOTER = {
   columns: [
     {
       heading: "Company",
-      links: ["Approach", "Markets", "Contact"],
+      links: ["Approach", "Contact"],
     },
     {
       heading: "Services",
