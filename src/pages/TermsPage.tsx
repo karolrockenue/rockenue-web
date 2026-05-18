@@ -6,7 +6,7 @@ export function TermsPage() {
 
   return (
     <section style={{ background: R.heroBg, padding: m ? "56px 0 64px" : "80px 0 96px" }}>
-      <div style={{ maxWidth: 720, margin: "0 auto", padding: m ? "0 24px" : "0 64px" }}>
+      <div style={{ maxWidth: 880, margin: "0 auto", padding: m ? "0 24px" : "0 64px" }}>
         <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 20 }}>Legal</div>
         <h1 style={{ fontSize: m ? 28 : 36, fontWeight: 700, letterSpacing: -1.2, color: R.accent, margin: "0 0 12px" }}>Terms of Service</h1>
         <p style={{ fontSize: 13, color: R.textDim, margin: "0 0 48px" }}>Last updated: April 2026</p>
