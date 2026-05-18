@@ -9,7 +9,7 @@ export function PrivacyPage() {
       <div style={{ maxWidth: 720, margin: "0 auto", padding: m ? "0 24px" : "0 64px" }}>
         <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 20 }}>Legal</div>
         <h1 style={{ fontSize: m ? 28 : 36, fontWeight: 700, letterSpacing: -1.2, color: R.accent, margin: "0 0 12px" }}>Privacy Policy</h1>
-        <p style={{ fontSize: 13, color: R.textDim, margin: "0 0 48px" }}>Last updated: April 2026</p>
+        <p style={{ fontSize: 13, color: R.textDim, margin: "0 0 48px" }}>Last updated: May 2026</p>
 
         <Section title="1. Who We Are">
           <P>Rockenue International Group LLC FZ ("Rockenue", "we", "us", "our") is a company registered in the Meydan Free Zone, Dubai, United Arab Emirates. Our registered address is Nad Al Sheba 1, Dubai, United Arab Emirates.</P>
@@ -38,13 +38,36 @@ export function PrivacyPage() {
             "IP address and approximate geographic location",
             "Browser type, device type, and operating system",
             "Pages visited, time spent on pages, referring URLs, and navigation paths",
-            "Cookie identifiers and similar tracking technologies (see our Cookie Policy below)",
+            "Cookie identifiers and similar tracking technologies (see our Cookie Policy at rockenue.com/cookies)",
           ]} />
           <Sub>Information from third parties:</Sub>
           <Ul items={[
             "Publicly available hotel and property data from industry platforms",
             "Information provided by referral partners with your knowledge",
           ]} />
+        </Section>
+
+        <Section title="3a. Guest Booking Data (Booking Engine)">
+          <P>When you book a stay through a hotel that uses our booking engine, we process the following categories of personal data on behalf of that hotel:</P>
+          <Ul items={[
+            "Identification and contact details: full name, email address, phone number, and country of residence",
+            "Reservation details: stay dates, room and rate selection, number of guests, extras, and any special requests you provide",
+            "Payment details: processed directly by Stripe under PCI-DSS SAQ A. Rockenue does not see, store, or transmit raw card numbers; only a tokenised reference and the transaction outcome are returned to us",
+            "Communication records: booking confirmations, modifications, cancellations, and payment receipts sent on the hotel's behalf",
+          ]} />
+          <Sub>Controller and processor roles</Sub>
+          <P>For guest reservation data, the hotel is the data controller and Rockenue acts as a data processor, processing personal data solely on the hotel's documented instructions under a data processing agreement. For data you submit directly to us through rockenue.com (for example, the contact or management application forms), Rockenue remains the controller as described in Section 1.</P>
+          <Sub>Sub-processors and recipients</Sub>
+          <Ul items={[
+            "The hotel's Cloudbeds property management system, into which your reservation is written so the hotel can manage your stay",
+            "Stripe Connect, which processes your payment and settles funds directly to the hotel",
+            "SendGrid, which delivers transactional emails (confirmation, modification, cancellation, and receipt messages) on the hotel's behalf",
+            "Cloud hosting and infrastructure providers used to operate the booking engine, bound by contractual confidentiality and data protection obligations",
+          ]} />
+          <Sub>Retention</Sub>
+          <P>Guest booking data is retained for the duration of your stay plus seven years to meet the hotel's accounting, tax, and regulatory obligations, after which it is securely deleted or anonymised. The hotel may apply a different retention period in its own privacy notice; where it does, the hotel's notice governs your reservation record.</P>
+          <Sub>Your rights</Sub>
+          <P>Because the hotel is the controller of your reservation data, requests to access, correct, or delete that data should be directed to the hotel in the first instance. If you contact us directly at info@rockenue.com, we will forward your request to the relevant hotel and assist them in responding.</P>
         </Section>
 
         <Section title="4. Lawful Basis for Processing">
