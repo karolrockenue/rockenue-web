@@ -10,6 +10,7 @@ import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { TermsPage } from "./pages/TermsPage";
 import { CookiesPage } from "./pages/CookiesPage";
+import { BookingEngineSupportPage } from "./pages/BookingEngineSupportPage";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ function AppRoutes() {
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/cookies" element={<CookiesPage />} />
+        <Route path="/support/booking-engine" element={<BookingEngineSupportPage />} />
       </Route>
     </Routes>
   );

@@ -140,7 +140,7 @@ export const FOOTER = {
     },
     {
       heading: "Resources",
-      links: ["Market Pulse", "Apply for Management"],
+      links: ["Market Pulse", "Apply for Management", "Booking Engine Support"],
     },
   ],
   copyright: "\u00a9 2026 Rockenue International Group. All rights reserved.",

@@ -21,6 +21,7 @@ const FOOTER_ROUTES: Record<string, string> = {
   "Hotel Sales & Acquisitions": "/services",
   "Research & Intelligence": "/services",
   "Apply for Management": "/apply",
+  "Booking Engine Support": "/support/booking-engine",
 };
 
 const FOOTER_EXTERNAL: Record<string, string> = {
