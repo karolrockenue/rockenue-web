@@ -1,4 +1,21 @@
-# React + TypeScript + Vite
+# Rockenue — Website
+
+Marketing site for Rockenue (hotel management company), built with React + TypeScript + Vite.
+
+## Mockups & marketing assets
+
+Standalone design mockups and brand/marketing assets live in [`mockups/`](./mockups) — see
+[`mockups/README.md`](./mockups/README.md) for the full index. Open any file directly in a
+browser (no build step needed). Most relevant:
+
+- **`mockups/linkedin-assets.html`** — LinkedIn & marketing brand-asset generator: company
+  logo (300 × 300), page banner (1128 × 191), personal profile banner (1584 × 396), and a
+  range of downloadable logo variations. Right-click → "Save image as…" or use the Download
+  buttons to export spec-sized PNGs.
+
+---
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

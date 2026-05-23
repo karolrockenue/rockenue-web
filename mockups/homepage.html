@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — Hotel Management Company</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --accent: #F3F5F7;
+    --white: #F3F5F7;
+    --text: #B0B8C4;
+    --textMid: #7A8494;
+    --textDim: #4E5868;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --heroBg: #111519;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--white); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* ─── NAV ─── */
+  nav { padding: 20px 64px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  .logo { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1.4px; }
+  .logo .p { color: var(--teal); font-size: 26px; font-weight: 300; line-height: 1; }
+  .logo .p.r { color: var(--gold); }
+  .navlinks { display: flex; gap: 32px; font-size: 13px; color: var(--textMid); font-weight: 500; }
+  .navlinks a:hover { color: var(--accent); }
+  .applybtn { font-size: 13px; color: var(--teal); padding: 8px 18px; border: 1px solid var(--teal); border-radius: 6px; font-weight: 600; }
+  .hamburger { display: none; background: none; border: none; color: var(--accent); cursor: pointer; padding: 4px; }
+
+  /* ─── HERO ─── */
+  .hero { background: var(--heroBg); border-bottom: 1px solid var(--border); }
+  .hero-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
+  .hero-left { padding: 96px 48px 96px 64px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
+  .hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase; margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 20px; color: #F4F2EC; max-width: 900px; }
+  .hero-sub { font-size: 16px; color: var(--text); max-width: 520px; line-height: 1.7; margin: 0 0 32px; }
+  .hero-ctas { display: flex; flex-direction: row; gap: 14px; }
+  .btn-primary { background: var(--teal); color: #0F1215; border: 1px solid var(--teal); padding: 14px 30px; border-radius: 8px; font-weight: 700; font-size: 14px; letter-spacing: 0.2px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); padding: 14px 26px; border-radius: 8px; font-weight: 600; font-size: 14px; letter-spacing: 0.2px; text-align: center; }
+  .hero-right { padding: 96px 64px 96px 48px; display: flex; align-items: center; }
+  .hero-card { width: 100%; aspect-ratio: 1.1; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 44px 40px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .hero-card .glow-tr { position: absolute; top: -100px; right: -100px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, #38C6BA30 0%, transparent 70%); pointer-events: none; }
+  .hero-card .glow-bl { position: absolute; bottom: -100px; left: -100px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, #C8A66E30 0%, transparent 70%); pointer-events: none; }
+  .hero-card .brandbig { position: relative; text-align: center; }
+  .hero-card .brandbig .row { font-size: 48px; font-weight: 700; color: var(--accent); letter-spacing: 2px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+  .hero-card .brandbig .row .pl { color: var(--teal); font-size: 78px; font-weight: 300; }
+  .hero-card .brandbig .row .pr { color: var(--gold); font-size: 78px; font-weight: 300; }
+  .hero-card .cap { position: relative; font-size: 11px; color: var(--textDim); letter-spacing: 2px; text-transform: uppercase; text-align: center; font-weight: 500; }
+
+  /* ─── STATS ─── */
+  .stats { background: var(--darkBand); padding: 60px 0; border-bottom: 1px solid var(--border); }
+  .stats-grid { max-width: 1200px; margin: 0 auto; padding: 0 64px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .stat { text-align: center; position: relative; padding: 0 16px; }
+  .stat:not(:first-child)::before { content: ""; position: absolute; left: 0; top: 50%; transform: translateY(-50%); height: 48px; width: 1px; background: var(--border); }
+  .stat .v { font-size: 48px; font-weight: 700; letter-spacing: -1.8px; line-height: 1; }
+  .stat .l { font-size: 11px; color: var(--textMid); margin-top: 8px; font-weight: 600; letter-spacing: 0.5px; line-height: 1.4; }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--bg); padding: 96px 0; border-bottom: 1px solid var(--border); }
+  .services-inner { max-width: 1280px; margin: 0 auto; padding: 0 64px; }
+  .sec-head { margin-bottom: 48px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+  .eyebrow.gold { color: var(--gold); } .eyebrow.teal { color: var(--teal); }
+  .sec-h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 300; letter-spacing: -0.02em; color: #F4F2EC; margin: 0 0 14px; line-height: 1.08; max-width: 900px; }
+  .sec-sub { font-size: 14px; color: var(--textMid); max-width: 520px; line-height: 1.65; margin: 0; }
+  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .svc { padding-top: 24px; }
+  .svc .num { font-size: 11px; font-weight: 700; letter-spacing: 1px; display: block; margin-bottom: 14px; }
+  .svc h3 { font-size: 16px; font-weight: 700; color: var(--accent); margin: 0 0 10px; }
+  .svc p { font-size: 13px; line-height: 1.6; color: var(--textMid); margin: 0; }
+
+  /* ─── INTELLIGENCE ─── */
+  .intel { background: var(--heroBg); padding: 96px 0; border-bottom: 1px solid var(--border); }
+  .intel-inner { max-width: 1200px; margin: 0 auto; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .intel h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 300; letter-spacing: -0.02em; color: #F4F2EC; margin: 0 0 18px; line-height: 1.08; max-width: 900px; }
+  .intel p.lead { font-size: 15px; line-height: 1.7; color: var(--text); max-width: 480px; margin: 0 0 28px; }
+  .intel .bignum { font-size: 26px; font-weight: 700; line-height: 1; letter-spacing: -0.5px; }
+  .intel .bignum-l { font-size: 12px; color: var(--textDim); font-weight: 500; margin-top: 6px; }
+  .intel-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .intel-card .ch { padding: 14px 24px; border-bottom: 1px solid var(--border); }
+  .intel-card .ch .t1 { font-size: 8px; color: var(--textDim); text-transform: uppercase; letter-spacing: 1px; }
+  .intel-card .ch .t2 { font-size: 13px; font-weight: 600; color: var(--accent); }
+  .intel-card .cb { padding: 16px 24px; }
+  .intel-card .legend { display: flex; gap: 14px; margin-top: 8px; }
+  .intel-card .legend .it { display: flex; align-items: center; gap: 4px; }
+  .intel-card .legend .it span { font-size: 8px; color: var(--textDim); }
+  .intel-card .cf { padding: 12px 24px 18px; border-top: 1px solid var(--border); }
+  .intel-card .cf .lab { font-size: 8px; color: var(--textDim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+
+  /* ─── APPLICATION ─── */
+  .appl { background: var(--bg); padding: 96px 0; border-bottom: 1px solid var(--border); }
+  .appl-inner { max-width: 1280px; margin: 0 auto; padding: 0 64px; display: grid; grid-template-columns: 1fr 2fr; gap: 56px; }
+  .appl h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 300; letter-spacing: -0.02em; color: #F4F2EC; margin: 0 0 14px; line-height: 1.08; max-width: 900px; }
+  .appl p.lead { font-size: 14px; color: var(--textMid); max-width: 280px; line-height: 1.65; margin: 0; }
+  .steps-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .step { position: relative; padding: 32px 26px; background: var(--card); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; }
+  .step .num { font-size: 36px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; line-height: 1; }
+  .step h3 { font-size: 17px; font-weight: 700; color: var(--accent); margin: 0 0 10px; }
+  .step p { font-size: 13px; line-height: 1.6; color: var(--text); margin: 0; }
+
+  /* ─── CTA ─── */
+  .cta { background: var(--darkBand); border-bottom: 1px solid var(--border); }
+  .cta-inner { max-width: 1200px; margin: 0 auto; padding: 0 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; min-height: 320px; align-items: center; }
+  .cta-l { padding: 72px 0; }
+  .cta-l h2 { font-size: clamp(26px, 3.5vw, 36px); font-weight: 300; letter-spacing: -0.02em; color: #F4F2EC; margin: 0 0 14px; line-height: 1.08; max-width: 900px; }
+  .cta-l p { font-size: 15px; color: var(--text); margin: 0 0 28px; max-width: 460px; line-height: 1.65; }
+  .btn-grad { background: var(--grad); color: #0F1215; border: none; padding: 15px 36px; border-radius: 8px; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; display: inline-flex; align-items: center; gap: 8px; }
+  .cta-r { padding: 72px 0; }
+  .cta-r .rh { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; color: var(--textMid); text-transform: uppercase; margin-bottom: 18px; }
+  .cta-r ul { list-style: none; margin: 0; padding: 0; }
+  .cta-r li { display: flex; align-items: flex-start; gap: 14px; padding: 9px 0; font-size: 14px; color: var(--text); line-height: 1.6; }
+  .cta-r li .d { width: 6px; height: 6px; border-radius: 50%; margin-top: 8px; flex-shrink: 0; }
+
+  /* ─── PARTNERS ─── */
+  .partners { background: var(--darkBand); padding: 44px 0; border-bottom: 1px solid var(--border); }
+  .partners-inner { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+  .partners .lab { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--textDim); text-align: center; margin-bottom: 28px; }
+  .partners .row { display: flex; align-items: center; justify-content: space-between; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--darkBand); padding: 60px 0 0; }
+  .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+  .fgrid { display: grid; grid-template-columns: 2fr 1fr 1.2fr 1fr; gap: 32px; padding-bottom: 44px; border-bottom: 1px solid var(--border); }
+  .ftag { font-size: 13px; color: var(--textDim); max-width: 280px; line-height: 1.6; margin: 0; }
+  .fcol .h { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+  .fcol .links { display: flex; flex-direction: column; gap: 10px; }
+  .fcol .links a { font-size: 13px; color: var(--textDim); }
+  .fbot { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  .fbot span { font-size: 12px; color: var(--textDim); }
+  .fbot .legal { display: flex; gap: 24px; }
+  .fbot .legal a { font-size: 12px; color: var(--textDim); }
+
+  /* ═══ MOBILE (<=768px) ═══ */
+  @media (max-width: 768px) {
+    nav { padding: 14px 24px; }
+    .navlinks, .applybtn { display: none; }
+    .hamburger { display: inline-flex; }
+    .logo .p { font-size: 22px; }
+
+    .hero-grid { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 56px 24px 48px; border-right: none; }
+    .hero-eyebrow { margin-bottom: 16px; }
+    .hero-sub { font-size: 14px; }
+    .hero-ctas { flex-direction: column; }
+    .hero-right { display: none; }
+
+    .stats { padding: 40px 0; }
+    .stats-grid { grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 24px; }
+    .stat { padding: 12px 0; }
+    .stat:not(:first-child)::before { display: none; }
+    .stat .v { font-size: 32px; }
+    .stat .l { font-size: 10px; }
+
+    .services { padding: 56px 0; }
+    .services-inner { padding: 0 24px; }
+    .sec-head { margin-bottom: 32px; }
+    .services-grid { grid-template-columns: 1fr; }
+
+    .intel { padding: 56px 0; }
+    .intel-inner { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
+    .intel p.lead { font-size: 14px; }
+
+    .appl { padding: 56px 0; }
+    .appl-inner { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; }
+    .steps-grid { grid-template-columns: 1fr; }
+    .step { padding: 24px 20px; }
+    .step .num { font-size: 28px; }
+    .step h3 { font-size: 15px; }
+
+    .cta { padding: 48px 0; }
+    .cta-inner { grid-template-columns: 1fr; gap: 32px; min-height: auto; padding: 0 24px; }
+    .cta-l, .cta-r { padding: 0; }
+    .cta-l p { font-size: 14px; }
+
+    .partners { display: none; }
+
+    footer { padding: 40px 0 0; }
+    .footer-inner { padding: 0 24px; }
+    .fgrid { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
+    .fbot { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="#" class="logo"><span class="p">(</span>ROCKENUE<span class="p r">)</span></a>
+    <div class="navlinks">
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Our Approach</a>
+      <a href="https://www.market-pulse.io" target="_blank" rel="noopener noreferrer">Market Pulse</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="applybtn">Apply</a>
+    <button class="hamburger" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg></button>
+  </nav>
+
+  <!-- ═══ BAND 1: HERO ═══ -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-eyebrow">Independent hotel operator — London &amp; Dubai</div>
+        <h1>The hotel management company for <span class="grad">independent hotels.</span></h1>
+        <p class="hero-sub">Built as an alternative to global chains, we give independent hotels the systems, expertise, and scale they need — while preserving their identity.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn-primary">Apply for management <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a href="#" class="btn-secondary">See our approach</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="glow-tr"></div>
+          <div class="glow-bl"></div>
+          <div style="position:relative;">&nbsp;</div>
+          <div class="brandbig">
+            <div class="row"><span class="pl">(</span>ROCKENUE<span class="pr">)</span></div>
+          </div>
+          <div class="cap">Hotel management · Est. 2019</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BAND 2: STATS ═══ -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat"><div class="v grad">45</div><div class="l">Properties under management</div></div>
+      <div class="stat"><div class="v grad">1,866</div><div class="l">Rooms across the portfolio</div></div>
+      <div class="stat"><div class="v grad">#1</div><div class="l">Independent operator on Booking.com London</div></div>
+      <div class="stat"><div class="v grad">£50M+</div><div class="l">Revenue under management</div></div>
+    </div>
+  </section>
+
+  <!-- ═══ BAND 3: SERVICES ═══ -->
+  <section class="services">
+    <div class="services-inner">
+      <div class="sec-head">
+        <p class="eyebrow gold">Services</p>
+        <h2 class="sec-h2">Four ways we work with hotels.</h2>
+        <p class="sec-sub">Each function delivered by a specialist team, powered by proprietary technology, and aligned to your hotel's commercial objectives.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc" style="border-top:2px solid var(--teal);"><span class="num" style="color:var(--teal);">01</span><h3>Full Service Management</h3><p>The core of what we do. This is what happens when a hotel joins the network.</p></div>
+        <div class="svc" style="border-top:2px solid var(--gold);"><span class="num" style="color:var(--gold);">02</span><h3>Leasing &amp; Management</h3><p>For asset owners looking for hands-off, professionally managed returns.</p></div>
+        <div class="svc" style="border-top:2px solid var(--teal);"><span class="num" style="color:var(--teal);">03</span><h3>Hotel Sales &amp; Acquisitions</h3><p>A deep network of buyers, sellers, and off-market opportunities.</p></div>
+        <div class="svc" style="border-top:2px solid var(--gold);"><span class="num" style="color:var(--gold);">04</span><h3>Research &amp; Intelligence</h3><p>Bespoke market intelligence that doesn't exist anywhere else.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BAND 4: INTELLIGENCE ═══ -->
+  <section class="intel">
+    <div class="intel-inner">
+      <div>
+        <p class="eyebrow teal">Intelligence</p>
+        <h2>Dedicated AI hardware. Every signal, every city.</h2>
+        <p class="lead">The pricing engine runs on dedicated GPU infrastructure processing flight search data, event calendars, OTA signals, and booking velocity across entire cities simultaneously. Every signal is retained. The result is a deep behavioural dataset of hospitality markets — demand formation, pricing response, supply elasticity, seasonal structure — growing since the day we started collecting.</p>
+        <div>
+          <div class="bignum grad">5M+</div>
+          <div class="bignum-l">Data points processed daily</div>
+        </div>
+      </div>
+      <div class="intel-card">
+        <div class="ch">
+          <div class="t1">COMPETITIVE BENCHMARKING</div>
+          <div class="t2">Performance vs Comp Set</div>
+        </div>
+        <div class="cb">
+          <svg id="lineChart" viewBox="0 0 200 100" style="width:100%;height:80px;" preserveAspectRatio="none"></svg>
+          <div class="legend">
+            <div class="it"><div style="width:12px;height:2px;background:var(--teal);border-radius:1px;"></div><span>Portfolio</span></div>
+            <div class="it"><div style="width:12px;height:2px;background:var(--gold);border-radius:1px;opacity:0.6;"></div><span>Comp set</span></div>
+          </div>
+        </div>
+        <div class="cf">
+          <div class="lab">OCCUPANCY + PICKUP</div>
+          <div id="barChart" style="display:flex;align-items:flex-end;gap:1px;height:44px;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BAND 5: APPLICATION ═══ -->
+  <section class="appl">
+    <div class="appl-inner">
+      <div>
+        <p class="eyebrow gold">Application</p>
+        <h2>Three steps to onboarding</h2>
+        <p class="lead">We move quickly. Submission to live operation in 30 days for properties that qualify.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step"><div class="num" style="color:var(--teal);">01</div><h3>Submit your property</h3><p>Tell us about your hotel, location, current performance, and what you want to achieve.</p></div>
+        <div class="step"><div class="num" style="color:var(--gold);">02</div><h3>Assessment &amp; audit</h3><p>We evaluate your property against our portfolio criteria: market position, asset quality, and growth potential.</p></div>
+        <div class="step"><div class="num" style="color:var(--teal);">03</div><h3>Onboarding</h3><p>Accepted properties enter a 30-day integration. We connect systems, set strategy, and go live.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BAND 6: CTA ═══ -->
+  <section class="cta">
+    <div class="cta-inner">
+      <div class="cta-l">
+        <h2>Does your property qualify?</h2>
+        <p>We partner with hotels ready to grow. Apply today and hear back within 5 business days.</p>
+        <a href="#" class="btn-grad">Start your application <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <div class="cta-r">
+        <div class="rh">What we look for</div>
+        <ul>
+          <li><span class="d" style="background:var(--teal);"></span>3-star or above, minimum 25 rooms</li>
+          <li><span class="d" style="background:var(--gold);"></span>Priority given to our 9 core markets — open to all locations</li>
+          <li><span class="d" style="background:var(--teal);"></span>Full operational handover, not advisory</li>
+          <li><span class="d" style="background:var(--gold);"></span>Property in operational condition or near completion</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PARTNERS STRIP ═══ -->
+  <section class="partners">
+    <div class="partners-inner">
+      <div class="lab">Strategic partners</div>
+      <div class="row">
+        <div style="opacity:0.45;display:flex;align-items:center;gap:6px;">
+          <div style="width:22px;height:22px;border-radius:4px;background:var(--border);display:flex;align-items:center;justify-content:center;">
+            <div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:9px solid var(--textMid);"></div>
+          </div>
+          <span style="font-size:13px;font-weight:700;color:var(--text);letter-spacing:0.5px;">MEYDAN</span>
+          <span style="font-size:10px;font-weight:500;color:var(--textDim);">FREE ZONE</span>
+        </div>
+        <div style="opacity:0.45;"><span style="font-size:15px;font-weight:700;color:var(--text);letter-spacing:-0.3px;">cloud</span><span style="font-size:15px;font-weight:700;color:var(--teal);letter-spacing:-0.3px;">beds</span></div>
+        <div style="opacity:0.45;display:flex;align-items:center;gap:6px;">
+          <div style="width:20px;height:20px;border-radius:10px;border:1.5px solid var(--textMid);display:flex;align-items:center;justify-content:center;"><div style="width:8px;height:8px;border-radius:4px;background:var(--textMid);"></div></div>
+          <div><div style="font-size:11px;font-weight:700;color:var(--text);letter-spacing:0.3px;line-height:1;">DUBAI CHAMBER</div><div style="font-size:8px;color:var(--textDim);letter-spacing:0.5px;line-height:1;">OF COMMERCE</div></div>
+        </div>
+        <div style="opacity:0.45;"><span style="font-size:14px;font-weight:800;color:var(--text);letter-spacing:1px;">ATM</span><span style="font-size:9px;color:var(--textDim);margin-left:5px;font-weight:500;letter-spacing:0.3px;">Arabian Travel Market</span></div>
+        <div style="opacity:0.45;"><span style="font-size:16px;font-weight:700;color:var(--text);letter-spacing:-0.3px;">mews</span></div>
+        <div style="opacity:0.45;display:flex;align-items:center;gap:4px;">
+          <span style="color:var(--teal);font-size:16px;font-weight:200;">(</span>
+          <span style="font-size:10px;font-weight:700;color:var(--text);letter-spacing:1.2px;">MARKET PULSE</span>
+          <span style="color:var(--teal);font-size:16px;font-weight:200;">)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="fgrid">
+        <div>
+          <a href="#" class="logo" style="margin-bottom:18px;opacity:0.85;"><span class="p">(</span>ROCKENUE<span class="p r">)</span></a>
+          <p class="ftag">The hotel management company for independent hotels.</p>
+        </div>
+        <div class="fcol"><div class="h" style="color:var(--teal);">Company</div><div class="links"><a href="#">Approach</a><a href="#">Contact</a></div></div>
+        <div class="fcol"><div class="h" style="color:var(--gold);">Services</div><div class="links"><a href="#">Full Service Management</a><a href="#">Leasing &amp; Management</a><a href="#">Hotel Sales &amp; Acquisitions</a><a href="#">Research &amp; Intelligence</a></div></div>
+        <div class="fcol"><div class="h" style="color:var(--teal);">Resources</div><div class="links"><a href="https://www.market-pulse.io" target="_blank" rel="noopener noreferrer">Market Pulse</a><a href="#">Apply for Management</a><a href="#">Booking Engine Support</a></div></div>
+      </div>
+      <div class="fbot">
+        <span>© 2026 Rockenue International Group. All rights reserved.</span>
+        <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── Intelligence charts (same formulas as HomePage.tsx) ──
+    var BORDER = "#2A3240", TEAL = "#38C6BA", GOLD = "#C8A66E", TEXTDIM = "#4E5868";
+    var map = function (v) { return 100 - ((v - 30) / 60) * 90; };
+
+    var grid = [10, 30, 50, 70, 90].map(function (y) {
+      return '<line x1="0" y1="' + y + '" x2="200" y2="' + y + '" stroke="' + BORDER + '" stroke-width="0.5" opacity="0.3"/>';
+    }).join("");
+    var p1 = Array.from({ length: 25 }, function (_, i) {
+      var v = 68 + Math.sin(i * 0.5) * 10 + (i % 7 >= 5 ? 12 : 0);
+      return (i === 0 ? "M" : "L") + (i * 8) + "," + map(v);
+    }).join(" ");
+    var p2 = Array.from({ length: 25 }, function (_, i) {
+      var v = 58 + Math.sin(i * 0.5) * 8 + (i % 7 >= 5 ? 10 : 0);
+      return (i === 0 ? "M" : "L") + (i * 8) + "," + map(v);
+    }).join(" ");
+    document.getElementById("lineChart").innerHTML =
+      grid +
+      '<path d="' + p1 + '" fill="none" stroke="' + TEAL + '" stroke-width="1.5"/>' +
+      '<path d="' + p2 + '" fill="none" stroke="' + GOLD + '" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>';
+
+    var bars = "";
+    for (var i = 0; i < 45; i++) {
+      var dow = i % 7;
+      var occ = Math.min(95, Math.round(50 + (dow >= 5 ? 20 : 0) + Math.sin(i * 0.4) * 12 + (i / 45) * 18));
+      var pickup = Math.max(0, Math.min(18, Math.round(4 + Math.sin(i * 0.7) * 4 + (dow >= 5 ? 6 : 0))));
+      var base = occ - pickup;
+      bars +=
+        '<div style="flex:1;display:flex;flex-direction:column;align-items:stretch;height:' + occ + '%">' +
+          '<div style="flex:' + pickup + ';background:' + TEAL + ';border-radius:1px 1px 0 0;opacity:0.9;min-height:' + (pickup > 0 ? 1 : 0) + 'px"></div>' +
+          '<div style="flex:' + base + ';background:' + TEXTDIM + ';opacity:0.4;min-height:1px"></div>' +
+        '</div>';
+    }
+    document.getElementById("barChart").innerHTML = bars;
+  </script>
+
+</body>
+</html>

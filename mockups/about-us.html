@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — Rockenue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --accent: #F3F5F7;
+    --text: #B0B8C4;
+    --textMid: #7A8494;
+    --textDim: #4E5868;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --heroBg: #111519;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--accent); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 112px 64px; }
+  @media (max-width: 760px) { .wrap { padding: 64px 24px; } }
+  .wrap-narrow { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+  @media (max-width: 760px) { .wrap-narrow { padding: 0 24px; } }
+
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .eyebrow.teal { color: var(--teal); }
+  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .rule { height: 1px; background: var(--border); margin: 96px 0; }
+  h2.big { font-size: clamp(32px, 5vw, 52px); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: #F4F2EC; margin: 0 0 22px; max-width: 900px; }
+  p.body { font-size: clamp(15px, 2.2vw, 19px); font-weight: 300; line-height: 1.6; color: var(--text); margin: 0; max-width: 720px; }
+  p.body.dim { color: #8A9099; }
+
+  /* ─── NAV ─── */
+  nav { padding: 20px 64px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  @media (max-width: 760px) { nav { padding: 14px 24px; } }
+  .logo { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1.4px; }
+  .logo .p { color: var(--teal); font-size: 26px; font-weight: 300; line-height: 1; }
+  .logo .p.r { color: var(--gold); }
+  .navlinks { display: flex; gap: 32px; font-size: 13px; color: var(--textMid); font-weight: 500; }
+  .navlinks a.active { color: var(--accent); }
+  .navlinks a:hover { color: var(--accent); }
+  .applybtn { font-size: 13px; color: var(--teal); padding: 8px 18px; border: 1px solid var(--teal); border-radius: 6px; font-weight: 600; }
+  @media (max-width: 860px) { .navlinks, .applybtn { display: none; } }
+
+  /* ════ STORY TIMELINE (concept 4) ════ */
+  .c4 .top { margin-bottom: 128px; }
+  .c4 .tl { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; margin-bottom: 84px; }
+  @media (max-width: 760px) { .c4 .tl { grid-template-columns: 1fr 1fr; row-gap: 32px; } }
+  .c4 .ev { padding: 0 22px 0 0; position: relative; }
+  .c4 .ev::before { content: ""; position: absolute; left: 0; top: 5px; right: 0; height: 1px; background: var(--border); }
+  .c4 .ev .node { position: absolute; left: 0; top: 0; width: 11px; height: 11px; border-radius: 50%; }
+  .c4 .ev .yr { font-size: 12px; font-weight: 700; letter-spacing: 0.4px; margin: 22px 0 6px; }
+  .c4 .ev .h { font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .c4 .ev .d { font-size: 12.5px; line-height: 1.55; color: var(--textMid); }
+  .c4 .roster { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 56px 32px; }
+  .c4 .rrow { text-align: center; }
+  .c4 .rrow img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; object-position: center top; background: var(--card); display: block; margin: 0 auto 20px; }
+  .c4 .rrow .nm { font-size: 17px; font-weight: 600; color: var(--accent); }
+  .c4 .rrow .ro { font-size: 12px; color: var(--teal); font-weight: 600; margin: 4px 0 12px; }
+  .c4 .rrow .bio { font-size: 13px; color: var(--textMid); line-height: 1.6; max-width: 300px; margin: 0 auto; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--darkBand); padding: 60px 0 0; }
+  @media (max-width: 760px) { footer { padding: 40px 0 0; } }
+  .fgrid { display: grid; grid-template-columns: 2fr 1fr 1.2fr 1fr; gap: 32px; padding-bottom: 44px; border-bottom: 1px solid var(--border); }
+  @media (max-width: 860px) { .fgrid { grid-template-columns: 1fr 1fr; gap: 28px; } }
+  @media (max-width: 520px) { .fgrid { grid-template-columns: 1fr; } }
+  .ftag { font-size: 13px; color: var(--textDim); max-width: 280px; line-height: 1.6; margin-top: 18px; }
+  .fcol .h { font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 16px; }
+  .fcol .links { display: flex; flex-direction: column; gap: 10px; }
+  .fcol .links a { font-size: 13px; color: var(--textDim); }
+  .fcol .links a:hover { color: var(--text); }
+  .fbot { padding: 20px 0; display: flex; justify-content: space-between; align-items: center; }
+  @media (max-width: 620px) { .fbot { flex-direction: column; align-items: flex-start; gap: 12px; } }
+  .fbot span { font-size: 12px; color: var(--textDim); }
+  .fbot .legal { display: flex; gap: 24px; }
+  .fbot .legal a { font-size: 12px; color: var(--textDim); }
+</style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="#" class="logo"><span class="p">(</span>ROCKENUE<span class="p r">)</span></a>
+    <div class="navlinks">
+      <a href="#">Services</a>
+      <a href="#" class="active">About</a>
+      <a href="#">Our Approach</a>
+      <a href="https://www.market-pulse.io" target="_blank" rel="noopener noreferrer">Market Pulse</a>
+      <a href="#">Contact</a>
+    </div>
+    <a href="#" class="applybtn">Apply</a>
+  </nav>
+
+  <!-- ═══ STORY TIMELINE (concept 4) — sole page content ═══ -->
+  <section class="c4" style="background: var(--heroBg); border-bottom: 1px solid var(--border);">
+    <div class="wrap">
+
+      <div class="top">
+        <div class="eyebrow">Our story</div>
+        <h2 class="big">From one idea in 2019 to a network of <span class="grad-text">60 hotels.</span></h2>
+        <p class="body dim">We started because independent hotels were being outcompeted on infrastructure — not on quality. Chains had better systems, better deals, and more data. We built what was missing and made it available to hotels that would otherwise go without.</p>
+      </div>
+
+      <div class="tl">
+        <div class="ev"><div class="node" style="background:var(--teal);"></div><div class="yr" style="color:var(--teal);">Jan 2022 · London</div><div class="h">Founded</div><div class="d">Set out to build the infrastructure independent hotels were missing — systems, deals, and data.</div></div>
+        <div class="ev"><div class="node" style="background:var(--gold);"></div><div class="yr" style="color:var(--gold);">2023</div><div class="h">Our own technology</div><div class="d">Built a proprietary stack from scratch — AI pricing on dedicated hardware and a live market-intelligence layer.</div></div>
+        <div class="ev"><div class="node" style="background:var(--teal);"></div><div class="yr" style="color:var(--teal);">2024</div><div class="h">50 hotels</div><div class="d">The network crosses 50 properties as autonomous pricing and distribution roll out across every hotel.</div></div>
+        <div class="ev"><div class="node" style="background:var(--gold);"></div><div class="yr" style="color:var(--gold);">Jan 2025 · Dubai</div><div class="h">HQ moves to Dubai</div><div class="d">The network's headquarters relocate to Dubai, consolidating operations in the UAE.</div></div>
+        <div class="ev"><div class="node" style="background:var(--teal);"></div><div class="yr" style="color:var(--teal);">2026 · Nordics</div><div class="h">Into the Nordics</div><div class="d">Expansion into the Nordic markets, bringing the network's full infrastructure to a new region.</div></div>
+      </div>
+
+      <div class="rule"></div>
+      <div class="eyebrow teal">Leadership</div>
+      <div class="roster">
+        <div class="rrow"><img src="../ceo%20picture.png" alt=""><div><div class="nm">James Whitmore</div><div class="ro">Founder &amp; CEO · London</div><div class="bio">Founded Rockenue in 2019 to give independents chain-level infrastructure. Leads commercial strategy and the proprietary technology stack.</div></div></div>
+        <div class="rrow"><img src="../5f1194fb-4af9-4012-9fc9-5c6581e29065.jpg" alt=""><div><div class="nm">Magnús Magnússon</div><div class="ro">Head of Nordics</div><div class="bio">Ex Booking.com.</div></div></div>
+        <div class="rrow"><img src="https://randomuser.me/api/portraits/men/76.jpg" alt=""><div><div class="nm">Omar Haddad</div><div class="ro">MD, Middle East · Dubai</div><div class="bio">Leads the Dubai office, GCC expansion, and regional acquisitions, sourcing much of the network's off-market deal flow.</div></div></div>
+        <div class="rrow"><img src="../ops%20director.png" alt=""><div><div class="nm">Sofia Almeida</div><div class="ro">Chief Operating Officer · London</div><div class="bio">Runs operations across 45 properties and 1,866 rooms — onboarding, daily operations, and on-site teams.</div></div></div>
+        <div class="rrow"><img src="../1689371338384.jpeg" alt=""><div><div class="nm">Zeynep Taskin</div><div class="ro">Market Research</div><div class="bio">Ex Amazon, ex Duetto. King's College London alumna.</div></div></div>
+        <div class="rrow"><img src="https://randomuser.me/api/portraits/men/52.jpg" alt=""><div><div class="nm">Daniel Okafor</div><div class="ro">Head of Revenue &amp; Intelligence · London</div><div class="bio">Built and runs the intelligence layer and autonomous AI pricing — millions of demand and event signals processed daily on dedicated hardware.</div></div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="wrap-narrow">
+      <div class="fgrid">
+        <div>
+          <a href="#" class="logo" style="opacity:.85;"><span class="p">(</span>ROCKENUE<span class="p r">)</span></a>
+          <p class="ftag">The hotel management company for independent hotels.</p>
+        </div>
+        <div class="fcol"><div class="h" style="color:var(--teal);">Company</div><div class="links"><a href="#">Approach</a><a href="#">Contact</a></div></div>
+        <div class="fcol"><div class="h" style="color:var(--gold);">Services</div><div class="links"><a href="#">Full Service Management</a><a href="#">Leasing &amp; Management</a><a href="#">Hotel Sales &amp; Acquisitions</a><a href="#">Research &amp; Intelligence</a></div></div>
+        <div class="fcol"><div class="h" style="color:var(--teal);">Resources</div><div class="links"><a href="https://www.market-pulse.io" target="_blank" rel="noopener noreferrer">Market Pulse</a><a href="#">Apply for Management</a><a href="#">Booking Engine Support</a></div></div>
+      </div>
+      <div class="fbot">
+        <span>© 2026 Rockenue International Group. All rights reserved.</span>
+        <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

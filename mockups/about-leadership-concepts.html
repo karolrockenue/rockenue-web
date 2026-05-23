@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — About / Leadership · 4 Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --cardHover: #222830;
+    --border: #2A3240;
+    --accent: #F3F5F7;
+    --text: #B0B8C4;
+    --textMid: #7A8494;
+    --textDim: #4E5868;
+    --silver: #8892A4;
+    --green: #34D068;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --heroBg: #111519;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body {
+    background: var(--bg);
+    color: var(--accent);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* ── Top control bar ── */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--darkBand);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .topbar .brand { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; }
+  .topbar .brand .paren { color: var(--teal); font-weight: 300; font-size: 20px; }
+  .topbar .brand .paren.r { color: var(--gold); }
+  .topbar .note { font-size: 11px; color: var(--textDim); letter-spacing: 0.3px; }
+  .topbar .note b { color: var(--textMid); font-weight: 600; }
+
+  /* ── horizontal bands ── */
+  .band { border-bottom: 1px solid var(--border); width: 100%; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 64px; }
+  @media (max-width: 760px) { .wrap { padding: 44px 24px; } }
+
+  /* concept ribbon */
+  .ribbon { display: flex; align-items: baseline; gap: 12px; margin-bottom: 32px; }
+  .ribbon .n { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #0F1215; background: var(--grad); padding: 4px 10px; border-radius: 5px; }
+  .ribbon .t { font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.3px; }
+  .ribbon .d { font-size: 11px; color: var(--textDim); }
+
+  /* shared atoms */
+  .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .eyebrow.teal { color: var(--teal); }
+  h2.big { font-size: 40px; font-weight: 700; line-height: 1.1; letter-spacing: -1.6px; color: var(--accent); margin: 0 0 18px; }
+  h3.mid { font-size: 24px; font-weight: 700; line-height: 1.15; letter-spacing: -0.7px; color: var(--accent); margin: 0 0 14px; }
+  p.body { font-size: 15px; line-height: 1.8; color: var(--text); margin: 0 0 18px; }
+  p.body.dim { color: var(--textMid); }
+  .grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .rule { height: 1px; background: var(--border); margin: 44px 0; }
+  .tag-loc { display: inline-flex; align-items: center; gap: 7px; font-size: 11px; color: var(--textMid); font-weight: 500; }
+  .dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  .dot.teal { background: var(--teal); } .dot.gold { background: var(--gold); }
+
+  /* photos */
+  img.headshot { display: block; object-fit: cover; object-position: center top; background: var(--card); }
+  .ring { border-radius: 50%; padding: 3px; background: var(--grad); flex-shrink: 0; }
+  .ring img { border-radius: 50%; border: 3px solid var(--bg); }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--grad); color: #0F1215; font-weight: 700; font-size: 14px; padding: 14px 28px; border-radius: 8px; text-decoration: none; letter-spacing: 0.2px; }
+
+  /* ════ CONCEPT 1 · Editorial manifesto ════ */
+  .c1 .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  @media (max-width: 860px) { .c1 .hero { grid-template-columns: 1fr; gap: 32px; } }
+  .c1 .lede { font-size: 18px; line-height: 1.7; color: var(--accent); margin: 0 0 18px; }
+  .c1 .quote { border-left: 2px solid var(--gold); padding: 6px 0 6px 20px; margin: 28px 0 0; }
+  .c1 .quote p { font-size: 18px; line-height: 1.55; color: var(--accent); font-weight: 500; font-style: italic; margin: 0 0 12px; }
+  .c1 .quote .by { font-size: 12px; color: var(--textMid); font-weight: 600; }
+  .c1 .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 44px; }
+  @media (max-width: 860px) { .c1 .strip { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .c1 .strip { grid-template-columns: 1fr; } }
+  .c1 .person { text-align: center; }
+  .c1 .person .ring { margin: 0 auto 14px; width: fit-content; }
+  .c1 .person .ring img { width: 92px; height: 92px; }
+  .c1 .person .nm { font-size: 15px; font-weight: 700; color: var(--accent); }
+  .c1 .person .ro { font-size: 11.5px; color: var(--teal); font-weight: 600; margin-top: 4px; }
+  .c1 .person .pbio { font-size: 13px; color: var(--textMid); line-height: 1.65; margin-top: 12px; }
+
+  /* ════ CONCEPT 2 · Portrait grid ════ */
+  .c2 .head { max-width: 560px; margin-bottom: 40px; }
+  .c2 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .c2 .pcard { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: border-color .15s, transform .15s; }
+  .c2 .pcard:hover { border-color: var(--textDim); transform: translateY(-3px); }
+  .c2 .pcard img { width: 100%; aspect-ratio: 4 / 3; }
+  .c2 .pcard .meta { padding: 20px 20px 22px; }
+  .c2 .pcard .nm { font-size: 17px; font-weight: 700; color: var(--accent); margin-bottom: 3px; }
+  .c2 .pcard .ro { font-size: 12px; font-weight: 600; letter-spacing: 0.2px; margin-bottom: 12px; }
+  .c2 .pcard .ro.teal { color: var(--teal); } .c2 .pcard .ro.gold { color: var(--gold); }
+  .c2 .pcard .bio { font-size: 13px; line-height: 1.65; color: var(--textMid); margin-bottom: 14px; }
+
+  /* ════ CONCEPT 3 · Featured founders ════ */
+  .c3 .founders { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px; }
+  @media (max-width: 860px) { .c3 .founders { grid-template-columns: 1fr; } }
+  .c3 .founder { background: var(--card); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; display: grid; grid-template-columns: 190px 1fr; }
+  @media (max-width: 520px) { .c3 .founder { grid-template-columns: 1fr; } }
+  .c3 .founder img { width: 100%; height: 100%; min-height: 250px; }
+  .c3 .founder .body3 { padding: 28px 26px; }
+  .c3 .founder .nm { font-size: 21px; font-weight: 700; color: var(--accent); letter-spacing: -0.4px; }
+  .c3 .founder .ro { font-size: 12.5px; font-weight: 600; margin: 4px 0 16px; }
+  .c3 .founder .bio { font-size: 13.5px; line-height: 1.7; color: var(--text); }
+  .c3 .small-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px,1fr)); gap: 18px; }
+  .c3 .scell { display: flex; align-items: flex-start; gap: 16px; padding: 18px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; }
+  .c3 .scell img { width: 60px; height: 60px; border-radius: 12px; flex-shrink: 0; }
+  .c3 .scell .nm { font-size: 15px; font-weight: 700; color: var(--accent); }
+  .c3 .scell .ro { font-size: 11.5px; color: var(--teal); font-weight: 600; margin: 2px 0 8px; }
+  .c3 .scell .bio { font-size: 12.5px; color: var(--textMid); line-height: 1.55; }
+
+  /* ════ CONCEPT 4 · Story timeline ════ */
+  .c4 .top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; margin-bottom: 48px; }
+  @media (max-width: 860px) { .c4 .top { grid-template-columns: 1fr; gap: 32px; } }
+  .c4 .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .c4 .stat { background: var(--darkBand); padding: 22px 22px; }
+  .c4 .stat .v { font-size: 32px; font-weight: 700; letter-spacing: -1.4px; line-height: 1; }
+  .c4 .stat .l { font-size: 11px; color: var(--textMid); margin-top: 9px; font-weight: 500; line-height: 1.4; }
+  .c4 .tl { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; margin-bottom: 48px; }
+  @media (max-width: 760px) { .c4 .tl { grid-template-columns: 1fr 1fr; row-gap: 32px; } }
+  .c4 .ev { padding: 0 22px 0 0; position: relative; }
+  .c4 .ev::before { content: ""; position: absolute; left: 0; top: 5px; right: 0; height: 1px; background: var(--border); }
+  .c4 .ev .node { position: absolute; left: 0; top: 0; width: 11px; height: 11px; border-radius: 50%; }
+  .c4 .ev .yr { font-size: 12px; font-weight: 700; letter-spacing: 0.4px; margin: 22px 0 6px; }
+  .c4 .ev .h { font-size: 15px; font-weight: 600; color: var(--accent); margin-bottom: 6px; }
+  .c4 .ev .d { font-size: 12.5px; line-height: 1.55; color: var(--textMid); }
+  .c4 .roster { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 20px; }
+  .c4 .rrow { display: flex; align-items: flex-start; gap: 14px; }
+  .c4 .rrow img { width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0; }
+  .c4 .rrow .nm { font-size: 14.5px; font-weight: 700; color: var(--accent); }
+  .c4 .rrow .ro { font-size: 11.5px; color: var(--teal); font-weight: 600; margin: 2px 0 8px; }
+  .c4 .rrow .bio { font-size: 12.5px; color: var(--textMid); line-height: 1.55; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand"><span class="paren">(</span>ROCKENUE<span class="paren r">)</span><span style="color:var(--textDim);font-weight:500;font-size:12px;letter-spacing:0;margin-left:6px;">· About / Leadership — 4 concepts</span></div>
+    <div class="note"><b>Mockup</b> · scroll down through the 4 concepts · names &amp; bios are placeholders, photos are stock (randomuser.me)</div>
+  </div>
+
+  <!-- ══════════ CONCEPT 1 · EDITORIAL MANIFESTO ══════════ -->
+  <section class="band c1" style="background: var(--heroBg);">
+    <div class="wrap">
+      <div class="ribbon"><span class="n">01</span><span class="t">Editorial Manifesto</span><span class="d">statement-led · leadership as a photo strip</span></div>
+
+      <div class="hero">
+        <div>
+          <div class="eyebrow">About Rockenue</div>
+          <h2 class="big">We built the infrastructure independent hotels were missing.</h2>
+          <div class="quote">
+            <p>"We don't take over the hotel. We take over everything behind it — and leave the identity untouched."</p>
+            <div class="by">— James Whitmore, Founder &amp; CEO</div>
+          </div>
+        </div>
+        <div>
+          <p class="lede">Founded in <span class="grad-text" style="font-weight:600;">London, 2019</span>. We operate independent hotels the way a chain does — pricing, distribution, technology, and commercial strategy managed centrally — while every hotel keeps its own name.</p>
+          <p class="body">Independents weren't losing on quality. They were losing on infrastructure: chains had better systems, better deals, more data. We built what was missing — proprietary AI pricing, a live market-intelligence layer, and chain-level distribution — and made it available to hotels that would otherwise go without.</p>
+          <a href="#" class="btn">Apply for management →</a>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+      <div class="eyebrow teal">Leadership</div>
+      <div class="strip">
+        <div class="person">
+          <div class="ring"><img class="headshot" src="https://randomuser.me/api/portraits/men/32.jpg" alt=""></div>
+          <div class="nm">James Whitmore</div><div class="ro">Founder &amp; CEO · London</div>
+          <div class="pbio">Founded Rockenue in 2019 after a decade operating independent hotels across Europe. He saw owners losing ground to chains on systems and data — not service — and set out to close that gap. Today he leads commercial strategy and the build of the proprietary technology stack across both offices.</div>
+        </div>
+        <div class="person">
+          <div class="ring"><img class="headshot" src="https://randomuser.me/api/portraits/women/44.jpg" alt=""></div>
+          <div class="nm">Sofia Almeida</div><div class="ro">COO · London</div>
+          <div class="pbio">Runs operations across the entire portfolio — 45 properties and 1,866 rooms. She owns the 30-day onboarding process, the day-to-day running of every hotel in the network, and the on-site teams. Previously led operations for a mid-market European hotel group.</div>
+        </div>
+        <div class="person">
+          <div class="ring"><img class="headshot" src="https://randomuser.me/api/portraits/men/76.jpg" alt=""></div>
+          <div class="nm">Omar Haddad</div><div class="ro">MD, Middle East · Dubai</div>
+          <div class="pbio">Opened and leads the Dubai office, building the firm's presence across the GCC. He heads regional acquisitions and owner relationships, drawing on years of investment and operating experience in Gulf hospitality, and sources much of the network's off-market deal flow.</div>
+        </div>
+        <div class="person">
+          <div class="ring"><img class="headshot" src="https://randomuser.me/api/portraits/women/68.jpg" alt=""></div>
+          <div class="nm">Eleanor Hayes</div><div class="ro">CCO · London</div>
+          <div class="pbio">Leads pricing, distribution, and OTA strategy — the commercial engine behind revenue under management. She turns the intelligence layer into rate and channel decisions across every hotel, and manages the network's distribution partnerships and preferred terms.</div>
+        </div>
+        <div class="person">
+          <div class="ring"><img class="headshot" src="https://randomuser.me/api/portraits/men/52.jpg" alt=""></div>
+          <div class="nm">Daniel Okafor</div><div class="ro">Head of Revenue &amp; Intelligence · London</div>
+          <div class="pbio">Built and runs the proprietary intelligence layer and autonomous AI pricing infrastructure. His team processes millions of demand, event, and flight-corridor signals daily on dedicated hardware, turning them into the forecasts and pricing that power the portfolio.</div>
+        </div>
+        <div class="person">
+          <div class="ring"><img class="headshot" src="https://randomuser.me/api/portraits/men/29.jpg" alt=""></div>
+          <div class="nm">Lucas Moreau</div><div class="ro">Head of Acquisitions · Dubai</div>
+          <div class="pbio">Sources off-market opportunities and leads buyer, seller, and owner introductions across the network's nine core markets. He combines proprietary market analysis with operational due diligence to position assets and guide deals from first contact to handover.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONCEPT 2 · PORTRAIT GRID ══════════ -->
+  <section class="band c2" style="background: var(--bg);">
+    <div class="wrap">
+      <div class="ribbon"><span class="n">02</span><span class="t">Portrait Grid</span><span class="d">classic "meet the team" cards</span></div>
+
+      <div class="head">
+        <div class="eyebrow teal">Leadership</div>
+        <h2 class="big">Meet the people running the portfolio.</h2>
+        <p class="body dim">Operators, not consultants. Each function — pricing, distribution, acquisitions, intelligence — is led by a specialist who works on hotels every day.</p>
+      </div>
+
+      <div class="grid">
+        <div class="pcard"><img class="headshot" src="https://randomuser.me/api/portraits/men/32.jpg" alt=""><div class="meta"><div class="nm">James Whitmore</div><div class="ro teal">Founder &amp; CEO</div><div class="bio">Founded Rockenue in 2019 after a decade operating independent hotels across Europe. He saw owners losing on systems and data, not service — and set out to close that gap. He leads commercial strategy and the proprietary technology stack across both offices.</div><div class="tag-loc"><span class="dot teal"></span>London</div></div></div>
+        <div class="pcard"><img class="headshot" src="https://randomuser.me/api/portraits/women/44.jpg" alt=""><div class="meta"><div class="nm">Sofia Almeida</div><div class="ro gold">Chief Operating Officer</div><div class="bio">Runs operations across the entire portfolio — 45 properties and 1,866 rooms. She owns the 30-day onboarding, the day-to-day running of every hotel, and the on-site teams. Previously led operations for a mid-market European hotel group.</div><div class="tag-loc"><span class="dot teal"></span>London</div></div></div>
+        <div class="pcard"><img class="headshot" src="https://randomuser.me/api/portraits/men/76.jpg" alt=""><div class="meta"><div class="nm">Omar Haddad</div><div class="ro teal">MD, Middle East</div><div class="bio">Opened and leads the Dubai office, building the firm's presence across the GCC. He heads regional acquisitions and owner relationships, drawing on years of investment and operating experience in Gulf hospitality, and sources much of the off-market deal flow.</div><div class="tag-loc"><span class="dot gold"></span>Dubai</div></div></div>
+        <div class="pcard"><img class="headshot" src="https://randomuser.me/api/portraits/women/68.jpg" alt=""><div class="meta"><div class="nm">Eleanor Hayes</div><div class="ro gold">Chief Commercial Officer</div><div class="bio">Leads pricing, distribution, and OTA strategy — the commercial engine behind revenue under management. She turns the intelligence layer into rate and channel decisions across every hotel and manages the network's distribution partnerships and preferred terms.</div><div class="tag-loc"><span class="dot teal"></span>London</div></div></div>
+        <div class="pcard"><img class="headshot" src="https://randomuser.me/api/portraits/men/52.jpg" alt=""><div class="meta"><div class="nm">Daniel Okafor</div><div class="ro teal">Head of Revenue &amp; Intelligence</div><div class="bio">Built and runs the proprietary intelligence layer and autonomous AI pricing infrastructure. His team processes millions of demand, event, and flight-corridor signals daily on dedicated hardware, turning them into the forecasts and pricing that power the portfolio.</div><div class="tag-loc"><span class="dot teal"></span>London</div></div></div>
+        <div class="pcard"><img class="headshot" src="https://randomuser.me/api/portraits/men/29.jpg" alt=""><div class="meta"><div class="nm">Lucas Moreau</div><div class="ro gold">Head of Acquisitions</div><div class="bio">Sources off-market opportunities and leads buyer, seller, and owner introductions across the network's nine core markets. He pairs proprietary market analysis with operational due diligence to position assets and guide deals from first contact to handover.</div><div class="tag-loc"><span class="dot gold"></span>Dubai</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONCEPT 3 · FEATURED FOUNDERS ══════════ -->
+  <section class="band c3" style="background: var(--darkBand);">
+    <div class="wrap">
+      <div class="ribbon"><span class="n">03</span><span class="t">Featured Founders</span><span class="d">hierarchy · big founders, team with bios</span></div>
+
+      <div class="eyebrow">About</div>
+      <h2 class="big" style="margin-bottom:36px;">Two founders. One thesis.</h2>
+
+      <div class="founders">
+        <div class="founder">
+          <img class="headshot" src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+          <div class="body3">
+            <div class="nm">James Whitmore</div>
+            <div class="ro" style="color:var(--teal);">Founder &amp; Chief Executive</div>
+            <p class="bio">Started Rockenue in London in 2019 after a decade operating independent hotels across Europe, where he watched good properties lose ground to chains with better systems and deals. He led the build of the proprietary stack — dedicated AI hardware, a live intelligence layer, and autonomous pricing — and now sets commercial strategy for the entire network, across London and Dubai.</p>
+          </div>
+        </div>
+        <div class="founder">
+          <img class="headshot" src="https://randomuser.me/api/portraits/men/76.jpg" alt="">
+          <div class="body3">
+            <div class="nm">Omar Haddad</div>
+            <div class="ro" style="color:var(--gold);">Co-Founder &amp; MD, Middle East</div>
+            <p class="bio">Opened the Dubai office and built the firm's presence across the GCC. With years of investment and operating experience in Gulf hospitality, he leads acquisitions and owner relationships — bringing off-market deal flow and on-the-ground operating knowledge to every new market the network enters. He is the firm's bridge between capital and operations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rule"></div>
+      <div class="eyebrow teal">Leadership team</div>
+      <div class="small-team">
+        <div class="scell"><img class="headshot" src="https://randomuser.me/api/portraits/women/44.jpg" alt=""><div><div class="nm">Sofia Almeida</div><div class="ro">Chief Operating Officer · London</div><div class="bio">Runs operations across 45 properties and 1,866 rooms — owning the 30-day onboarding, daily hotel operations, and on-site teams.</div></div></div>
+        <div class="scell"><img class="headshot" src="https://randomuser.me/api/portraits/women/68.jpg" alt=""><div><div class="nm">Eleanor Hayes</div><div class="ro">Chief Commercial Officer · London</div><div class="bio">Leads pricing, distribution, and OTA strategy, turning the intelligence layer into rate and channel decisions across every hotel.</div></div></div>
+        <div class="scell"><img class="headshot" src="https://randomuser.me/api/portraits/men/52.jpg" alt=""><div><div class="nm">Daniel Okafor</div><div class="ro">Head of Revenue &amp; Intelligence · London</div><div class="bio">Built and runs the intelligence layer and autonomous AI pricing — millions of demand and event signals processed daily on dedicated hardware.</div></div></div>
+        <div class="scell"><img class="headshot" src="https://randomuser.me/api/portraits/men/29.jpg" alt=""><div><div class="nm">Lucas Moreau</div><div class="ro">Head of Acquisitions · Dubai</div><div class="bio">Sources off-market opportunities across nine core markets, pairing market analysis with operational due diligence end to end.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ CONCEPT 4 · STORY TIMELINE ══════════ -->
+  <section class="band c4" style="background: var(--heroBg);">
+    <div class="wrap">
+      <div class="ribbon"><span class="n">04</span><span class="t">Story Timeline</span><span class="d">narrative + data · founding to today</span></div>
+
+      <div class="top">
+        <div>
+          <div class="eyebrow">Our story</div>
+          <h2 class="big">From one idea in 2019 to a network of <span class="grad-text">45 hotels.</span></h2>
+          <p class="body dim">We started because independent hotels were being outcompeted on infrastructure, not quality — and built what was missing, year by year.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="v grad-text">45</div><div class="l">Properties under management</div></div>
+          <div class="stat"><div class="v grad-text">1,866</div><div class="l">Rooms across the portfolio</div></div>
+          <div class="stat"><div class="v grad-text">#1</div><div class="l">Independent operator, Booking.com London</div></div>
+          <div class="stat"><div class="v grad-text">£50M+</div><div class="l">Revenue under management</div></div>
+        </div>
+      </div>
+
+      <div class="tl">
+        <div class="ev"><div class="node" style="background:var(--teal);"></div><div class="yr" style="color:var(--teal);">2019 · London</div><div class="h">Founded</div><div class="d">Set out to build the infrastructure independents were missing — systems, deals, and data.</div></div>
+        <div class="ev"><div class="node" style="background:var(--gold);"></div><div class="yr" style="color:var(--gold);">2020–21</div><div class="h">The intelligence layer</div><div class="d">Built proprietary AI pricing on dedicated hardware — a live market dataset growing from day one.</div></div>
+        <div class="ev"><div class="node" style="background:var(--teal);"></div><div class="yr" style="color:var(--teal);">2022 · Dubai</div><div class="h">Second office opens</div><div class="d">Expansion into the GCC, bringing the network's infrastructure to the Middle East.</div></div>
+        <div class="ev"><div class="node" style="background:var(--gold);"></div><div class="yr" style="color:var(--gold);">2026</div><div class="h">#1 independent operator</div><div class="d">45 properties, 1,866 rooms, top independent on Booking.com London — across 9 markets.</div></div>
+      </div>
+
+      <div class="rule"></div>
+      <div class="eyebrow teal">Who runs it</div>
+      <div class="roster">
+        <div class="rrow"><img class="headshot" src="https://randomuser.me/api/portraits/men/32.jpg" alt=""><div><div class="nm">James Whitmore</div><div class="ro">Founder &amp; CEO · London</div><div class="bio">Founded Rockenue in 2019 to give independents chain-level infrastructure. Leads commercial strategy and the proprietary technology stack.</div></div></div>
+        <div class="rrow"><img class="headshot" src="https://randomuser.me/api/portraits/women/44.jpg" alt=""><div><div class="nm">Sofia Almeida</div><div class="ro">Chief Operating Officer · London</div><div class="bio">Runs operations across 45 properties and 1,866 rooms — onboarding, daily operations, and on-site teams.</div></div></div>
+        <div class="rrow"><img class="headshot" src="https://randomuser.me/api/portraits/men/76.jpg" alt=""><div><div class="nm">Omar Haddad</div><div class="ro">MD, Middle East · Dubai</div><div class="bio">Leads the Dubai office, GCC expansion, and regional acquisitions, sourcing much of the network's off-market deal flow.</div></div></div>
+        <div class="rrow"><img class="headshot" src="https://randomuser.me/api/portraits/women/68.jpg" alt=""><div><div class="nm">Eleanor Hayes</div><div class="ro">Chief Commercial Officer · London</div><div class="bio">Leads pricing, distribution, and OTA strategy — the commercial engine behind revenue under management.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

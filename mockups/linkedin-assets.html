@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — LinkedIn brand assets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#14181D; --card:#1C2228; --border:#2A3240; --accent:#F3F5F7; --textMid:#7A8494; --textDim:#4E5868; --teal:#38C6BA; --gold:#C8A66E; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--bg); color:var(--accent); font-family:'Inter',system-ui,sans-serif; padding:48px 24px 80px; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:1200px; margin:0 auto; }
+  h1{ font-weight:300; font-size:32px; letter-spacing:-0.02em; color:#F4F2EC; margin-bottom:8px; }
+  .lead{ color:var(--textMid); font-size:14px; font-weight:300; line-height:1.6; max-width:640px; margin-bottom:48px; }
+  .asset{ margin-bottom:56px; }
+  .asset .head{ display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .asset .head h2{ font-weight:500; font-size:16px; color:var(--accent); letter-spacing:-0.01em; }
+  .asset .head .dim{ font-size:12px; color:var(--teal); font-weight:600; letter-spacing:0.5px; }
+  .asset .note{ font-size:12px; color:var(--textDim); margin-bottom:18px; }
+  .frame{ display:inline-block; line-height:0; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  canvas{ display:block; max-width:100%; height:auto; }
+  .row{ display:flex; align-items:flex-start; gap:24px; flex-wrap:wrap; }
+  .actions{ margin-top:14px; display:flex; gap:10px; align-items:center; }
+  button{ background:var(--teal); color:#0F1215; border:none; padding:9px 16px; border-radius:7px; font-weight:600; font-size:13px; font-family:inherit; cursor:pointer; }
+  button:hover{ filter:brightness(1.06); }
+  .hint{ font-size:12px; color:var(--textDim); }
+  .vgrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:24px; }
+  .vcard .frame{ display:block; width:100%; }
+  .vmeta{ display:flex; align-items:center; gap:14px; margin-top:14px; }
+  .linmock{ background:#fff; padding:7px; border-radius:9px; display:inline-flex; flex-shrink:0; }
+  .linmock img{ width:42px; height:42px; border-radius:6px; display:block; }
+  .vname{ font-size:13px; color:var(--accent); font-weight:500; margin-bottom:8px; }
+  .vcard button{ padding:7px 12px; font-size:12px; }
+  .ref{ margin-top:24px; padding-top:24px; border-top:1px solid var(--border); font-size:12px; color:var(--textMid); line-height:1.8; }
+  .ref b{ color:var(--accent); font-weight:600; }
+  code{ color:var(--gold); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Rockenue — LinkedIn brand assets</h1>
+  <p class="lead">Right-click either image and choose <b>“Save image as…”</b> to download a spec-sized PNG, or use the Download button. Both are rendered at LinkedIn’s recommended pixel dimensions using the current <span style="color:var(--teal)">(</span>ROCKENUE<span style="color:var(--gold)">)</span> lockup.</p>
+
+  <!-- LOGO -->
+  <div class="asset">
+    <div class="head"><h2>Company page logo</h2><span class="dim">300 × 300 px</span></div>
+    <div class="note">Square. Shown small across LinkedIn (feed, search, page header). Min. 268 × 268; PNG/JPG.</div>
+    <div class="row">
+      <div class="frame"><canvas id="logo"></canvas></div>
+      <div>
+        <div class="actions"><button onclick="dl('logo','rockenue-linkedin-logo-300x300.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BANNER -->
+  <div class="asset">
+    <div class="head"><h2>Company page banner (cover)</h2><span class="dim">1128 × 191 px</span></div>
+    <div class="note">Wide cover strip behind the page header. The logo overlaps the lower-left on live pages, so the mark is centred to stay clear.</div>
+    <div class="frame"><canvas id="banner"></canvas></div>
+    <div class="actions"><button onclick="dl('banner','rockenue-linkedin-banner-1128x191.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+  </div>
+
+  <!-- PROFILE BANNER -->
+  <div class="asset">
+    <div class="head"><h2>Personal profile banner</h2><span class="dim">1584 × 396 px</span></div>
+    <div class="note">Use this one for a <b>personal profile</b> background — the most common reason uploads fail silently is using the 1128 × 191 company size here. Your avatar overlaps the lower-left on live profiles, so the mark is centred. PNG/JPG, under 8 MB.</div>
+    <div class="frame"><canvas id="profile"></canvas></div>
+    <div class="actions"><button onclick="dl('profile','rockenue-linkedin-profile-banner-1584x396.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+  </div>
+
+  <!-- LOGO VARIATIONS -->
+  <div class="asset">
+    <div class="head"><h2>Logo variations — for small sizes</h2></div>
+    <div class="note">The dark site logo (top) is the canonical mark, but at LinkedIn’s tiny logo size a near-black square fades into the white feed. These flip the colours or simplify the mark so it pops when small, while staying clearly the same <span style="color:var(--teal)">(</span>ROCKENUE<span style="color:var(--gold)">)</span> brand you see at full size. The <b>white chip</b> beside each shows it at LinkedIn’s small size on LinkedIn’s white UI.</div>
+    <div class="vgrid">
+      <div class="vcard"><div class="frame"><canvas id="v-ivory"></canvas></div><div class="vmeta"><span class="linmock"><img id="v-ivory-sm" alt="" /></span><div><div class="vname">Ivory (flipped)</div><button onclick="dl('v-ivory','rockenue-logo-ivory-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="v-grad"></canvas></div><div class="vmeta"><span class="linmock"><img id="v-grad-sm" alt="" /></span><div><div class="vname">Gradient</div><button onclick="dl('v-grad','rockenue-logo-gradient-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="v-teal"></canvas></div><div class="vmeta"><span class="linmock"><img id="v-teal-sm" alt="" /></span><div><div class="vname">Teal</div><button onclick="dl('v-teal','rockenue-logo-teal-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="v-gold"></canvas></div><div class="vmeta"><span class="linmock"><img id="v-gold-sm" alt="" /></span><div><div class="vname">Gold</div><button onclick="dl('v-gold','rockenue-logo-gold-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="v-mono"></canvas></div><div class="vmeta"><span class="linmock"><img id="v-mono-sm" alt="" /></span><div><div class="vname">Monogram</div><button onclick="dl('v-mono','rockenue-logo-monogram-300.png')">Download 300×300</button></div></div></div>
+    </div>
+  </div>
+
+  <!-- BRIGHT CONCEPTS -->
+  <div class="asset">
+    <div class="head"><h2>Bright concepts — 5 options</h2></div>
+    <div class="note">The opposite approach: vivid teal/gold tiles with a <b>light mark</b>, so the whole square reads bright at thumbnail size instead of going dark. Same <span style="color:var(--teal)">(</span>ROCKENUE<span style="color:var(--gold)">)</span> lockup throughout. White chip = LinkedIn small-size preview.</div>
+    <div class="vgrid">
+      <div class="vcard"><div class="frame"><canvas id="b-teal"></canvas></div><div class="vmeta"><span class="linmock"><img id="b-teal-sm" alt="" /></span><div><div class="vname">1 · Teal + white</div><button onclick="dl('b-teal','rockenue-logo-bright-teal-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="b-grad"></canvas></div><div class="vmeta"><span class="linmock"><img id="b-grad-sm" alt="" /></span><div><div class="vname">2 · Gradient + white</div><button onclick="dl('b-grad','rockenue-logo-bright-gradient-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="b-white"></canvas></div><div class="vmeta"><span class="linmock"><img id="b-white-sm" alt="" /></span><div><div class="vname">3 · Ivory + colour mark</div><button onclick="dl('b-white','rockenue-logo-bright-ivory-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="b-split"></canvas></div><div class="vmeta"><span class="linmock"><img id="b-split-sm" alt="" /></span><div><div class="vname">4 · Diagonal split</div><button onclick="dl('b-split','rockenue-logo-bright-split-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="b-mono"></canvas></div><div class="vmeta"><span class="linmock"><img id="b-mono-sm" alt="" /></span><div><div class="vname">5 · Bright monogram</div><button onclick="dl('b-mono','rockenue-logo-bright-monogram-300.png')">Download 300×300</button></div></div></div>
+    </div>
+  </div>
+
+  <!-- LARGE MARK CONCEPTS -->
+  <div class="asset">
+    <div class="head"><h2>Larger mark — fills the tile (5 options)</h2></div>
+    <div class="note">The full word can’t survive at LinkedIn’s tiny size, so these drop to a big <b>(R)</b> monogram that fills the square and stays legible when small — still obviously the same <span style="color:var(--teal)">(</span>ROCKENUE<span style="color:var(--gold)">)</span> brand once you’re on the site. Check the white chip: the mark should be clearly readable there.</div>
+    <div class="vgrid">
+      <div class="vcard"><div class="frame"><canvas id="g-teal"></canvas></div><div class="vmeta"><span class="linmock"><img id="g-teal-sm" alt="" /></span><div><div class="vname">1 · (R) teal</div><button onclick="dl('g-teal','rockenue-mark-teal-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="g-grad"></canvas></div><div class="vmeta"><span class="linmock"><img id="g-grad-sm" alt="" /></span><div><div class="vname">2 · (R) gradient</div><button onclick="dl('g-grad','rockenue-mark-gradient-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="g-ivory"></canvas></div><div class="vmeta"><span class="linmock"><img id="g-ivory-sm" alt="" /></span><div><div class="vname">3 · (R) ivory</div><button onclick="dl('g-ivory','rockenue-mark-ivory-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="g-split"></canvas></div><div class="vmeta"><span class="linmock"><img id="g-split-sm" alt="" /></span><div><div class="vname">4 · (R) split</div><button onclick="dl('g-split','rockenue-mark-split-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="g-r"></canvas></div><div class="vmeta"><span class="linmock"><img id="g-r-sm" alt="" /></span><div><div class="vname">5 · R only</div><button onclick="dl('g-r','rockenue-mark-r-300.png')">Download 300×300</button></div></div></div>
+    </div>
+  </div>
+
+  <!-- MORE BG + COLOUR COMBINATIONS -->
+  <div class="asset">
+    <div class="head"><h2>More backgrounds &amp; colours (10)</h2></div>
+    <div class="note">Same big <b>(R)</b> mark, expanded palette — solids, reversed and vertical gradients, splits, a radial glow, and two-colour marks. White chip shows each at LinkedIn small size.</div>
+    <div class="vgrid">
+      <div class="vcard"><div class="frame"><canvas id="x-gold"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-gold-sm" alt="" /></span><div><div class="vname">Gold + white</div><button onclick="dl('x-gold','rockenue-mark-gold-white-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-darkg"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-darkg-sm" alt="" /></span><div><div class="vname">Dark + gradient mark</div><button onclick="dl('x-darkg','rockenue-mark-dark-gradient-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-grad2"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-grad2-sm" alt="" /></span><div><div class="vname">Gradient (reversed)</div><button onclick="dl('x-grad2','rockenue-mark-gradient-rev-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-gradV"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-gradV-sm" alt="" /></span><div><div class="vname">Gradient (vertical)</div><button onclick="dl('x-gradV','rockenue-mark-gradient-vert-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-tealg"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-tealg-sm" alt="" /></span><div><div class="vname">Teal + gold mark</div><button onclick="dl('x-tealg','rockenue-mark-teal-gold-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-goldt"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-goldt-sm" alt="" /></span><div><div class="vname">Gold + teal mark</div><button onclick="dl('x-goldt','rockenue-mark-gold-teal-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-white"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-white-sm" alt="" /></span><div><div class="vname">White + teal mark</div><button onclick="dl('x-white','rockenue-mark-white-teal-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-vsplit"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-vsplit-sm" alt="" /></span><div><div class="vname">Vertical split</div><button onclick="dl('x-vsplit','rockenue-mark-vsplit-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-radial"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-radial-sm" alt="" /></span><div><div class="vname">Radial glow</div><button onclick="dl('x-radial','rockenue-mark-radial-300.png')">Download 300×300</button></div></div></div>
+      <div class="vcard"><div class="frame"><canvas id="x-dark-r"></canvas></div><div class="vmeta"><span class="linmock"><img id="x-dark-r-sm" alt="" /></span><div><div class="vname">Dark + gradient R</div><button onclick="dl('x-dark-r','rockenue-mark-dark-r-300.png')">Download 300×300</button></div></div></div>
+    </div>
+  </div>
+
+  <!-- ONE MORE -->
+  <div class="asset">
+    <div class="head"><h2>One more — white R, colour brackets, site background</h2></div>
+    <div class="note">White <b>R</b> with teal <span style="color:var(--teal)">(</span> and gold <span style="color:var(--gold)">)</span> brackets on the Rockenue page background (#14181D).</div>
+    <div class="vgrid">
+      <div class="vcard"><div class="frame"><canvas id="y-site"></canvas></div><div class="vmeta"><span class="linmock"><img id="y-site-sm" alt="" /></span><div><div class="vname">Site bg · white R · colour brackets</div><button onclick="dl('y-site','rockenue-mark-site-300.png')">Download 300×300</button></div></div></div>
+    </div>
+  </div>
+
+  <div class="ref">
+    <b>LinkedIn image sizes for reference</b><br>
+    Company logo — <code>300 × 300</code> · Company cover/banner — <code>1128 × 191</code> · Personal profile photo — <code>400 × 400</code> · Personal profile background — <code>1584 × 396</code> · Shared link preview — <code>1200 × 627</code>
+  </div>
+</div>
+
+<script>
+  var TEAL="#38C6BA", GOLD="#C8A66E", WHITE="#F3F5F7", BG="#14181D", BANNERBG="#111519", MUTED="#7A8494";
+
+  // Draw the (ROCKENUE) lockup centred at cx,cy. `base` = wordmark font px.
+  function lockup(ctx, cx, cy, base, col){
+    col = col || { left: TEAL, word: WHITE, right: GOLD };
+    var parenF = "300 " + (base*2.15) + "px 'Inter', sans-serif";
+    var wordF  = "700 " + base + "px 'Inter', sans-serif";
+    var ls = base*0.09, gap = base*0.34;
+    ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    ctx.font = parenF; ctx.letterSpacing = "0px";
+    var wL = ctx.measureText("(").width, wR = ctx.measureText(")").width;
+    ctx.font = wordF; ctx.letterSpacing = ls + "px";
+    var wW = ctx.measureText("ROCKENUE").width;
+    var total = wL + gap + wW + gap + wR;
+    var x = Math.round(cx - total/2);
+    var pdy = base*0.02; // tiny optical nudge for parens
+    ctx.font = parenF; ctx.letterSpacing = "0px"; ctx.fillStyle = col.left;
+    ctx.fillText("(", x, cy + pdy); x += wL + gap;
+    ctx.font = wordF; ctx.letterSpacing = ls + "px"; ctx.fillStyle = col.word;
+    ctx.fillText("ROCKENUE", x, cy); x += wW + gap;
+    ctx.font = parenF; ctx.letterSpacing = "0px"; ctx.fillStyle = col.right;
+    ctx.fillText(")", x, cy + pdy);
+  }
+
+  function glow(ctx, x, y, r, color, alpha){
+    var g = ctx.createRadialGradient(x,y,0,x,y,r);
+    var c = color==="teal" ? "56,198,186" : "200,166,110";
+    g.addColorStop(0,"rgba("+c+","+alpha+")");
+    g.addColorStop(1,"rgba("+c+",0)");
+    ctx.fillStyle = g; ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+  }
+
+  function drawLogo(){
+    var c = document.getElementById("logo"); c.width=300; c.height=300;
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = BG; ctx.fillRect(0,0,300,300);
+    glow(ctx, 300, 0, 200, "teal", 0.10);
+    glow(ctx, 0, 300, 200, "gold", 0.10);
+    lockup(ctx, 150, 150, 30);
+  }
+
+  function drawBanner(){
+    var c = document.getElementById("banner"); c.width=1128; c.height=191;
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = BANNERBG; ctx.fillRect(0,0,1128,191);
+    glow(ctx, 1000, 20, 360, "teal", 0.16);
+    glow(ctx, 130, 191, 360, "gold", 0.16);
+    lockup(ctx, 564, 84, 42);
+    // tagline
+    ctx.fillStyle = MUTED; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.font = "500 13px 'Inter', sans-serif"; ctx.letterSpacing = "4px";
+    ctx.fillText("INDEPENDENT HOTEL OPERATOR — LONDON & DUBAI", 564 + 2, 140);
+    ctx.letterSpacing = "0px";
+  }
+
+  function drawProfileBanner(){
+    var c = document.getElementById("profile"); c.width=1584; c.height=396;
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = BANNERBG; ctx.fillRect(0,0,1584,396);
+    glow(ctx, 1400, 50, 640, "teal", 0.16);
+    glow(ctx, 200, 396, 640, "gold", 0.16);
+    lockup(ctx, 792, 176, 58);
+    ctx.fillStyle = MUTED; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.font = "500 16px 'Inter', sans-serif"; ctx.letterSpacing = "5px";
+    ctx.fillText("INDEPENDENT HOTEL OPERATOR — LONDON & DUBAI", 792 + 3, 248);
+    ctx.letterSpacing = "0px";
+  }
+
+  function gradFill(ctx, w, h){
+    var g = ctx.createLinearGradient(0, 0, w, h);
+    g.addColorStop(0, TEAL); g.addColorStop(1, GOLD); return g;
+  }
+
+  var VARIANTS = [
+    { id:"v-ivory", bg:"#F4F2EC", col:{ left:TEAL, word:"#14181D", right:GOLD }, border:true },
+    { id:"v-grad",  bg:"gradient", col:{ left:"#0F1215", word:"#0F1215", right:"#0F1215" } },
+    { id:"v-teal",  bg:"#38C6BA", col:{ left:"#0F1215", word:"#0F1215", right:"#0F1215" } },
+    { id:"v-gold",  bg:"#C8A66E", col:{ left:"#14181D", word:"#14181D", right:"#14181D" } }
+  ];
+
+  function drawVariant(cfg){
+    var c = document.getElementById(cfg.id); c.width=300; c.height=300;
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = cfg.bg === "gradient" ? gradFill(ctx,300,300) : cfg.bg;
+    ctx.fillRect(0,0,300,300);
+    if(cfg.border){ ctx.strokeStyle="rgba(20,24,29,0.12)"; ctx.lineWidth=2; ctx.strokeRect(1,1,298,298); }
+    lockup(ctx, 150, 150, 30, cfg.col);
+    var sm = document.getElementById(cfg.id+"-sm"); if(sm) sm.src = c.toDataURL("image/png");
+  }
+
+  // Monogram — big teal/gold brackets with the wordmark beneath; the brackets
+  // stay legible even when the logo is rendered tiny.
+  function drawMonogram(){
+    var c = document.getElementById("v-mono"); c.width=300; c.height=300;
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = BG; ctx.fillRect(0,0,300,300);
+    glow(ctx, 300, 0, 200, "teal", 0.12); glow(ctx, 0, 300, 200, "gold", 0.12);
+    ctx.font = "300 120px 'Inter', sans-serif"; ctx.letterSpacing="0px";
+    ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    var lw = ctx.measureText("(").width, rw = ctx.measureText(")").width, gap = 64;
+    var total = lw + gap + rw, x = Math.round(150 - total/2), cy = 128;
+    ctx.fillStyle = TEAL; ctx.fillText("(", x, cy);
+    ctx.fillStyle = GOLD; ctx.fillText(")", x + lw + gap, cy);
+    ctx.textAlign = "center"; ctx.fillStyle = WHITE;
+    ctx.font = "600 18px 'Inter', sans-serif"; ctx.letterSpacing = "4px";
+    ctx.fillText("ROCKENUE", 150 + 4, 204);
+    ctx.letterSpacing = "0px";
+    var sm = document.getElementById("v-mono-sm"); if(sm) sm.src = c.toDataURL("image/png");
+  }
+
+  // ── Bright concepts: light marks on vivid brand backgrounds ──
+  var BRIGHT = [
+    { id:"b-teal",  bg:"#38C6BA",  col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"b-grad",  bg:"gradient", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"b-white", bg:"#F6F4EE",  col:{ left:TEAL, word:"grad", right:GOLD }, border:true },
+    { id:"b-split", bg:"split",    col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } }
+  ];
+
+  function drawBright(cfg){
+    var c = document.getElementById(cfg.id); c.width=300; c.height=300;
+    var ctx = c.getContext("2d");
+    if(cfg.bg === "gradient"){ ctx.fillStyle = gradFill(ctx,300,300); ctx.fillRect(0,0,300,300); }
+    else if(cfg.bg === "split"){
+      ctx.fillStyle = TEAL; ctx.fillRect(0,0,300,300);
+      ctx.fillStyle = GOLD; ctx.beginPath(); ctx.moveTo(300,0); ctx.lineTo(300,300); ctx.lineTo(0,300); ctx.closePath(); ctx.fill();
+    } else { ctx.fillStyle = cfg.bg; ctx.fillRect(0,0,300,300); }
+    if(cfg.border){ ctx.strokeStyle="rgba(20,24,29,0.12)"; ctx.lineWidth=2; ctx.strokeRect(1,1,298,298); }
+    var col = { left:cfg.col.left, word: cfg.col.word === "grad" ? gradFill(ctx,300,300) : cfg.col.word, right:cfg.col.right };
+    lockup(ctx, 150, 150, 30, col);
+    var sm = document.getElementById(cfg.id+"-sm"); if(sm) sm.src = c.toDataURL("image/png");
+  }
+
+  // Bright monogram — vivid teal tile, oversized white brackets.
+  function drawBrightMono(){
+    var c = document.getElementById("b-mono"); c.width=300; c.height=300;
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = gradFill(ctx,300,300); ctx.fillRect(0,0,300,300);
+    ctx.font = "300 132px 'Inter', sans-serif"; ctx.letterSpacing="0px";
+    ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    var lw = ctx.measureText("(").width, rw = ctx.measureText(")").width, gap = 68;
+    var total = lw + gap + rw, x = Math.round(150 - total/2), cy = 128;
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillText("(", x, cy); ctx.fillText(")", x + lw + gap, cy);
+    ctx.textAlign = "center"; ctx.font = "600 18px 'Inter', sans-serif"; ctx.letterSpacing = "4px";
+    ctx.fillText("ROCKENUE", 150 + 4, 206);
+    ctx.letterSpacing = "0px";
+    var sm = document.getElementById("b-mono-sm"); if(sm) sm.src = c.toDataURL("image/png");
+  }
+
+  // ── Large-mark concepts: monogram fills the tile so it survives at thumbnail size ──
+  function lin(ctx,x0,y0,x1,y1,c0,c1){ var g=ctx.createLinearGradient(x0,y0,x1,y1); g.addColorStop(0,c0); g.addColorStop(1,c1); return g; }
+  function fillBg(ctx, cfg){
+    switch(cfg.bg){
+      case "gradient":  ctx.fillStyle = lin(ctx,0,0,300,300,TEAL,GOLD); ctx.fillRect(0,0,300,300); break;
+      case "gradient2": ctx.fillStyle = lin(ctx,0,0,300,300,GOLD,TEAL); ctx.fillRect(0,0,300,300); break;
+      case "gradientV": ctx.fillStyle = lin(ctx,0,0,0,300,TEAL,GOLD); ctx.fillRect(0,0,300,300); break;
+      case "split":
+        ctx.fillStyle = TEAL; ctx.fillRect(0,0,300,300);
+        ctx.fillStyle = GOLD; ctx.beginPath(); ctx.moveTo(300,0); ctx.lineTo(300,300); ctx.lineTo(0,300); ctx.closePath(); ctx.fill(); break;
+      case "vsplit":
+        ctx.fillStyle = TEAL; ctx.fillRect(0,0,150,300);
+        ctx.fillStyle = GOLD; ctx.fillRect(150,0,150,300); break;
+      case "radial":
+        ctx.fillStyle = "#14181D"; ctx.fillRect(0,0,300,300);
+        var rg = ctx.createRadialGradient(150,140,0,150,140,210);
+        rg.addColorStop(0,"rgba(56,198,186,0.55)"); rg.addColorStop(0.55,"rgba(200,166,110,0.20)"); rg.addColorStop(1,"rgba(20,24,29,0)");
+        ctx.fillStyle = rg; ctx.fillRect(0,0,300,300); break;
+      default: ctx.fillStyle = cfg.bg; ctx.fillRect(0,0,300,300);
+    }
+  }
+
+  var BIG = [
+    { id:"g-teal",  bg:"#38C6BA",  mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"g-grad",  bg:"gradient", mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"g-ivory", bg:"#F6F4EE",  mark:"(R)", col:{ left:TEAL, word:"grad", right:GOLD }, border:true },
+    { id:"g-split", bg:"split",    mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"g-r",     bg:"gradient", mark:"R",   col:{ word:"#FFFFFF" } }
+  ];
+
+  // More background + colour combinations (same big (R) mark)
+  var BIG2 = [
+    { id:"x-gold",   bg:"#C8A66E",   mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"x-darkg",  bg:"#14181D",   mark:"(R)", col:{ left:TEAL, word:"grad", right:GOLD } },
+    { id:"x-grad2",  bg:"gradient2", mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"x-gradV",  bg:"gradientV", mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"x-tealg",  bg:"#38C6BA",   mark:"(R)", col:{ left:GOLD, word:GOLD, right:GOLD } },
+    { id:"x-goldt",  bg:"#C8A66E",   mark:"(R)", col:{ left:TEAL, word:TEAL, right:TEAL } },
+    { id:"x-white",  bg:"#FFFFFF",   mark:"(R)", col:{ left:TEAL, word:TEAL, right:TEAL }, border:true },
+    { id:"x-vsplit", bg:"vsplit",    mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"x-radial", bg:"radial",    mark:"(R)", col:{ left:"#FFFFFF", word:"#FFFFFF", right:"#FFFFFF" } },
+    { id:"x-dark-r", bg:"#14181D",   mark:"R",   col:{ word:"grad" } }
+  ];
+
+  // White R, coloured brackets, on the Rockenue site background.
+  var ONEMORE = { id:"y-site", bg:"#14181D", mark:"(R)", col:{ left:TEAL, word:"#FFFFFF", right:GOLD } };
+
+  function drawBig(cfg){
+    var c = document.getElementById(cfg.id); c.width=300; c.height=300;
+    var ctx = c.getContext("2d");
+    fillBg(ctx, cfg);
+    if(cfg.border){ ctx.strokeStyle="rgba(20,24,29,0.12)"; ctx.lineWidth=2; ctx.strokeRect(1,1,298,298); }
+    var wordCol = cfg.col.word === "grad" ? gradFill(ctx,300,300) : cfg.col.word;
+    ctx.textBaseline = "middle";
+    if(cfg.mark === "R"){
+      ctx.font = "700 215px 'Inter', sans-serif"; ctx.letterSpacing = "0px";
+      ctx.textAlign = "center"; ctx.fillStyle = wordCol;
+      ctx.fillText("R", 150, 160);
+    } else {
+      var pf = "300 195px 'Inter', sans-serif", rf = "700 150px 'Inter', sans-serif", gap = 4, pdy = 4;
+      ctx.textAlign = "left"; ctx.letterSpacing = "0px";
+      ctx.font = pf; var wL = ctx.measureText("(").width, wR = ctx.measureText(")").width;
+      ctx.font = rf; var wRr = ctx.measureText("R").width;
+      var total = wL + gap + wRr + gap + wR, x = Math.round(150 - total/2), cy = 150;
+      ctx.font = pf; ctx.fillStyle = cfg.col.left;  ctx.fillText("(", x, cy + pdy); x += wL + gap;
+      ctx.font = rf; ctx.fillStyle = wordCol;        ctx.fillText("R", x, cy);       x += wRr + gap;
+      ctx.font = pf; ctx.fillStyle = cfg.col.right;  ctx.fillText(")", x, cy + pdy);
+    }
+    var sm = document.getElementById(cfg.id+"-sm"); if(sm) sm.src = c.toDataURL("image/png");
+  }
+
+  function dl(id, name){
+    var a = document.createElement("a");
+    a.download = name; a.href = document.getElementById(id).toDataURL("image/png"); a.click();
+  }
+
+  Promise.all([
+    document.fonts.load("300 90px Inter"),
+    document.fonts.load("700 42px Inter"),
+    document.fonts.load("500 13px Inter")
+  ]).then(function(){ return document.fonts.ready; })
+    .then(function(){ drawLogo(); drawBanner(); drawProfileBanner(); VARIANTS.forEach(drawVariant); drawMonogram(); BRIGHT.forEach(drawBright); drawBrightMono(); BIG.forEach(drawBig); BIG2.forEach(drawBig); drawBig(ONEMORE); });
+</script>
+</body>
+</html>
