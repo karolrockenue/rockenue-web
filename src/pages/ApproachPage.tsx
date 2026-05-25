@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { R } from "../theme";
+import { R, heading } from "../theme";
 import { MARKETS, OFFICES, ONBOARDING, ONGOING } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
 
@@ -14,8 +14,8 @@ export function ApproachPage() {
       <section style={{ background: R.heroBg, borderBottom: `1px solid ${R.border}` }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", minHeight: m ? "auto" : "50vh" }}>
           <div style={{ padding: m ? "56px 24px 40px" : "80px 48px 80px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: m ? "none" : `1px solid ${R.border}` }}>
-            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 24 }}>Our approach</div>
-            <h1 style={{ fontSize: m ? 30 : 44, fontWeight: 700, lineHeight: 1.1, letterSpacing: m ? -0.8 : -1.5, color: R.accent, margin: "0 0 20px" }}>
+            <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 24 }}>Partnership</div>
+            <h1 style={{ ...heading(m ? 30 : 44), margin: "0 0 20px" }}>
               What happens when your hotel{" "}
               <span style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 joins the network.
@@ -51,7 +51,7 @@ export function ApproachPage() {
         <div style={{ maxWidth: 800, margin: "0 auto", padding: px }}>
           <div style={{ textAlign: "center", marginBottom: m ? 36 : 56 }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.teal, marginBottom: 16 }}>Onboarding</div>
-            <h2 style={{ fontSize: m ? 26 : 36, fontWeight: 700, letterSpacing: -1.2, color: R.accent, margin: 0, lineHeight: 1.1 }}>From first conversation to go-live</h2>
+            <h2 style={{ ...heading(m ? 26 : 36), margin: 0 }}>From first conversation to go-live</h2>
           </div>
           <div style={{ position: "relative", paddingLeft: 40 }}>
             <div style={{ position: "absolute", left: 11, top: 8, bottom: 8, width: 2, background: R.border }} />
@@ -78,7 +78,7 @@ export function ApproachPage() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: px }}>
           <div style={{ marginBottom: m ? 28 : 48 }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.gold, marginBottom: 16 }}>Ongoing</div>
-            <h2 style={{ fontSize: m ? 26 : 36, fontWeight: 700, letterSpacing: -1.2, color: R.accent, margin: 0 }}>What we deliver, every month</h2>
+            <h2 style={{ ...heading(m ? 26 : 36), margin: 0 }}>What we deliver, every month</h2>
           </div>
           {m ? (
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
@@ -149,7 +149,7 @@ export function ApproachPage() {
       {/* CTA */}
       <section style={{ background: R.bg, padding: m ? "48px 0" : "72px 0", borderBottom: `1px solid ${R.border}` }}>
         <div style={{ maxWidth: 800, margin: "0 auto", padding: px, textAlign: "center" }}>
-          <h2 style={{ fontSize: m ? 26 : 36, fontWeight: 700, letterSpacing: -1, color: R.accent, margin: "0 0 16px" }}>Does your property qualify?</h2>
+          <h2 style={{ ...heading(m ? 26 : 36), margin: "0 0 16px" }}>Does your property qualify?</h2>
           <p style={{ fontSize: 15, color: R.text, margin: "0 0 28px", lineHeight: 1.6 }}>We partner with hotels ready to grow. Apply today and hear back within 5 business days.</p>
           <Link to="/apply" style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
             Apply for management <ArrowRight size={15} />

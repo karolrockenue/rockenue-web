@@ -1,42 +1,81 @@
-import { R } from "../theme";
-import { OFFICES } from "../content";
+import { R, heading } from "../theme";
 import { useIsMobile } from "../hooks/useIsMobile";
+
+const MUTED = "#8A9099";
+
+const TIMELINE = [
+  { color: R.teal, year: "Jan 2022 · London", title: "Founded", desc: "Set out to build the infrastructure independent hotels were missing — systems, deals, and data." },
+  { color: R.gold, year: "2023", title: "Our own technology", desc: "Built a proprietary stack from scratch — AI pricing on dedicated hardware and a live market-intelligence layer." },
+  { color: R.teal, year: "2024", title: "50 hotels", desc: "The network crosses 50 properties as autonomous pricing and distribution roll out across every hotel." },
+  { color: R.gold, year: "Jan 2025 · Dubai", title: "HQ moves to Dubai", desc: "The network's headquarters relocate to Dubai, consolidating operations in the UAE." },
+  { color: R.teal, year: "2026 · Nordics", title: "Into the Nordics", desc: "Expansion into the Nordic markets, bringing the network's full infrastructure to a new region." },
+];
+
+const TEAM = [
+  { img: "/team/karol.png", name: "Karol Zymek", role: "Founder & CEO", bio: "Former Head of Revenue at OYO; previously at Agoda. 20 years in hospitality revenue management." },
+  { img: "/team/magnus.png", name: "Magnús Magnússon", role: "Head of Nordics", bio: "Former Country Manager at Booking.com, Nordics (9 years, €150M+ revenue)." },
+  { img: "/team/sunny.png", name: "Sunny Singh", role: "Advisor", bio: "Cloudbeds, ex-Keytel, ex-OYO UK. Hospitality sales and partnerships." },
+  { img: "/team/ruslana.png", name: "Ruslana Doroshchuk", role: "Director of Operations", bio: "Former Hyatt and InterContinental. 10+ years in hospitality operations." },
+  { img: "/team/zeynep.png", name: "Zeynep Taskin", role: "Market Expansion", bio: "Former Duetto and Amazon. King's College London." },
+  { img: "/team/hannah.png", name: "Hannah Cuevas", role: "Account Management Lead", bio: "Manages client relationships and day-to-day operations across the portfolio." },
+];
 
 export function AboutPage() {
   const m = useIsMobile();
 
   return (
     <section style={{ background: R.heroBg, borderBottom: `1px solid ${R.border}` }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1.2fr", minHeight: m ? "auto" : "70vh" }}>
-        <div style={{ padding: m ? "56px 24px 40px" : "96px 48px 96px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: m ? "none" : `1px solid ${R.border}` }}>
-          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 24 }}>About</div>
-          <h1 style={{ fontSize: m ? 30 : 40, fontWeight: 700, lineHeight: 1.15, letterSpacing: m ? -0.8 : -1.3, color: R.accent, margin: "0 0 24px" }}>
-            Hotel management company.{" "}
-            <span style={{ color: R.textMid }}>London & Dubai.</span>
-          </h1>
-          <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: m ? 16 : 24, marginTop: 8 }}>
-            {OFFICES.map((o, i) => (
-              <div key={o.label} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{ width: 6, height: 6, borderRadius: 3, background: i === 0 ? R.teal : R.gold }} />
-                <div>
-                  <div style={{ fontSize: 14, fontWeight: 600, color: R.accent }}>{o.label}</div>
-                  <div style={{ fontSize: 11, color: R.textDim }}>{o.line}</div>
-                </div>
-              </div>
-            ))}
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: m ? "64px 24px" : "112px 64px" }}>
+
+        {/* ─── Intro ─── */}
+        <div style={{ marginBottom: m ? 72 : 128 }}>
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2.5, textTransform: "uppercase", color: R.gold, marginBottom: 18 }}>
+            About Us
           </div>
-        </div>
-        <div style={{ padding: m ? "0 24px 56px" : "96px 64px 96px 48px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-          <p style={{ fontSize: m ? 15 : 16, color: R.text, lineHeight: 1.8, margin: "0 0 24px" }}>
-            We operate independent hotels. Pricing, distribution, technology, and commercial strategy — managed centrally, the same way a chain operates. Hotels that join the network get the infrastructure of a major group while keeping their own name and identity.
-          </p>
-          <p style={{ fontSize: m ? 15 : 16, color: R.text, lineHeight: 1.8, margin: "0 0 24px" }}>
-            Founded in 2019 in London. We started because independent hotels were being outcompeted on infrastructure — not on quality. Chains had better systems, better deals, and more data. We built what was missing and made it available to hotels that would otherwise go without.
-          </p>
-          <p style={{ fontSize: m ? 15 : 16, color: R.text, lineHeight: 1.8, margin: 0 }}>
-            The technology stack is proprietary and built from scratch — dedicated AI hardware, a live market intelligence layer, autonomous pricing infrastructure. None of it is off-the-shelf. None of it is available outside the network. We built it because nothing else came close.
+          <h1 style={{ ...heading("clamp(32px, 5vw, 52px)"), margin: "0 0 22px", maxWidth: 900 }}>
+            From one idea in 2021 to a network of{" "}
+            <span style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              60 hotels.
+            </span>
+          </h1>
+          <p style={{ fontSize: "clamp(15px, 2.2vw, 19px)", fontWeight: 300, lineHeight: 1.6, color: MUTED, margin: 0, maxWidth: 880 }}>
+            We started because independent hotels were being outcompeted on infrastructure — not on quality. Chains had better systems, better deals, and more data, and the gap only widened as they scaled. We built what was missing and made it available to hotels that would otherwise go without — the pricing, distribution, and market intelligence of a major group, without the loss of identity that comes with joining one. Today that same infrastructure runs quietly behind every hotel in the network.
           </p>
         </div>
+
+        {/* ─── Timeline ─── */}
+        <div style={{ display: "grid", gridTemplateColumns: m ? "1fr 1fr" : "repeat(5, 1fr)", rowGap: 32, marginBottom: m ? 56 : 84 }}>
+          {TIMELINE.map((ev) => (
+            <div key={ev.title} style={{ position: "relative", paddingRight: 22, borderTop: `1px solid ${R.border}` }}>
+              <div style={{ position: "absolute", left: 0, top: -6, width: 11, height: 11, borderRadius: "50%", background: ev.color }} />
+              <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: 0.4, color: ev.color, margin: "22px 0 6px" }}>{ev.year}</div>
+              <div style={{ fontSize: 15, fontWeight: 600, color: R.accent, marginBottom: 6 }}>{ev.title}</div>
+              <div style={{ fontSize: 12.5, lineHeight: 1.55, color: R.textMid }}>{ev.desc}</div>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ height: 1, background: R.border, margin: m ? "56px 0" : "96px 0" }} />
+
+        {/* ─── Leadership ─── */}
+        <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2.5, textTransform: "uppercase", color: R.teal, marginBottom: 18 }}>
+          Leadership
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(auto-fit, minmax(260px, 1fr))", gap: m ? 44 : "56px 32px" }}>
+          {TEAM.map((p) => (
+            <div key={p.name} style={{ textAlign: "center" }}>
+              <img
+                src={p.img}
+                alt={p.name}
+                style={{ width: 140, height: 140, borderRadius: "50%", objectFit: "cover", objectPosition: "center top", background: R.card, display: "block", margin: "0 auto 20px" }}
+              />
+              <div style={{ fontSize: 17, fontWeight: 600, color: R.accent }}>{p.name}</div>
+              <div style={{ fontSize: 12, fontWeight: 600, color: R.teal, margin: "4px 0 12px" }}>{p.role}</div>
+              <div style={{ fontSize: 13, lineHeight: 1.6, color: R.textMid, maxWidth: 300, margin: "0 auto" }}>{p.bio}</div>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Get in touch — Rockenue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --accent: #F3F5F7;
+    --ink: #F4F2EC;
+    --text: #B0B8C4;
+    --textMid: #7A8494;
+    --textDim: #4E5868;
+    --muted: #8A9099;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --heroBg: #111519;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── NAV ─── */
+  nav { padding: 20px 64px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  @media (max-width: 760px) { nav { padding: 14px 24px; } }
+  .logo { display: flex; align-items: center; gap: 6px; font-size: 18px; font-weight: 300; color: var(--accent); letter-spacing: 0.01em; }
+  .logo .p { color: var(--teal); font-size: 26px; font-weight: 300; line-height: 1; }
+  .logo .p.r { color: var(--gold); }
+  .navlinks { display: flex; gap: 32px; font-size: 13px; color: var(--textMid); font-weight: 400; }
+  .navlinks a.active { color: var(--accent); }
+  .navlinks a:hover { color: var(--accent); }
+  .applybtn { font-size: 13px; color: var(--accent); padding: 8px 18px; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; font-weight: 400; }
+  @media (max-width: 860px) { .navlinks, .applybtn { display: none; } }
+
+  /* ─── CONTACT (full-screen, centered) ─── */
+  .contact { background: var(--heroBg); flex: 1; display: flex; align-items: center; justify-content: center; text-align: center; padding: 140px 24px; }
+  .inner { max-width: 680px; }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 40px; }
+  h1 { font-weight: 300; color: var(--ink); letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(40px, 7vw, 68px); margin: 0 0 32px; }
+  .sub { font-size: clamp(16px, 2.4vw, 19px); font-weight: 300; line-height: 1.6; color: var(--muted); margin: 0 auto; max-width: 500px; }
+  .big-email { display: inline-block; margin: 96px 0 14px; font-size: clamp(24px, 4.5vw, 40px); font-weight: 300; letter-spacing: -0.01em; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .respond { font-size: 13px; color: var(--textMid); }
+
+  .row { display: flex; justify-content: center; margin-top: 120px; text-align: center; }
+  .lab { font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--textDim); margin-bottom: 12px; }
+  .val { font-size: 14px; color: var(--text); line-height: 1.8; white-space: pre-line; }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--darkBand); padding: 28px 64px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  @media (max-width: 760px) { footer { padding: 24px; } }
+  footer .c { font-size: 12px; color: var(--textDim); }
+  footer .legal { display: flex; gap: 24px; }
+  footer .legal a { font-size: 12px; color: var(--textDim); }
+</style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="#" class="logo"><span class="p">(</span>ROCKENUE<span class="p r">)</span></a>
+    <div class="navlinks">
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">About</a>
+      <a href="#">Partnership</a>
+      <a href="https://www.market-pulse.io" target="_blank" rel="noopener noreferrer">Market Pulse</a>
+      <a href="#" class="active">Contact</a>
+    </div>
+    <a href="#" class="applybtn">Apply</a>
+  </nav>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section class="contact">
+    <div class="inner">
+      <div class="eyebrow">Contact</div>
+      <h1>Let's talk.</h1>
+      <p class="sub">Exploring management, selling a property, or after bespoke market intelligence? Reach us directly.</p>
+
+      <a href="mailto:info@rockenue.com" class="big-email grad">info@rockenue.com</a>
+      <div class="respond">We respond within 2 business days.</div>
+
+      <div class="row">
+        <div><div class="lab">Headquarters</div><div class="val">Dubai, United Arab Emirates
+Nad Al Sheba 1</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <span class="c">© 2026 Rockenue International Group. All rights reserved.</span>
+    <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+  </footer>
+
+</body>
+</html>

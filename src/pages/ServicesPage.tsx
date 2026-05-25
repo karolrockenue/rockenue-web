@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { R } from "../theme";
+import { R, heading } from "../theme";
 import { SERVICES } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
 
@@ -13,7 +13,7 @@ export function ServicesPage() {
       <section style={{ background: R.heroBg, padding: m ? "56px 0 48px" : "80px 0 64px", borderBottom: `1px solid ${R.border}` }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: px }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 20 }}>Services</div>
-          <h1 style={{ fontSize: m ? 30 : 42, fontWeight: 700, lineHeight: 1.1, letterSpacing: m ? -0.8 : -1.4, color: R.accent, margin: 0, maxWidth: 500 }}>
+          <h1 style={{ ...heading(m ? 30 : 42), margin: 0, maxWidth: 500 }}>
             Full-stack commercial management.
           </h1>
         </div>
@@ -63,7 +63,7 @@ export function ServicesPage() {
 
       <section style={{ background: R.darkBand, padding: m ? "48px 0" : "72px 0", borderBottom: `1px solid ${R.border}` }}>
         <div style={{ maxWidth: 800, margin: "0 auto", padding: px, textAlign: "center" }}>
-          <h2 style={{ fontSize: m ? 26 : 34, fontWeight: 700, letterSpacing: -1, color: R.accent, margin: "0 0 16px" }}>Ready to talk?</h2>
+          <h2 style={{ ...heading(m ? 26 : 34), margin: "0 0 16px" }}>Ready to talk?</h2>
           <p style={{ fontSize: 15, color: R.text, margin: "0 0 28px" }}>Tell us about your property and what you're looking to achieve.</p>
           <Link to="/apply" style={{ background: R.teal, color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
             Apply for management <ArrowRight size={15} />

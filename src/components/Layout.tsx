@@ -6,15 +6,16 @@ import { FOOTER } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
 
 const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
-  { label: "Services", to: "/services" },
+  { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Our Approach", to: "/approach" },
+  { label: "Partnership", to: "/approach" },
   { label: "Market Pulse", to: "https://www.market-pulse.io", external: true },
   { label: "Contact", to: "/contact" },
 ];
 
 const FOOTER_ROUTES: Record<string, string> = {
-  Approach: "/approach",
+  Partnership: "/approach",
+  Services: "/services",
   Contact: "/contact",
   "Full Service Management": "/services",
   "Leasing & Management": "/services",

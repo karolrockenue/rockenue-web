@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { R } from "../theme";
-import { HERO, STATS, STEPS, CTA, QUALIFIERS } from "../content";
+import { R, heading } from "../theme";
+import { HERO, PRESENCE, STATS, STEPS, CTA, QUALIFIERS } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
 
 export function HomePage() {
@@ -12,18 +12,18 @@ export function HomePage() {
     <>
       {/* ─── BAND 1: Hero ─── */}
       <section style={{ background: R.heroBg, padding: "0", borderBottom: `1px solid ${R.border}` }}>
-        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", minHeight: m ? "auto" : "70vh" }}>
-          <div style={{ padding: m ? "56px 24px 48px" : "96px 48px 96px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: m ? "none" : `1px solid ${R.border}` }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: m ? "1fr" : "1.8fr 1fr", minHeight: m ? "auto" : "70vh" }}>
+          <div style={{ padding: m ? "56px 24px 48px" : "96px 56px 96px 64px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: m ? 16 : 24 }}>
               {HERO.eyebrow}
             </div>
-            <h1 style={{ fontSize: m ? 34 : 56, fontWeight: 700, lineHeight: 1.05, letterSpacing: m ? -1 : -2, margin: "0 0 20px", color: R.accent }}>
+            <h1 style={{ ...heading("clamp(32px, 5vw, 52px)"), margin: "0 0 20px", maxWidth: 900 }}>
               The hotel management company for{" "}
               <span style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                 independent hotels.
               </span>
             </h1>
-            <p style={{ fontSize: m ? 14 : 16, color: R.text, maxWidth: 520, lineHeight: 1.7, margin: "0 0 32px" }}>
+            <p style={{ fontSize: m ? 14 : 16, color: R.text, maxWidth: 580, lineHeight: 1.7, margin: "0 0 32px" }}>
               {HERO.subheadline}
             </p>
             <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: 14 }}>
@@ -43,29 +43,26 @@ export function HomePage() {
               </Link>
             </div>
           </div>
-          {!m && (
-            <div style={{ padding: "96px 64px 96px 48px", display: "flex", alignItems: "center" }}>
-              <div style={{
-                width: "100%", aspectRatio: "1.1", background: R.card, border: `1px solid ${R.border}`,
-                borderRadius: 16, padding: "44px 40px", display: "flex", flexDirection: "column", justifyContent: "space-between",
-                position: "relative", overflow: "hidden",
-              }}>
-                <div style={{ position: "absolute", top: -100, right: -100, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${R.teal}30 0%, transparent 70%)`, pointerEvents: "none" }} />
-                <div style={{ position: "absolute", bottom: -100, left: -100, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${R.gold}30 0%, transparent 70%)`, pointerEvents: "none" }} />
-                <div style={{ position: "relative" }}>&nbsp;</div>
-                <div style={{ position: "relative", textAlign: "center" }}>
-                  <div style={{ fontSize: 48, fontWeight: 700, color: R.accent, letterSpacing: 2, display: "flex", alignItems: "center", justifyContent: "center", gap: 18 }}>
-                    <span style={{ color: R.teal, fontSize: 78, fontWeight: 300 }}>(</span>
-                    ROCKENUE
-                    <span style={{ color: R.gold, fontSize: 78, fontWeight: 300 }}>)</span>
-                  </div>
-                </div>
-                <div style={{ position: "relative", fontSize: 11, color: R.textDim, letterSpacing: 2, textTransform: "uppercase", textAlign: "center", fontWeight: 500 }}>
-                  Hotel management · Est. 2019
-                </div>
+          <div style={{ padding: m ? "8px 24px 8px" : "96px 104px 96px 24px", display: "flex", flexDirection: "column", alignItems: m ? "flex-start" : "flex-end", justifyContent: "center" }}>
+            <div style={{ width: "100%", maxWidth: 260 }}>
+              <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: R.textDim, fontWeight: 600, marginBottom: 18 }}>
+                <span style={{ color: R.teal, marginRight: 7 }}>●</span>{PRESENCE.caption}
+              </div>
+              <div>
+                {PRESENCE.countries.map((c) => {
+                  const isHit = c === PRESENCE.highlight;
+                  return (
+                    <div key={c} style={{ height: 46, lineHeight: "46px", fontSize: 22, fontWeight: 300, letterSpacing: "-0.01em", color: isHit ? R.teal : R.text, whiteSpace: "nowrap" }}>
+                      {c}
+                    </div>
+                  );
+                })}
+              </div>
+              <div style={{ marginTop: 18, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: R.textMid }}>
+                {PRESENCE.footnote}
               </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
 
@@ -91,7 +88,7 @@ export function HomePage() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: px }}>
           <div style={{ marginBottom: m ? 32 : 48 }}>
             <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.gold, marginBottom: 16 }}>Services</p>
-            <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 700, letterSpacing: m ? -0.8 : -1.4, color: R.accent, margin: "0 0 14px", lineHeight: 1.1 }}>
+            <h2 style={{ ...heading(m ? 28 : 42), margin: "0 0 14px"}}>
               Four ways we work with hotels.
             </h2>
             <p style={{ fontSize: 14, color: R.textMid, maxWidth: 520, lineHeight: 1.65, margin: 0 }}>
@@ -123,7 +120,7 @@ export function HomePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 32 : 64, alignItems: "center" }}>
           <div>
             <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.teal, marginBottom: 16 }}>Intelligence</p>
-            <h2 style={{ fontSize: m ? 28 : 40, fontWeight: 700, letterSpacing: m ? -0.8 : -1.3, color: R.accent, margin: "0 0 18px", lineHeight: 1.1 }}>
+            <h2 style={{ ...heading(m ? 28 : 40), margin: "0 0 18px"}}>
               Dedicated AI hardware. Every signal, every city.
             </h2>
             <p style={{ fontSize: m ? 14 : 15, lineHeight: 1.7, color: R.text, maxWidth: 480, margin: "0 0 28px" }}>
@@ -181,7 +178,7 @@ export function HomePage() {
         <div style={{ maxWidth: 1280, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 2fr", gap: m ? 32 : 56 }}>
           <div>
             <p style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2, textTransform: "uppercase", color: R.gold, marginBottom: 16 }}>Application</p>
-            <h2 style={{ fontSize: m ? 28 : 42, fontWeight: 700, letterSpacing: m ? -0.8 : -1.4, color: R.accent, margin: "0 0 14px", lineHeight: 1.1 }}>Three steps to onboarding</h2>
+            <h2 style={{ ...heading(m ? 28 : 42), margin: "0 0 14px"}}>Three steps to onboarding</h2>
             <p style={{ fontSize: 14, color: R.textMid, maxWidth: 280, lineHeight: 1.65, margin: 0 }}>We move quickly. Submission to live operation in 30 days for properties that qualify.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr 1fr", gap: 16 }}>
@@ -203,7 +200,7 @@ export function HomePage() {
       <section style={{ background: R.darkBand, padding: m ? "48px 0" : "0", borderBottom: `1px solid ${R.border}` }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: px, display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: m ? 32 : 56, minHeight: m ? "auto" : 320, alignItems: "center" }}>
           <div style={{ padding: m ? "0" : "72px 0" }}>
-            <h2 style={{ fontSize: m ? 28 : 38, fontWeight: 700, letterSpacing: m ? -0.8 : -1.2, color: R.accent, margin: "0 0 14px", lineHeight: 1.15 }}>{CTA.title}</h2>
+            <h2 style={{ ...heading(m ? 28 : 38), margin: "0 0 14px"}}>{CTA.title}</h2>
             <p style={{ fontSize: m ? 14 : 15, color: R.text, margin: "0 0 28px", maxWidth: 460, lineHeight: 1.65 }}>{CTA.body}</p>
             <Link to="/apply" style={{
               background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`,

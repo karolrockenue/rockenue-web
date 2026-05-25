@@ -7,10 +7,27 @@ export const HERO = {
   secondaryCta: "See our approach",
 };
 
+// Hero presence list — countries where Rockenue currently operates.
+// `highlight` is rendered in teal at the centre of the list.
+export const PRESENCE = {
+  caption: "Operating across",
+  highlight: "United Kingdom",
+  countries: [
+    "Iceland",
+    "Denmark",
+    "Norway",
+    "United Kingdom",
+    "United Arab Emirates",
+    "United States",
+    "Poland",
+  ],
+  footnote: "7 countries · 3 continents",
+};
+
 export const NAV_LINKS = ["Services", "Portfolio", "Markets", "Market Pulse", "About"];
 
 export const STATS = [
-  { value: "45", label: "Properties under management" },
+  { value: "51", label: "Properties under management" },
   { value: "1,866", label: "Rooms across the portfolio" },
   { value: "#1", label: "Independent operator on Booking.com London" },
   { value: "£50M+", label: "Revenue under management" },
@@ -127,7 +144,7 @@ export const FOOTER = {
   columns: [
     {
       heading: "Company",
-      links: ["Approach", "Contact"],
+      links: ["Partnership", "Services", "Contact"],
     },
     {
       heading: "Services",

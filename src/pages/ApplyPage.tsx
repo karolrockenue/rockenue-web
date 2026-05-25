@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
-import { R } from "../theme";
+import { R, heading } from "../theme";
 import { STEPS, QUALIFIERS, FORM_FIELDS } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
 
@@ -25,7 +25,7 @@ export function ApplyPage() {
         {/* Left — messaging */}
         <div style={{ padding: m ? "56px 24px 40px" : "80px 48px 80px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: m ? "none" : `1px solid ${R.border}` }}>
           <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 24 }}>Apply for management</div>
-          <h1 style={{ fontSize: m ? 30 : 44, fontWeight: 700, lineHeight: 1.1, letterSpacing: m ? -0.8 : -1.5, color: R.accent, margin: "0 0 24px" }}>
+          <h1 style={{ ...heading(m ? 30 : 44), margin: "0 0 24px" }}>
             We work with hotels ready for{" "}
             <span style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               the next level.
