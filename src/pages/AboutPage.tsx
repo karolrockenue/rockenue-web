@@ -12,12 +12,12 @@ const TIMELINE = [
 ];
 
 const TEAM = [
-  { img: "/team/karol.png", name: "Karol Zymek", role: "Founder & CEO", bio: "Former Head of Revenue at OYO; previously at Agoda. 20 years in hospitality revenue management." },
-  { img: "/team/magnus.png", name: "Magnús Magnússon", role: "Head of Nordics", bio: "Former Country Manager at Booking.com, Nordics (9 years, €150M+ revenue)." },
-  { img: "/team/sunny.png", name: "Sunny Singh", role: "Advisor", bio: "Cloudbeds, ex-Keytel, ex-OYO UK. Hospitality sales and partnerships." },
-  { img: "/team/ruslana.png", name: "Ruslana Doroshchuk", role: "Director of Operations", bio: "Former Hyatt and InterContinental. 10+ years in hospitality operations." },
-  { img: "/team/zeynep.png", name: "Zeynep Taskin", role: "Market Expansion", bio: "Former Duetto and Amazon. King's College London." },
-  { img: "/team/hannah.png", name: "Hannah Cuevas", role: "Account Management Lead", bio: "Manages client relationships and day-to-day operations across the portfolio." },
+  { img: "/team/karol.jpg", name: "Karol Zymek", role: "Founder & CEO", bio: "Former Head of Revenue at OYO; previously at Agoda. 20 years in hospitality revenue management." },
+  { img: "/team/magnus.jpg", name: "Magnús Magnússon", role: "Head of Nordics", bio: "Former Country Manager at Booking.com, Nordics (9 years, €150M+ revenue)." },
+  { img: "/team/sunny.jpg", name: "Sunny Singh", role: "Advisor", bio: "Cloudbeds, ex-Keytel, ex-OYO UK. Hospitality sales and partnerships." },
+  { img: "/team/ruslana.jpg", name: "Ruslana Doroshchuk", role: "Director of Operations", bio: "Former Hyatt and InterContinental. 10+ years in hospitality operations." },
+  { img: "/team/zeynep.jpg", name: "Zeynep Taskin", role: "Market Expansion", bio: "Former Duetto and Amazon. King's College London." },
+  { img: "/team/hannah.jpg", name: "Hannah Cuevas", role: "Account Management Lead", bio: "Manages client relationships and day-to-day operations across the portfolio." },
 ];
 
 export function AboutPage() {
