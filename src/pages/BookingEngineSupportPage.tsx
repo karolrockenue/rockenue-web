@@ -18,7 +18,7 @@ export function BookingEngineSupportPage() {
 
         <Section title="2. Onboarding Is by Approval Only">
           <P>Hotels cannot self-onboard onto the booking engine. Access is granted only after a hotel has been accepted into the Rockenue network through our standard evaluation process and a formal commercial agreement is in place.</P>
-          <P>If your property has not yet been accepted, please start with the management application at rockenue.com/apply. Onboarding to the booking engine happens as part of the wider commercial setup, not as a separate sign-up.</P>
+          <P>If your property has not yet been accepted, please start with the management application at rockenue.com/contact. Onboarding to the booking engine happens as part of the wider commercial setup, not as a separate sign-up.</P>
         </Section>
 
         <Section title="3. How Onboarding Works Once Approved">

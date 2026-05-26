@@ -21,7 +21,6 @@ const FOOTER_ROUTES: Record<string, string> = {
   "Leasing & Management": "/services",
   "Hotel Sales & Acquisitions": "/services",
   "Research & Intelligence": "/services",
-  "Apply for Management": "/apply",
   "Booking Engine Support": "/support/booking-engine",
 };
 
@@ -47,10 +46,13 @@ export function Layout() {
       {/* ─── Navbar ─── */}
       <nav style={{
         padding: m ? "14px 24px" : "20px 64px", borderBottom: `1px solid ${R.border}`,
-        display: "flex", justifyContent: "space-between", alignItems: "center",
+        display: m ? "flex" : "grid",
+        gridTemplateColumns: m ? undefined : "1fr auto 1fr",
+        justifyContent: m ? "space-between" : undefined,
+        alignItems: "center",
         background: R.bg, position: "sticky", top: 0, zIndex: 50,
       }}>
-        <Link to="/" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 700, color: R.accent, letterSpacing: 1.4, textDecoration: "none" }}>
+        <Link to="/" onClick={() => setMenuOpen(false)} style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 700, color: R.accent, letterSpacing: 1.4, textDecoration: "none", justifySelf: "start" }}>
           <span style={{ color: R.teal, fontSize: m ? 22 : 26, fontWeight: 300, lineHeight: 1 }}>(</span>
           ROCKENUE
           <span style={{ color: R.gold, fontSize: m ? 22 : 26, fontWeight: 300, lineHeight: 1 }}>)</span>
@@ -62,7 +64,7 @@ export function Layout() {
           </button>
         ) : (
           <>
-            <div style={{ display: "flex", gap: 32, fontSize: 13, color: R.textMid, fontWeight: 500 }}>
+            <div style={{ display: "flex", gap: 32, fontSize: 13, color: R.textMid, fontWeight: 500, justifySelf: "center" }}>
               {NAV_ITEMS.map((item) => {
                 if (item.external) {
                   return (
@@ -79,9 +81,6 @@ export function Layout() {
                 );
               })}
             </div>
-            <Link to="/apply" style={{ fontSize: 13, color: R.teal, padding: "8px 18px", border: `1px solid ${R.teal}`, borderRadius: 6, fontWeight: 600, textDecoration: "none" }}>
-              Apply
-            </Link>
           </>
         )}
       </nav>
@@ -106,13 +105,6 @@ export function Layout() {
               </Link>
             );
           })}
-          <Link to="/apply" onClick={() => setMenuOpen(false)} style={{
-            marginTop: 16, background: R.teal, color: "#0F1215", border: "none",
-            padding: "14px 0", borderRadius: 8, fontWeight: 700, fontSize: 14,
-            textDecoration: "none", textAlign: "center", display: "block",
-          }}>
-            Apply for management
-          </Link>
         </div>
       )}
 

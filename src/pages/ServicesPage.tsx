@@ -65,7 +65,7 @@ export function ServicesPage() {
         <div style={{ maxWidth: 800, margin: "0 auto", padding: px, textAlign: "center" }}>
           <h2 style={{ ...heading(m ? 26 : 34), margin: "0 0 16px" }}>Ready to talk?</h2>
           <p style={{ fontSize: 15, color: R.text, margin: "0 0 28px" }}>Tell us about your property and what you're looking to achieve.</p>
-          <Link to="/apply" style={{ background: R.teal, color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
+          <Link to="/contact" style={{ background: R.teal, color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
             Apply for management <ArrowRight size={15} />
           </Link>
         </div>

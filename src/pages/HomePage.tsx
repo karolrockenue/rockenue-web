@@ -27,7 +27,7 @@ export function HomePage() {
               {HERO.subheadline}
             </p>
             <div style={{ display: "flex", flexDirection: m ? "column" : "row", gap: 14 }}>
-              <Link to="/apply" style={{
+              <Link to="/contact" style={{
                 background: R.teal, color: "#0F1215", border: `1px solid ${R.teal}`,
                 padding: "14px 30px", borderRadius: 8, fontWeight: 700, fontSize: 14,
                 cursor: "pointer", letterSpacing: 0.2, display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, textDecoration: "none",
@@ -202,7 +202,7 @@ export function HomePage() {
           <div style={{ padding: m ? "0" : "72px 0" }}>
             <h2 style={{ ...heading(m ? 28 : 38), margin: "0 0 14px"}}>{CTA.title}</h2>
             <p style={{ fontSize: m ? 14 : 15, color: R.text, margin: "0 0 28px", maxWidth: 460, lineHeight: 1.65 }}>{CTA.body}</p>
-            <Link to="/apply" style={{
+            <Link to="/contact" style={{
               background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`,
               color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14,
               cursor: "pointer", letterSpacing: 0.3, display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none",

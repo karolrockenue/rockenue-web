@@ -151,7 +151,7 @@ export function ApproachPage() {
         <div style={{ maxWidth: 800, margin: "0 auto", padding: px, textAlign: "center" }}>
           <h2 style={{ ...heading(m ? 26 : 36), margin: "0 0 16px" }}>Does your property qualify?</h2>
           <p style={{ fontSize: 15, color: R.text, margin: "0 0 28px", lineHeight: 1.6 }}>We partner with hotels ready to grow. Apply today and hear back within 5 business days.</p>
-          <Link to="/apply" style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
+          <Link to="/contact" style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, color: "#0F1215", border: "none", padding: "15px 36px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}>
             Apply for management <ArrowRight size={15} />
           </Link>
         </div>

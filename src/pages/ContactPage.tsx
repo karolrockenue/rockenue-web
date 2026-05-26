@@ -1,40 +1,109 @@
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { R, heading } from "../theme";
+import { OFFICES, QUALIFIERS, FORM_FIELDS } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
 
-const MUTED = "#8A9099";
+function FormField({ label, placeholder, half, isMobile }: { label: string; placeholder: string; half: boolean; isMobile: boolean }) {
+  return (
+    <div style={{ gridColumn: half && !isMobile ? "span 1" : "span 2" }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: R.text, marginBottom: 6, letterSpacing: 0.3 }}>{label}</div>
+      <div style={{ background: R.heroBg, border: `1px solid ${R.border}`, borderRadius: 8, padding: "12px 14px", fontSize: 13, color: R.textDim }}>
+        {placeholder || label}
+      </div>
+    </div>
+  );
+}
 
 export function ContactPage() {
+  const [formMode, setFormMode] = useState<"apply" | "enquiry">("enquiry");
   const m = useIsMobile();
 
   return (
-    <section style={{ background: R.heroBg, flex: 1, display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", minHeight: m ? "auto" : "calc(100vh - 73px)", padding: m ? "80px 24px" : "140px 24px" }}>
-      <div style={{ maxWidth: 680 }}>
-        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, textTransform: "uppercase", color: R.teal, marginBottom: 40 }}>
-          Contact
-        </div>
-        <h1 style={{ ...heading("clamp(40px, 7vw, 68px)"), lineHeight: 1.05, margin: "0 0 32px" }}>
-          Let's talk.
-        </h1>
-        <p style={{ fontSize: "clamp(16px, 2.4vw, 19px)", fontWeight: 300, lineHeight: 1.6, color: MUTED, margin: "0 auto", maxWidth: 500 }}>
-          Exploring management, selling a property, or after bespoke market intelligence? Reach us directly.
-        </p>
+    <section style={{ background: R.heroBg, borderBottom: `1px solid ${R.border}` }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", minHeight: m ? "auto" : "calc(100vh - 70px)" }}>
 
-        <a
-          href="mailto:info@rockenue.com"
-          style={{ display: "inline-block", margin: "96px 0 14px", fontSize: "clamp(24px, 4.5vw, 40px)", fontWeight: 300, letterSpacing: "-0.01em", textDecoration: "none", background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}
-        >
-          info@rockenue.com
-        </a>
-        <div style={{ fontSize: 13, color: R.textMid }}>We respond within 2 business days.</div>
+        {/* Left — messaging */}
+        <div style={{ padding: m ? "56px 24px 40px" : "80px 48px 80px 64px", display: "flex", flexDirection: "column", justifyContent: "center", borderRight: m ? "none" : `1px solid ${R.border}` }}>
+          <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 2.5, color: R.gold, textTransform: "uppercase", marginBottom: 24 }}>Apply for management</div>
+          <h1 style={{ ...heading(m ? 30 : 44), margin: "0 0 24px" }}>
+            We work with hotels ready for{" "}
+            <span style={{ background: `linear-gradient(135deg, ${R.teal} 0%, ${R.gold} 100%)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+              the next level.
+            </span>
+          </h1>
+          <p style={{ fontSize: 15, color: R.text, lineHeight: 1.7, maxWidth: 440, margin: "0 0 32px" }}>
+            Independent properties with ambition. If your hotel meets our criteria, we move fast — submission to live operation in 30 days.
+          </p>
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 1.5, color: R.textDim, textTransform: "uppercase", marginBottom: 12 }}>Criteria</div>
+          {QUALIFIERS.map((q, i) => (
+            <div key={q} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "6px 0" }}>
+              <div style={{ width: 5, height: 5, borderRadius: "50%", background: i % 2 === 0 ? R.teal : R.gold, marginTop: 6, flexShrink: 0 }} />
+              <span style={{ fontSize: 13, color: R.text, lineHeight: 1.5 }}>{q}</span>
+            </div>
+          ))}
+          <div style={{ height: 1, background: R.border, margin: "32px 0" }} />
+          <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 1.5, color: R.textDim, textTransform: "uppercase", marginBottom: 12 }}>Headquarters</div>
+          <div style={{ fontSize: 13, color: R.text, lineHeight: 1.7, whiteSpace: "pre-line" }}>{OFFICES[0].line}</div>
+        </div>
 
-        <div style={{ marginTop: m ? 72 : 120 }}>
-          <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", color: R.textDim, marginBottom: 12 }}>
-            Headquarters
-          </div>
-          <div style={{ fontSize: 14, color: R.text, lineHeight: 1.8, whiteSpace: "pre-line" }}>
-            {"Dubai, United Arab Emirates\nNad Al Sheba 1"}
+        {/* Right — form */}
+        <div style={{ padding: m ? "0 24px 56px" : "80px 64px 80px 48px", display: "flex", alignItems: "center" }}>
+          <div style={{ width: "100%" }}>
+            <div style={{ background: R.card, border: `1px solid ${R.border}`, borderRadius: 14, overflow: "hidden" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+                {([["enquiry", "General enquiry"], ["apply", "Apply for management"]] as const).map(([key, label]) => {
+                  const active = formMode === key;
+                  return (
+                    <button key={key} onClick={() => setFormMode(key)} style={{
+                      padding: m ? "14px 12px" : "16px 16px", fontSize: m ? 12 : 13, fontWeight: 600, letterSpacing: 0.2,
+                      background: active ? "transparent" : "rgba(0,0,0,0.15)",
+                      color: active ? R.accent : R.textDim,
+                      border: "none", borderBottom: active ? `2px solid ${R.teal}` : `1px solid ${R.border}`,
+                      cursor: "pointer",
+                    }}>
+                      {label}
+                    </button>
+                  );
+                })}
+              </div>
+              <div style={{ padding: m ? "20px 20px 28px" : "28px 32px 36px", display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "grid" }}>
+                  <div style={{ gridArea: "1 / 1", display: "flex", flexDirection: "column", visibility: formMode === "apply" ? "visible" : "hidden", pointerEvents: formMode === "apply" ? "auto" : "none" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: 14, marginBottom: 20 }}>
+                      {FORM_FIELDS.map((f) => <FormField key={f.label} {...f} isMobile={m} />)}
+                    </div>
+                    <div style={{ marginBottom: 24 }}>
+                      <div style={{ fontSize: 11, fontWeight: 600, color: R.text, marginBottom: 6, letterSpacing: 0.3 }}>Tell us about your goals</div>
+                      <div style={{ background: R.heroBg, border: `1px solid ${R.border}`, borderRadius: 8, padding: "12px 14px", fontSize: 13, color: R.textDim, height: 72 }}>What are you looking to achieve?</div>
+                    </div>
+                    <button style={{ background: R.teal, color: "#0F1215", border: "none", width: "100%", padding: "15px 32px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                      Submit application <ArrowRight size={15} />
+                    </button>
+                    <div style={{ textAlign: "center", marginTop: 14 }}><span style={{ fontSize: 12, color: R.textDim }}>Response within 5 business days</span></div>
+                  </div>
+                  <div style={{ gridArea: "1 / 1", display: "flex", flexDirection: "column", visibility: formMode === "enquiry" ? "visible" : "hidden", pointerEvents: formMode === "enquiry" ? "auto" : "none" }}>
+                    <p style={{ fontSize: 14, color: R.text, lineHeight: 1.7, margin: "0 0 24px" }}>Questions about our services, a specific market, or how we work with independent hotels? We're happy to talk — no commitment required.</p>
+                    <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "1fr 1fr", gap: 14, marginBottom: 20 }}>
+                      <FormField label="Your name" placeholder="" half={true} isMobile={m} />
+                      <FormField label="Email address" placeholder="" half={true} isMobile={m} />
+                      <FormField label="Company / Hotel (optional)" placeholder="" half={true} isMobile={m} />
+                      <FormField label="Phone (optional)" placeholder="" half={true} isMobile={m} />
+                    </div>
+                    <div style={{ flex: 1, marginBottom: 24, display: "flex", flexDirection: "column" }}>
+                      <div style={{ fontSize: 11, fontWeight: 600, color: R.text, marginBottom: 6, letterSpacing: 0.3 }}>Message</div>
+                      <div style={{ background: R.heroBg, border: `1px solid ${R.border}`, borderRadius: 8, padding: "12px 14px", fontSize: 13, color: R.textDim, flex: 1, minHeight: 72 }}>How can we help?</div>
+                    </div>
+                    <button style={{ background: R.teal, color: "#0F1215", border: "none", width: "100%", padding: "15px 32px", borderRadius: 8, fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
+                      Send message <ArrowRight size={15} />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
   );

@@ -1,11 +1,10 @@
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { ApproachPage } from "./pages/ApproachPage";
 import { AboutPage } from "./pages/AboutPage";
-import { ApplyPage } from "./pages/ApplyPage";
 import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { TermsPage } from "./pages/TermsPage";
@@ -26,8 +25,8 @@ function AppRoutes() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/approach" element={<ApproachPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/apply" element={<ApplyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/apply" element={<Navigate to="/contact" replace />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/cookies" element={<CookiesPage />} />

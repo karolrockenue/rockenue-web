@@ -1,5 +1,5 @@
 export const HERO = {
-  eyebrow: "Independent hotel operator — London & Dubai",
+  eyebrow: "Independent hotel operator",
   headline: "The hotel management company for independent hotels.",
   subheadline:
     "Built as an alternative to global chains, we give independent hotels the systems, expertise, and scale they need — while preserving their identity.",
@@ -73,6 +73,9 @@ export const MARKETS = [
   "Turkey",
   "Israel",
   "Poland",
+  "Iceland",
+  "Denmark",
+  "Norway",
   "Indonesia",
 ];
 
@@ -157,7 +160,7 @@ export const FOOTER = {
     },
     {
       heading: "Resources",
-      links: ["Market Pulse", "Apply for Management", "Booking Engine Support"],
+      links: ["Market Pulse", "Booking Engine Support"],
     },
   ],
   copyright: "\u00a9 2026 Rockenue International Group. All rights reserved.",
