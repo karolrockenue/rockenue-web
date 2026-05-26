@@ -9,6 +9,7 @@ const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Partnership", to: "/approach" },
+  { label: "Technology", to: "/technology" },
   { label: "Market Pulse", to: "https://www.market-pulse.io", external: true },
   { label: "Contact", to: "/contact" },
 ];
@@ -16,6 +17,7 @@ const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
 const FOOTER_ROUTES: Record<string, string> = {
   Partnership: "/approach",
   Services: "/services",
+  Technology: "/technology",
   Contact: "/contact",
   "Full Service Management": "/services",
   "Leasing & Management": "/services",

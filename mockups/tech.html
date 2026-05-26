@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Technology — Rockenue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --accent: #F3F5F7;
+    --ink: #F4F2EC;
+    --text: #B0B8C4;
+    --textMid: #7A8494;
+    --textDim: #4E5868;
+    --muted: #8A9099;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --heroBg: #111519;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ─── NAV (centered, matching live) ─── */
+  nav { padding: 20px 64px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  @media (max-width: 768px) { nav { display: flex; justify-content: space-between; padding: 14px 24px; } }
+  .logo { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1.4px; justify-self: start; }
+  .logo .p { color: var(--teal); font-size: 26px; font-weight: 300; line-height: 1; }
+  .logo .p.r { color: var(--gold); }
+  .navlinks { display: flex; gap: 32px; font-size: 13px; color: var(--textMid); font-weight: 500; justify-self: center; }
+  .navlinks a.active { color: var(--accent); }
+  .navlinks a:hover { color: var(--accent); }
+  @media (max-width: 768px) { .navlinks { display: none; } .logo .p { font-size: 22px; } }
+
+  /* ─── INTRO BAND ─── */
+  .intro { background: var(--heroBg); border-bottom: 1px solid var(--border); }
+  .intro-wrap { max-width: 1280px; margin: 0 auto; padding: 88px 64px 72px; text-align: center; }
+  @media (max-width: 768px) { .intro-wrap { padding: 56px 24px 40px; } }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; }
+  .eyebrow.teal { color: var(--teal); }
+  h1.h { font-weight: 300; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; font-size: clamp(32px, 5vw, 52px); margin: 0 auto 22px; max-width: 900px; }
+  .sub { font-size: clamp(15px, 2.2vw, 19px); font-weight: 300; line-height: 1.6; color: var(--muted); max-width: 620px; margin: 0 auto; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* ─── SPLIT (two products) ─── */
+  .split { border-bottom: 1px solid var(--border); }
+  .split-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
+  @media (max-width: 860px) { .split-grid { grid-template-columns: 1fr; min-height: auto; } }
+  .panel { padding: 80px 64px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; }
+  .panel-inner { width: 100%; max-width: 540px; }
+  @media (max-width: 768px) { .panel { padding: 56px 24px; } }
+  .panel.left { background: var(--heroBg); border-right: 1px solid var(--border); }
+  .panel.right { background: var(--darkBand); }
+  @media (max-width: 860px) { .panel.left { border-right: none; border-bottom: 1px solid var(--border); } }
+  .panel .top-rule { width: 56px; height: 2px; border-radius: 1px; margin-bottom: 32px; }
+  .panel.left .top-rule { background: var(--teal); }
+  .panel.right .top-rule { background: var(--gold); }
+  .wmark { display: inline-flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 700; letter-spacing: 2px; color: var(--accent); text-transform: uppercase; margin-bottom: 28px; }
+  .wmark .paren { font-weight: 300; font-size: 22px; line-height: 1; }
+  .panel.left .wmark .paren { color: var(--teal); }
+  .panel.right .wmark .paren { color: var(--gold); }
+  .panel h2 { font-weight: 300; color: var(--ink); letter-spacing: -0.02em; line-height: 1.05; font-size: clamp(34px, 4.4vw, 48px); margin: 0 0 18px; }
+  .panel .tagline { font-size: 17px; font-weight: 500; line-height: 1.4; margin: 0 0 24px; }
+  .panel.left .tagline { color: var(--teal); }
+  .panel.right .tagline { color: var(--gold); }
+  .panel .body { font-size: 14.5px; font-weight: 300; line-height: 1.7; color: var(--text); margin: 0 0 28px; max-width: 480px; }
+  .panel .features { list-style: none; margin: 0 0 36px; padding: 0; max-width: 480px; }
+  .panel .features li { display: flex; align-items: flex-start; gap: 12px; padding: 8px 0; font-size: 13.5px; color: var(--text); line-height: 1.55; border-top: 1px solid var(--border); }
+  .panel .features li:first-child { border-top: none; padding-top: 0; }
+  .panel .features li .dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 8px; }
+  .panel.left .features li .dot { background: var(--teal); }
+  .panel.right .features li .dot { background: var(--gold); }
+  .panel .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; letter-spacing: 0.2px; align-self: flex-start; }
+  .panel.left .btn { background: var(--teal); color: #0F1215; }
+  .panel.right .btn { background: var(--gold); color: #0F1215; }
+  .panel .btn-foot { margin-top: 14px; font-size: 12px; color: var(--textDim); }
+
+  /* ─── FOOTER ─── */
+  footer { background: var(--darkBand); padding: 28px 64px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+  @media (max-width: 768px) { footer { padding: 24px; } }
+  footer .c { font-size: 12px; color: var(--textDim); }
+  footer .legal { display: flex; gap: 24px; }
+  footer .legal a { font-size: 12px; color: var(--textDim); }
+</style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav>
+    <a href="#" class="logo"><span class="p">(</span>ROCKENUE<span class="p r">)</span></a>
+    <div class="navlinks">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Partnership</a>
+      <a href="#" class="active">Technology</a>
+      <a href="#">Contact</a>
+    </div>
+    <div></div>
+  </nav>
+
+  <!-- ═══ INTRO ═══ -->
+  <section class="intro">
+    <div class="intro-wrap">
+      <div class="eyebrow">Platforms</div>
+      <h1 class="h">Our technology.</h1>
+      <p class="sub">Market intelligence and direct bookings.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SPLIT — two products ═══ -->
+  <section class="split">
+    <div class="split-grid">
+
+      <!-- Market Pulse (left, teal) -->
+      <div class="panel left">
+        <div class="panel-inner">
+          <div class="top-rule"></div>
+          <div class="wmark"><span class="paren">(</span>MARKET&nbsp;PULSE<span class="paren">)</span></div>
+          <h2>Market Pulse</h2>
+          <div class="tagline">Market intelligence platform.</div>
+          <p class="body">Aggregates competitor rates, OTA signals, event calendars, and flight-search data into a single forward-looking view. Runs on dedicated GPU infrastructure; the dataset grows with every signal collected.</p>
+          <ul class="features">
+            <li><span class="dot"></span>Competitor and OTA rate monitoring</li>
+            <li><span class="dot"></span>Forward demand modelling with event signals</li>
+            <li><span class="dot"></span>Comp-set benchmarking up to 90 days out</li>
+            <li><span class="dot"></span>Bespoke market reports on request</li>
+          </ul>
+          <a href="https://www.market-pulse.io" target="_blank" rel="noopener noreferrer" class="btn">Visit Market Pulse →</a>
+          <div class="btn-foot">market-pulse.io</div>
+        </div>
+      </div>
+
+      <!-- Booking Engine (right, gold) -->
+      <div class="panel right">
+        <div class="panel-inner">
+          <div class="top-rule"></div>
+          <div class="wmark"><span class="paren">(</span>DIRECT&nbsp;BOOKING<span class="paren">)</span></div>
+          <h2>Direct Booking Platform</h2>
+          <div class="tagline">Hosts direct bookings for hotels in the network.</div>
+          <p class="body">Mobile-first checkout, integrated with the channel manager and PMS so direct reservations land in the same operational stack as OTA bookings. Multi-currency and multi-language across every property.</p>
+          <ul class="features">
+            <li><span class="dot"></span>Mobile-first guest checkout</li>
+            <li><span class="dot"></span>Multi-currency and multi-language</li>
+            <li><span class="dot"></span>Cloudbeds and Mews integrations</li>
+            <li><span class="dot"></span>Real-time inventory and rate parity</li>
+          </ul>
+          <a href="https://tech.rockenue.com" target="_blank" rel="noopener noreferrer" class="btn">Visit Direct Booking →</a>
+          <div class="btn-foot">tech.rockenue.com</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <span class="c">© 2026 Rockenue International Group. All rights reserved.</span>
+    <div class="legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+  </footer>
+
+</body>
+</html>

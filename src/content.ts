@@ -27,10 +27,10 @@ export const PRESENCE = {
 export const NAV_LINKS = ["Services", "Portfolio", "Markets", "Market Pulse", "About"];
 
 export const STATS = [
-  { value: "51", label: "Properties under management" },
-  { value: "1,866", label: "Rooms across the portfolio" },
+  { value: "58", label: "Properties under management" },
+  { value: "2,500", label: "Rooms across the portfolio" },
   { value: "#1", label: "Independent operator on Booking.com London" },
-  { value: "£50M+", label: "Revenue under management" },
+  { value: "£75M+", label: "Revenue under management" },
 ];
 
 export const SERVICES = [
@@ -147,7 +147,7 @@ export const FOOTER = {
   columns: [
     {
       heading: "Company",
-      links: ["Partnership", "Services", "Contact"],
+      links: ["Partnership", "Services", "Technology", "Contact"],
     },
     {
       heading: "Services",

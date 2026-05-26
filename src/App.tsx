@@ -5,6 +5,7 @@ import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
 import { ApproachPage } from "./pages/ApproachPage";
 import { AboutPage } from "./pages/AboutPage";
+import { TechnologyPage } from "./pages/TechnologyPage";
 import { ContactPage } from "./pages/ContactPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { TermsPage } from "./pages/TermsPage";
@@ -25,6 +26,7 @@ function AppRoutes() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/approach" element={<ApproachPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/apply" element={<Navigate to="/contact" replace />} />
         <Route path="/privacy" element={<PrivacyPage />} />
