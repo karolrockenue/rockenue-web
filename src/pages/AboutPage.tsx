@@ -61,7 +61,7 @@ export function AboutPage() {
         <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: 2.5, textTransform: "uppercase", color: R.teal, marginBottom: 18 }}>
           Leadership
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(auto-fit, minmax(260px, 1fr))", gap: m ? 44 : "56px 32px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: m ? "1fr" : "repeat(3, 1fr)", gap: m ? 44 : "56px 32px" }}>
           {TEAM.map((p) => (
             <div key={p.name} style={{ textAlign: "center" }}>
               <img
