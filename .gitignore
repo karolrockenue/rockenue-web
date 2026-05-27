@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Sensitive one-off correspondence (real bank account details, etc.)
+# Keep these local-only; export to PDF, send, then delete.
+mockups/letter-bank-details*.html

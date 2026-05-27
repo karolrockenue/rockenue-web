@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — Facebook brand assets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --ink: #F4F2EC;
+    --muted: #8A9099;
+    --textDim: #5F666E;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --darkBand: #0F1215;
+    --heroBg: #111519;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+  .topbar { position: sticky; top: 0; z-index: 50; background: var(--darkBand); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .topbar .brand { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 300; }
+  .topbar .brand .paren { color: var(--teal); font-size: 20px; }
+  .topbar .brand .paren.r { color: var(--gold); }
+  .topbar .note { font-size: 11px; color: var(--textDim); }
+
+  .head { padding: 80px 64px 24px; max-width: 1280px; margin: 0 auto; text-align: center; }
+  @media (max-width: 760px) { .head { padding: 56px 24px 16px; } }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  h1.h { font-weight: 300; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; font-size: clamp(30px, 4.4vw, 44px); margin: 0 0 14px; }
+  .sub { font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--muted); max-width: 620px; margin: 0 auto; }
+
+  section.block { max-width: 1280px; margin: 0 auto; padding: 48px 64px; }
+  @media (max-width: 760px) { section.block { padding: 32px 24px; } }
+  .block-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+  .block-head h2 { font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.2px; }
+  .block-head .dim { font-size: 11px; color: var(--textDim); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+
+  .grid { display: grid; gap: 24px; }
+  .grid.profile { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .grid.cover { grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); }
+  .grid.post { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .card .lab { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+  .card .lab .n { color: var(--teal); margin-right: 6px; }
+  .card .preview { background: #0A0C0F; border-radius: 8px; padding: 14px; display: flex; align-items: center; justify-content: center; }
+  .card .preview canvas { display: block; max-width: 100%; height: auto; border-radius: 4px; }
+  .card .profile-preview canvas { border-radius: 50% !important; box-shadow: 0 0 0 3px rgba(255,255,255,0.06); }
+  .card .btn { background: var(--teal); color: #0F1215; font-weight: 700; font-size: 12px; padding: 9px 14px; border: none; border-radius: 6px; cursor: pointer; letter-spacing: 0.2px; text-align: center; }
+  .card .btn:hover { filter: brightness(1.07); }
+  .card .desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand"><span class="paren">(</span>ROCKENUE<span class="paren r">)</span><span style="color:var(--textDim);font-size:12px;margin-left:6px;">· Facebook brand assets</span></div>
+    <div class="note">canvas-rendered · right-click → save image, or use the Download button</div>
+  </div>
+
+  <div class="head">
+    <div class="eyebrow">Facebook</div>
+    <h1 class="h">Brand assets.</h1>
+    <p class="sub">Profile picture, page cover, and post templates rendered at the exact pixel sizes Facebook expects.</p>
+  </div>
+
+  <!-- ════════ PROFILE PICTURES ════════ -->
+  <section class="block">
+    <div class="block-head">
+      <h2>Profile picture</h2>
+      <div class="dim">360 × 360 · uploads as square · Facebook displays as a circle on pages</div>
+    </div>
+    <div class="grid profile" id="grid-profile"></div>
+  </section>
+
+  <!-- ════════ COVER PHOTOS ════════ -->
+  <section class="block">
+    <div class="block-head">
+      <h2>Page cover</h2>
+      <div class="dim">1640 × 924 · upload at this size; Facebook crops to 820 × 312 (desktop) and 640 × 360 (mobile)</div>
+    </div>
+    <div class="grid cover" id="grid-cover"></div>
+  </section>
+
+  <!-- ════════ POSTS ════════ -->
+  <section class="block">
+    <div class="block-head">
+      <h2>Square post templates</h2>
+      <div class="dim">1080 × 1080 · feed post graphic</div>
+    </div>
+    <div class="grid post" id="grid-post"></div>
+  </section>
+
+<script>
+  // ─────────────────────────────────────────────────────────
+  // Brand palette
+  const C = {
+    bg: "#14181D",
+    heroBg: "#111519",
+    darkBand: "#0F1215",
+    card: "#1C2228",
+    ink: "#F4F2EC",
+    inkCool: "#F3F5F7",
+    paperInk: "#14181D",
+    muted: "#8A9099",
+    dim: "#7A8494",
+    teal: "#38C6BA",
+    gold: "#C8A66E",
+    border: "#2A3240",
+  };
+
+  // ─── helpers ────────────────────────────────────────────
+  function setSize(canvas, w, h) {
+    canvas.width = w; canvas.height = h;
+    canvas.style.width = Math.min(w, 360) + "px";
+    canvas.style.maxWidth = "100%";
+  }
+  function fill(ctx, color, w, h) { ctx.fillStyle = color; ctx.fillRect(0, 0, w, h); }
+  function gradient(ctx, w, h) {
+    const g = ctx.createLinearGradient(0, 0, w, h);
+    g.addColorStop(0, C.teal); g.addColorStop(1, C.gold); return g;
+  }
+  // draw the (ROCKENUE) wordmark centered at (cx,cy)
+  function drawWordmark(ctx, cx, cy, opts) {
+    const { fontSize, leftParenColor, rightParenColor, textColor, parenScale = 1.6, letterSpacing = 0.1, gap = 0 } = opts;
+    const text = "ROCKENUE";
+    const parenSize = Math.round(fontSize * parenScale);
+    ctx.textAlign = "left";
+    ctx.textBaseline = "alphabetic";
+
+    // measure ROCKENUE with letter-spacing
+    ctx.font = `700 ${fontSize}px Inter`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = `${letterSpacing * fontSize}px`;
+    const textWidth = ctx.measureText(text).width;
+
+    // measure parens
+    ctx.font = `300 ${parenSize}px Inter`;
+    const leftWidth = ctx.measureText("(").width;
+    const rightWidth = ctx.measureText(")").width;
+    const total = leftWidth + gap + textWidth + gap + rightWidth;
+    const baseline = cy + fontSize * 0.34;
+    let x = cx - total / 2;
+
+    // left paren
+    ctx.font = `300 ${parenSize}px Inter`;
+    ctx.fillStyle = leftParenColor;
+    ctx.fillText("(", x, baseline);
+    x += leftWidth + gap;
+
+    // ROCKENUE
+    ctx.font = `700 ${fontSize}px Inter`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = `${letterSpacing * fontSize}px`;
+    ctx.fillStyle = textColor;
+    ctx.fillText(text, x, baseline);
+    x += textWidth + gap;
+
+    // right paren
+    ctx.font = `300 ${parenSize}px Inter`;
+    ctx.fillStyle = rightParenColor;
+    ctx.fillText(")", x, baseline);
+  }
+  // draw small caption text centered
+  function drawCaption(ctx, cx, cy, text, opts = {}) {
+    const { fontSize = 18, weight = 600, ls = 2.5, color = C.muted, transform } = opts;
+    ctx.font = `${weight} ${fontSize}px Inter`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = `${ls}px`;
+    ctx.fillStyle = color; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    const display = transform === "upper" ? text.toUpperCase() : text;
+    ctx.fillText(display, cx, cy);
+  }
+  // wordwrap helper
+  function wrapLines(ctx, text, maxWidth) {
+    const words = text.split(" "); const lines = []; let line = "";
+    for (const w of words) {
+      const test = line ? line + " " + w : w;
+      if (ctx.measureText(test).width > maxWidth && line) { lines.push(line); line = w; }
+      else line = test;
+    }
+    if (line) lines.push(line);
+    return lines;
+  }
+
+  // ─────────────────────────────────────────────────────────
+  // PROFILE VARIANTS (360 × 360)
+  const PROFILE = [
+    { name: "dark", label: "Dark", desc: "Site-matching dark background; teal/gold parens; ivory wordmark.",
+      draw(ctx, w, h) {
+        fill(ctx, C.bg, w, h);
+        drawWordmark(ctx, w / 2, h / 2, { fontSize: 30, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.7, letterSpacing: 0.1 });
+      }
+    },
+    { name: "teal", label: "Teal", desc: "Solid teal background — most recognisable in a feed.",
+      draw(ctx, w, h) {
+        fill(ctx, C.teal, w, h);
+        drawWordmark(ctx, w / 2, h / 2, { fontSize: 28, leftParenColor: C.bg, rightParenColor: C.gold, textColor: C.bg, parenScale: 1.7, letterSpacing: 0.1 });
+      }
+    },
+    { name: "gold", label: "Gold", desc: "Solid gold background; dark text and teal paren for contrast.",
+      draw(ctx, w, h) {
+        fill(ctx, C.gold, w, h);
+        drawWordmark(ctx, w / 2, h / 2, { fontSize: 28, leftParenColor: C.teal, rightParenColor: C.bg, textColor: C.bg, parenScale: 1.7, letterSpacing: 0.1 });
+      }
+    },
+    { name: "ivory", label: "Ivory", desc: "Warm off-white background; dark wordmark; teal/gold parens.",
+      draw(ctx, w, h) {
+        fill(ctx, C.ink, w, h);
+        drawWordmark(ctx, w / 2, h / 2, { fontSize: 28, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.bg, parenScale: 1.7, letterSpacing: 0.1 });
+      }
+    },
+    { name: "gradient", label: "Gradient", desc: "Teal → gold gradient; dark wordmark sits on top.",
+      draw(ctx, w, h) {
+        ctx.fillStyle = gradient(ctx, w, h); ctx.fillRect(0, 0, w, h);
+        drawWordmark(ctx, w / 2, h / 2, { fontSize: 28, leftParenColor: C.bg, rightParenColor: C.bg, textColor: C.bg, parenScale: 1.7, letterSpacing: 0.1 });
+      }
+    },
+    { name: "monogram-dark", label: "Monogram (dark)", desc: "Just `(R)` — works best as a small avatar at 36 × 36.",
+      draw(ctx, w, h) {
+        fill(ctx, C.bg, w, h);
+        // big (R)
+        ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        const fontSize = 180;
+        ctx.font = `300 ${Math.round(fontSize * 1.4)}px Inter`;
+        const lp = "("; const rp = ")";
+        const lw = ctx.measureText(lp).width;
+        ctx.font = `700 ${fontSize}px Inter`;
+        const rW = ctx.measureText("R").width;
+        ctx.font = `300 ${Math.round(fontSize * 1.4)}px Inter`;
+        const rw = ctx.measureText(rp).width;
+        const total = lw + rW + rw + 18;
+        let x = w / 2 - total / 2; const y = h / 2 + fontSize * 0.34;
+        ctx.font = `300 ${Math.round(fontSize * 1.4)}px Inter`;
+        ctx.fillStyle = C.teal; ctx.fillText(lp, x, y);
+        x += lw + 9;
+        ctx.font = `700 ${fontSize}px Inter`;
+        ctx.fillStyle = C.ink; ctx.fillText("R", x, y);
+        x += rW + 9;
+        ctx.font = `300 ${Math.round(fontSize * 1.4)}px Inter`;
+        ctx.fillStyle = C.gold; ctx.fillText(rp, x, y);
+      }
+    },
+  ];
+
+  // ─────────────────────────────────────────────────────────
+  // COVER VARIANTS (1640 × 924)
+  const COVER = [
+    { name: "dark-centered", label: "Dark · centered", desc: "Big logo + tagline, centered. Quiet and editorial.",
+      draw(ctx, w, h) {
+        fill(ctx, C.heroBg, w, h);
+        drawWordmark(ctx, w / 2, h / 2 - 18, { fontSize: 96, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.75, letterSpacing: 0.08 });
+        drawCaption(ctx, w / 2, h / 2 + 96, "Hotel management company", { fontSize: 20, weight: 500, ls: 5, color: C.gold, transform: "upper" });
+      }
+    },
+    { name: "dark-stats", label: "Dark · stats", desc: "Logo + 3 portfolio stats. Strong, factual.",
+      draw(ctx, w, h) {
+        fill(ctx, C.heroBg, w, h);
+        drawWordmark(ctx, w / 2, h / 2 - 130, { fontSize: 72, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.75, letterSpacing: 0.08 });
+        // stats row (3 stats)
+        const stats = [["58", "Properties"], ["2,500", "Rooms"], ["£75M+", "Revenue under management"]];
+        const cy = h / 2 + 90; const colW = w / 3;
+        stats.forEach((s, i) => {
+          const cx = colW * (i + 0.5);
+          // big number — gradient text via pattern (fallback gold)
+          ctx.fillStyle = (i === 1) ? C.gold : C.teal;
+          ctx.font = `300 88px Inter`;
+          if ("letterSpacing" in ctx) ctx.letterSpacing = `-1.5px`;
+          ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          ctx.fillText(s[0], cx, cy);
+          // label
+          ctx.font = `500 18px Inter`;
+          if ("letterSpacing" in ctx) ctx.letterSpacing = `1.5px`;
+          ctx.fillStyle = C.muted;
+          ctx.fillText(s[1].toUpperCase(), cx, cy + 78);
+        });
+      }
+    },
+    { name: "gradient-split", label: "Gradient split", desc: "Teal→gold gradient panel left; dark right with the logo.",
+      draw(ctx, w, h) {
+        fill(ctx, C.heroBg, w, h);
+        // gradient on left third
+        const g = ctx.createLinearGradient(0, 0, w * 0.42, h);
+        g.addColorStop(0, C.teal); g.addColorStop(1, C.gold);
+        ctx.fillStyle = g; ctx.fillRect(0, 0, w * 0.42, h);
+        // logo on the right area centered
+        drawWordmark(ctx, w * 0.71, h / 2 - 14, { fontSize: 78, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.75, letterSpacing: 0.08 });
+        drawCaption(ctx, w * 0.71, h / 2 + 76, "The hotel management company", { fontSize: 22, weight: 300, ls: 0, color: C.muted });
+      }
+    },
+    { name: "editorial", label: "Editorial", desc: "Logo top-left; tagline bottom-left; lots of white space.",
+      draw(ctx, w, h) {
+        fill(ctx, C.heroBg, w, h);
+        // top-left logo
+        ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        const fs = 64;
+        const px = 110, py = 130;
+        // emulate left-aligned wordmark
+        ctx.font = `300 ${Math.round(fs * 1.75)}px Inter`;
+        const lpW = ctx.measureText("(").width;
+        ctx.fillStyle = C.teal; ctx.fillText("(", px, py + fs * 0.34);
+        ctx.font = `700 ${fs}px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `${0.08 * fs}px`;
+        ctx.fillStyle = C.ink;
+        ctx.fillText("ROCKENUE", px + lpW, py + fs * 0.34);
+        const tw = ctx.measureText("ROCKENUE").width;
+        ctx.font = `300 ${Math.round(fs * 1.75)}px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `0px`;
+        ctx.fillStyle = C.gold;
+        ctx.fillText(")", px + lpW + tw, py + fs * 0.34);
+        // bottom-left tagline
+        ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        ctx.font = `300 38px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `-0.5px`;
+        ctx.fillStyle = C.ink;
+        ctx.fillText("The hotel management company.", 110, h - 220);
+        ctx.font = `500 16px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `3px`;
+        ctx.fillStyle = C.gold;
+        ctx.fillText("HOTEL MANAGEMENT · 9 MARKETS", 110, h - 160);
+      }
+    },
+  ];
+
+  // ─────────────────────────────────────────────────────────
+  // POST VARIANTS (1080 × 1080)
+  const POSTS = [
+    { name: "brand", label: "Brand", desc: "Just the logo. Use as a portrait, profile-style post.",
+      draw(ctx, w, h) {
+        fill(ctx, C.heroBg, w, h);
+        drawWordmark(ctx, w / 2, h / 2 - 12, { fontSize: 78, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.75, letterSpacing: 0.08 });
+        drawCaption(ctx, w / 2, h / 2 + 82, "Hotel management company", { fontSize: 19, weight: 500, ls: 4, color: C.gold, transform: "upper" });
+      }
+    },
+    { name: "stat", label: "Stat", desc: "Big number + label. Good for milestones (58 hotels, 2,500 rooms…).",
+      draw(ctx, w, h) {
+        fill(ctx, C.bg, w, h);
+        // top eyebrow
+        drawCaption(ctx, w / 2, 150, "Network", { fontSize: 22, weight: 500, ls: 4, color: C.teal, transform: "upper" });
+        // huge gradient number
+        const g = ctx.createLinearGradient(w * 0.2, 0, w * 0.8, 0);
+        g.addColorStop(0, C.teal); g.addColorStop(1, C.gold);
+        ctx.fillStyle = g;
+        ctx.font = `300 320px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `-12px`;
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("58", w / 2, h / 2);
+        // label
+        ctx.font = `300 36px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `-0.5px`;
+        ctx.fillStyle = C.ink;
+        ctx.fillText("Hotels in the network.", w / 2, h / 2 + 200);
+        // bottom logo
+        drawWordmark(ctx, w / 2, h - 110, { fontSize: 28, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.75, letterSpacing: 0.1 });
+      }
+    },
+    { name: "quote", label: "Quote", desc: "A line of brand copy framed by giant parens. Editorial.",
+      draw(ctx, w, h) {
+        fill(ctx, C.heroBg, w, h);
+        // giant left and right parens
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.font = `300 380px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `0px`;
+        ctx.fillStyle = C.teal; ctx.fillText("(", 165, h / 2);
+        ctx.fillStyle = C.gold; ctx.fillText(")", w - 165, h / 2);
+        // quote text wrapped
+        ctx.font = `300 44px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `-0.5px`;
+        ctx.fillStyle = C.ink;
+        const text = "Built as an alternative to global chains.";
+        const lines = wrapLines(ctx, text, w * 0.6);
+        const lineH = 56; const startY = h / 2 - (lines.length - 1) * lineH / 2;
+        lines.forEach((line, i) => ctx.fillText(line, w / 2, startY + i * lineH));
+        // bottom logo
+        drawWordmark(ctx, w / 2, h - 110, { fontSize: 26, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.muted, parenScale: 1.75, letterSpacing: 0.1 });
+      }
+    },
+    { name: "announcement", label: "Announcement", desc: "For market launches / milestones. Eyebrow + headline + region.",
+      draw(ctx, w, h) {
+        fill(ctx, C.bg, w, h);
+        // top
+        drawCaption(ctx, w / 2, 200, "Now operating in", { fontSize: 26, weight: 500, ls: 5, color: C.gold, transform: "upper" });
+        // headline
+        ctx.font = `300 130px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `-3px`;
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillStyle = C.ink;
+        ctx.fillText("The Nordics.", w / 2, h / 2 + 10);
+        // sub
+        ctx.font = `300 28px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `-0.3px`;
+        ctx.fillStyle = C.muted;
+        ctx.fillText("Iceland · Denmark · Norway", w / 2, h / 2 + 110);
+        // bottom logo
+        drawWordmark(ctx, w / 2, h - 110, { fontSize: 28, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink, parenScale: 1.75, letterSpacing: 0.1 });
+      }
+    },
+  ];
+
+  // ─────────────────────────────────────────────────────────
+  // RENDER
+  function makeCard({ index, w, h, name, label, desc, draw, group }) {
+    const card = document.createElement("div"); card.className = "card";
+    const lab = document.createElement("div"); lab.className = "lab";
+    lab.innerHTML = `<span class="n">${String(index + 1).padStart(2, "0")}</span>${label}`;
+    const preview = document.createElement("div"); preview.className = "preview" + (group === "profile" ? " profile-preview" : "");
+    const canvas = document.createElement("canvas"); setSize(canvas, w, h);
+    preview.appendChild(canvas);
+    const descEl = document.createElement("div"); descEl.className = "desc"; descEl.textContent = desc;
+    const btn = document.createElement("button"); btn.className = "btn";
+    const filename = `rockenue-fb-${group}-${name}.png`;
+    btn.textContent = `Download · ${w}×${h}`;
+    btn.onclick = () => {
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a"); a.href = url; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+        URL.revokeObjectURL(url);
+      }, "image/png");
+    };
+    card.appendChild(lab); card.appendChild(preview); card.appendChild(descEl); card.appendChild(btn);
+    // draw
+    const ctx = canvas.getContext("2d");
+    draw(ctx, w, h);
+    return card;
+  }
+
+  document.fonts.ready.then(() => {
+    const pGrid = document.getElementById("grid-profile");
+    PROFILE.forEach((v, i) => pGrid.appendChild(makeCard({ index: i, w: 360, h: 360, group: "profile", ...v })));
+
+    const cGrid = document.getElementById("grid-cover");
+    COVER.forEach((v, i) => cGrid.appendChild(makeCard({ index: i, w: 1640, h: 924, group: "cover", ...v })));
+
+    const postGrid = document.getElementById("grid-post");
+    POSTS.forEach((v, i) => postGrid.appendChild(makeCard({ index: i, w: 1080, h: 1080, group: "post", ...v })));
+  });
+</script>
+
+</body>
+</html>

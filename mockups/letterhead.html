@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — Letterhead · 4 concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --ink: #F4F2EC;
+    --paper: #FFFFFF;
+    --paper-ink: #14181D;     /* dark text on paper */
+    --paper-muted: #6B7280;   /* muted grey on paper */
+    --paper-rule: #E5E7EB;    /* hairline on paper */
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+  .topbar { position: sticky; top: 0; z-index: 50; background: var(--darkBand); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .topbar .brand { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 300; }
+  .topbar .brand .paren { color: var(--teal); font-size: 20px; }
+  .topbar .brand .paren.r { color: var(--gold); }
+  .topbar .note { font-size: 11px; color: #4E5868; }
+
+  .deck { max-width: 880px; margin: 0 auto; padding: 56px 24px 96px; display: flex; flex-direction: column; gap: 56px; }
+  .ribbon { display: flex; align-items: baseline; gap: 12px; }
+  .ribbon .n { font-size: 11px; font-weight: 700; letter-spacing: 2px; color: #0F1215; background: var(--grad); padding: 4px 10px; border-radius: 5px; }
+  .ribbon .t { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .ribbon .d { font-size: 11px; color: #5F666E; }
+
+  /* ─── PAPER (A4 portrait, 210:297) ─── */
+  .sheet {
+    background: var(--paper);
+    color: var(--paper-ink);
+    width: 100%;
+    aspect-ratio: 210 / 297;
+    margin-top: 16px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 4px 12px rgba(0,0,0,0.30);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* paper body content (the letter) — shared */
+  .letter {
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--paper-ink);
+    font-weight: 300;
+  }
+  .letter .date { font-size: 11px; color: var(--paper-muted); margin-bottom: 28px; }
+  .letter .recipient { font-size: 11px; margin-bottom: 28px; line-height: 1.55; }
+  .letter p { margin: 0 0 12px; }
+  .letter .sig { margin-top: 28px; }
+  .letter .sig .name { font-weight: 600; }
+  .letter .sig .title { color: var(--paper-muted); font-size: 10.5px; }
+
+  /* ─── Concept 01 · Minimal editorial ─── */
+  .c01 .head { display: flex; justify-content: space-between; align-items: flex-start; padding: 36px 56px 0; }
+  .c01 .head .logo { display: inline-flex; align-items: baseline; gap: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1.4px; color: var(--paper-ink); }
+  .c01 .head .logo .pl { color: var(--teal); font-size: 22px; font-weight: 300; line-height: 1; }
+  .c01 .head .logo .pr { color: var(--gold); font-size: 22px; font-weight: 300; line-height: 1; }
+  .c01 .head .addr { text-align: right; font-size: 9.5px; color: var(--paper-muted); line-height: 1.7; white-space: pre-line; }
+  .c01 .body { padding: 56px 56px 32px; }
+  .c01 .foot { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 56px 28px; border-top: 1px solid var(--paper-rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; font-size: 8.5px; color: var(--paper-muted); }
+  .c01 .foot .col { line-height: 1.6; }
+  .c01 .foot .col strong { color: var(--paper-ink); font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; font-size: 7.5px; display: block; margin-bottom: 4px; }
+
+  /* ─── Concept 02 · Bold top band ─── */
+  .c02 .head { background: #14181D; color: var(--ink); padding: 22px 56px; display: flex; justify-content: space-between; align-items: center; }
+  .c02 .head .logo { display: inline-flex; align-items: baseline; gap: 4px; font-size: 13px; font-weight: 700; letter-spacing: 1.4px; color: var(--ink); }
+  .c02 .head .logo .pl { color: var(--teal); font-size: 24px; font-weight: 300; line-height: 1; }
+  .c02 .head .logo .pr { color: var(--gold); font-size: 24px; font-weight: 300; line-height: 1; }
+  .c02 .head .tag { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); }
+  .c02 .body { padding: 44px 56px 32px; }
+  .c02 .foot { position: absolute; bottom: 0; left: 0; right: 0; background: #14181D; color: #B0B8C4; padding: 14px 56px; font-size: 8.5px; letter-spacing: 0.3px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .c02 .foot .meta { display: flex; gap: 22px; }
+  .c02 .foot .meta span { display: inline-flex; gap: 6px; }
+  .c02 .foot .meta span b { color: var(--ink); font-weight: 600; }
+
+  /* ─── Concept 03 · Centered logo, footer grid ─── */
+  .c03 .head { padding: 40px 56px 22px; text-align: center; }
+  .c03 .head .logo { display: inline-flex; align-items: baseline; gap: 5px; font-size: 14px; font-weight: 700; letter-spacing: 1.6px; color: var(--paper-ink); }
+  .c03 .head .logo .pl { color: var(--teal); font-size: 28px; font-weight: 300; line-height: 1; }
+  .c03 .head .logo .pr { color: var(--gold); font-size: 28px; font-weight: 300; line-height: 1; }
+  .c03 .head .tag { font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase; color: var(--paper-muted); margin-top: 8px; }
+  .c03 .head .rule { width: 56px; height: 1px; background: var(--gold); margin: 16px auto 0; }
+  .c03 .body { padding: 36px 56px 32px; }
+  .c03 .foot { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 56px 26px; border-top: 1px solid var(--paper-rule); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; font-size: 8.5px; color: var(--paper-muted); text-align: center; }
+  .c03 .foot .col { line-height: 1.65; }
+  .c03 .foot .col strong { color: var(--paper-ink); font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; font-size: 7.5px; display: block; margin-bottom: 4px; }
+
+  /* ─── Concept 04 · Side rail accent ─── */
+  .c04 .rail { position: absolute; left: 0; top: 0; bottom: 0; width: 28px; background: var(--grad); }
+  .c04 .head { padding: 38px 56px 0 60px; display: flex; justify-content: space-between; align-items: flex-start; }
+  .c04 .head .logo { display: inline-flex; align-items: baseline; gap: 4px; font-size: 12px; font-weight: 700; letter-spacing: 1.4px; color: var(--paper-ink); }
+  .c04 .head .logo .pl { color: var(--teal); font-size: 22px; font-weight: 300; line-height: 1; }
+  .c04 .head .logo .pr { color: var(--gold); font-size: 22px; font-weight: 300; line-height: 1; }
+  .c04 .head .meta { text-align: right; font-size: 9.5px; color: var(--paper-muted); line-height: 1.6; }
+  .c04 .head .meta strong { color: var(--paper-ink); font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase; font-size: 7.5px; display: block; margin-bottom: 3px; }
+  .c04 .body { padding: 50px 56px 32px 60px; }
+  .c04 .foot { position: absolute; bottom: 0; left: 28px; right: 0; padding: 14px 56px 22px; font-size: 8.5px; color: var(--paper-muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .c04 .foot .left, .c04 .foot .right { line-height: 1.6; }
+  .c04 .foot .left strong { color: var(--paper-ink); font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand"><span class="paren">(</span>ROCKENUE<span class="paren r">)</span><span style="color:#5F666E;font-size:12px;margin-left:6px;">· Letterhead — 4 concepts</span></div>
+    <div class="note">A4 portrait · same sample letter in each · pick the look</div>
+  </div>
+
+  <div class="deck">
+
+    <!-- ═══ CONCEPT 01 · MINIMAL EDITORIAL ═══ -->
+    <div>
+      <div class="ribbon"><span class="n">01</span><span class="t">Minimal editorial</span><span class="d">tiny logo top-left · address top-right · 3-column footer</span></div>
+      <div class="sheet c01">
+        <div class="head">
+          <div class="logo"><span class="pl">(</span>ROCKENUE<span class="pr">)</span></div>
+          <div class="addr">Rockenue International Group
+5842+632 Grand Stand
+Nad Al Sheba 1
+Dubai · UAE</div>
+        </div>
+        <div class="body">
+          <div class="letter">
+            <div class="date">27 May 2026</div>
+            <div class="recipient">Mr. John Smith<br>The Sunset Hotel<br>123 Beach Road<br>28001 Madrid, Spain</div>
+            <p>Dear Mr. Smith,</p>
+            <p>Thank you for your interest in joining the Rockenue network. We have reviewed the materials for The Sunset Hotel and would like to invite you to the next stage of our process.</p>
+            <p>Our network operates 58 properties across 9 markets, with a proprietary technology stack powering pricing, distribution, and direct-booking infrastructure. Based on our initial assessment, your property appears to fit our partnership criteria, and we believe there is meaningful upside to explore together.</p>
+            <p>The next step is a commercial review with our team. Please find attached a draft term sheet for your reference; if you would like to proceed, kindly confirm by reply.</p>
+            <p class="sig">Yours sincerely,</p>
+            <div class="sig"><div class="name">Karol Zymek</div><div class="title">Founder &amp; CEO</div></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="col"><strong>Office</strong>Nad Al Sheba 1<br>Dubai · UAE</div>
+          <div class="col"><strong>Contact</strong>info@rockenue.com<br>rockenue.com</div>
+          <div class="col"><strong>Registered</strong>Rockenue International Group<br>Trade Licence No. XXXXX</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONCEPT 02 · BOLD TOP BAND ═══ -->
+    <div>
+      <div class="ribbon"><span class="n">02</span><span class="t">Bold top band</span><span class="d">dark header + dark footer · most "branded"</span></div>
+      <div class="sheet c02">
+        <div class="head">
+          <div class="logo"><span class="pl">(</span>ROCKENUE<span class="pr">)</span></div>
+          <div class="tag">Hotel management · London → Dubai</div>
+        </div>
+        <div class="body">
+          <div class="letter">
+            <div class="date">27 May 2026</div>
+            <div class="recipient">Mr. John Smith<br>The Sunset Hotel<br>123 Beach Road<br>28001 Madrid, Spain</div>
+            <p>Dear Mr. Smith,</p>
+            <p>Thank you for your interest in joining the Rockenue network. We have reviewed the materials for The Sunset Hotel and would like to invite you to the next stage of our process.</p>
+            <p>Our network operates 58 properties across 9 markets, with a proprietary technology stack powering pricing, distribution, and direct-booking infrastructure. Based on our initial assessment, your property appears to fit our partnership criteria, and we believe there is meaningful upside to explore together.</p>
+            <p>The next step is a commercial review with our team. Please find attached a draft term sheet for your reference; if you would like to proceed, kindly confirm by reply.</p>
+            <p class="sig">Yours sincerely,</p>
+            <div class="sig"><div class="name">Karol Zymek</div><div class="title">Founder &amp; CEO</div></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="meta">
+            <span><b>Office</b>&nbsp;Nad Al Sheba 1, Dubai</span>
+            <span><b>Contact</b>&nbsp;info@rockenue.com</span>
+            <span><b>Web</b>&nbsp;rockenue.com</span>
+          </div>
+          <div>Rockenue International Group · Trade Licence No. XXXXX</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONCEPT 03 · CENTERED LOGO ═══ -->
+    <div>
+      <div class="ribbon"><span class="n">03</span><span class="t">Centered logo</span><span class="d">classic, symmetrical · tagline + gold rule</span></div>
+      <div class="sheet c03">
+        <div class="head">
+          <div class="logo"><span class="pl">(</span>ROCKENUE<span class="pr">)</span></div>
+          <div class="tag">Hotel management company</div>
+          <div class="rule"></div>
+        </div>
+        <div class="body">
+          <div class="letter">
+            <div class="date">27 May 2026</div>
+            <div class="recipient">Mr. John Smith<br>The Sunset Hotel<br>123 Beach Road<br>28001 Madrid, Spain</div>
+            <p>Dear Mr. Smith,</p>
+            <p>Thank you for your interest in joining the Rockenue network. We have reviewed the materials for The Sunset Hotel and would like to invite you to the next stage of our process.</p>
+            <p>Our network operates 58 properties across 9 markets, with a proprietary technology stack powering pricing, distribution, and direct-booking infrastructure. Based on our initial assessment, your property appears to fit our partnership criteria, and we believe there is meaningful upside to explore together.</p>
+            <p>The next step is a commercial review with our team. Please find attached a draft term sheet for your reference; if you would like to proceed, kindly confirm by reply.</p>
+            <p class="sig">Yours sincerely,</p>
+            <div class="sig"><div class="name">Karol Zymek</div><div class="title">Founder &amp; CEO</div></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="col"><strong>Office</strong>Rockenue International Group<br>Nad Al Sheba 1, Dubai · UAE</div>
+          <div class="col"><strong>Contact</strong>info@rockenue.com<br>rockenue.com</div>
+          <div class="col"><strong>Registered</strong>Trade Licence No. XXXXX<br>VAT TRN XXXXXXXXX</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ CONCEPT 04 · SIDE RAIL ═══ -->
+    <div>
+      <div class="ribbon"><span class="n">04</span><span class="t">Side rail</span><span class="d">vertical teal→gold gradient stripe on the left · most modern</span></div>
+      <div class="sheet c04">
+        <div class="rail"></div>
+        <div class="head">
+          <div class="logo"><span class="pl">(</span>ROCKENUE<span class="pr">)</span></div>
+          <div class="meta"><strong>Rockenue International Group</strong>
+            Nad Al Sheba 1, Dubai · UAE<br>info@rockenue.com · rockenue.com</div>
+        </div>
+        <div class="body">
+          <div class="letter">
+            <div class="date">27 May 2026</div>
+            <div class="recipient">Mr. John Smith<br>The Sunset Hotel<br>123 Beach Road<br>28001 Madrid, Spain</div>
+            <p>Dear Mr. Smith,</p>
+            <p>Thank you for your interest in joining the Rockenue network. We have reviewed the materials for The Sunset Hotel and would like to invite you to the next stage of our process.</p>
+            <p>Our network operates 58 properties across 9 markets, with a proprietary technology stack powering pricing, distribution, and direct-booking infrastructure. Based on our initial assessment, your property appears to fit our partnership criteria, and we believe there is meaningful upside to explore together.</p>
+            <p>The next step is a commercial review with our team. Please find attached a draft term sheet for your reference; if you would like to proceed, kindly confirm by reply.</p>
+            <p class="sig">Yours sincerely,</p>
+            <div class="sig"><div class="name">Karol Zymek</div><div class="title">Founder &amp; CEO</div></div>
+          </div>
+        </div>
+        <div class="foot">
+          <div class="left"><strong>Rockenue International Group</strong> · Trade Licence No. XXXXX · VAT TRN XXXXXXXXX</div>
+          <div class="right">Page 1 of 1</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

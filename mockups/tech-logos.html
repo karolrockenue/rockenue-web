@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue Tech — 10 logo concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --ink: #F4F2EC;
+    --accent: #F3F5F7;
+    --muted: #8A9099;
+    --textDim: #4E5868;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --heroBg: #111519;
+    --darkBand: #0F1215;
+    --grad: linear-gradient(135deg, #38C6BA 0%, #C8A66E 100%);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+  .topbar { position: sticky; top: 0; z-index: 50; background: var(--darkBand); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .topbar .brand { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 300; }
+  .topbar .brand .paren { color: var(--teal); font-size: 20px; }
+  .topbar .brand .paren.r { color: var(--gold); }
+  .topbar .note { font-size: 11px; color: var(--textDim); }
+
+  .head { padding: 88px 64px 32px; max-width: 1280px; margin: 0 auto; text-align: center; }
+  @media (max-width: 760px) { .head { padding: 56px 24px 24px; } }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  h1.h { font-weight: 300; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; font-size: clamp(30px, 4.4vw, 44px); margin: 0 0 14px; }
+  .sub { font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--muted); max-width: 560px; margin: 0 auto; }
+
+  .grid { max-width: 1280px; margin: 0 auto; padding: 32px 64px 88px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; padding: 24px 24px 64px; } }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 44px 32px 28px; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
+  .card .label { display: flex; align-items: baseline; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--textDim); align-self: flex-start; }
+  .card .label .n { color: var(--teal); }
+  .card .stage { flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; padding: 22px 0; }
+  .card .desc { font-size: 12px; color: var(--muted); text-align: center; line-height: 1.5; max-width: 360px; }
+
+  /* ── shared atoms ── */
+  .ink { color: var(--ink); }
+  .teal { color: var(--teal); }
+  .gold { color: var(--gold); }
+  .light { font-weight: 300; }
+  .b700 { font-weight: 700; }
+  .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* logo base sizes */
+  .lg { font-family: 'Inter'; display: inline-flex; align-items: baseline; gap: 8px; color: var(--ink); letter-spacing: 1.4px; font-weight: 700; font-size: 22px; }
+  .lg .paren { font-size: 36px; font-weight: 300; line-height: 1; }
+
+  /* ── Concept 01 · (ROCKENUE) TECH (suffix) ── */
+  .c01 .tech { margin-left: 12px; font-size: 12px; font-weight: 600; letter-spacing: 3px; color: var(--gold); }
+
+  /* ── Concept 02 · (ROCKENUE TECH) — both inside parens ── */
+  .c02 .tech { color: var(--gold); font-weight: 500; }
+
+  /* ── Concept 03 · [ROCKENUE TECH] — square brackets ── */
+  .c03 .br { font-size: 32px; font-weight: 300; line-height: 1; }
+  .c03 .br.l { color: var(--teal); }
+  .c03 .br.r { color: var(--gold); }
+  .c03 .tech { color: var(--gold); font-weight: 500; }
+
+  /* ── Concept 04 · <ROCKENUE TECH/> — JSX style ── */
+  .c04 { letter-spacing: 1.2px; }
+  .c04 .ang { font-size: 30px; font-weight: 300; line-height: 1; color: var(--teal); }
+  .c04 .slash { color: var(--gold); font-weight: 500; }
+  .c04 .tech { color: var(--gold); font-weight: 500; }
+
+  /* ── Concept 05 · /rockenue/tech — path style, lowercase ── */
+  .c05 { font-family: 'Inter'; font-size: 22px; font-weight: 400; letter-spacing: 0.2px; text-transform: lowercase; color: var(--ink); }
+  .c05 .sl { color: var(--teal); margin: 0 2px; }
+  .c05 .sl.g { color: var(--gold); }
+
+  /* ── Concept 06 · R · T — minimal monogram ── */
+  .c06 { display: inline-flex; align-items: center; gap: 14px; font-size: 56px; font-weight: 300; letter-spacing: -0.02em; }
+  .c06 .r { color: var(--teal); }
+  .c06 .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--muted); }
+  .c06 .t { color: var(--gold); }
+
+  /* ── Concept 07 · (RT) — monogram in parens ── */
+  .c07 { font-size: 38px; font-weight: 700; letter-spacing: 0.5px; }
+  .c07 .paren { font-weight: 300; font-size: 56px; line-height: 1; }
+  .c07 .paren.l { color: var(--teal); }
+  .c07 .paren.r { color: var(--gold); }
+
+  /* ── Concept 08 · ROCKENUE / TECH stacked ── */
+  .c08 { text-align: center; display: inline-flex; flex-direction: column; align-items: center; gap: 4px; line-height: 1.05; }
+  .c08 .top { font-size: 22px; font-weight: 700; letter-spacing: 1.4px; color: var(--ink); }
+  .c08 .rule { width: 64px; height: 1px; background: var(--border); margin: 6px 0; }
+  .c08 .bottom { font-size: 13px; font-weight: 600; letter-spacing: 3px; color: var(--gold); }
+
+  /* ── Concept 09 · ROCKENUE · TECH — middot, no parens ── */
+  .c09 { font-size: 20px; font-weight: 700; letter-spacing: 1.4px; color: var(--ink); display: inline-flex; align-items: center; gap: 10px; }
+  .c09 .mid { color: var(--gold); font-weight: 700; }
+  .c09 .tech { color: var(--gold); letter-spacing: 2.4px; font-weight: 600; }
+
+  /* ── Concept 10 · ● ROCKENUE TECH — gradient dot prefix ── */
+  .c10 { font-size: 20px; font-weight: 700; letter-spacing: 1.4px; color: var(--ink); display: inline-flex; align-items: center; gap: 12px; }
+  .c10 .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--grad); flex-shrink: 0; }
+  .c10 .tech { color: var(--gold); margin-left: 6px; letter-spacing: 2.4px; font-weight: 600; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand"><span class="paren">(</span>ROCKENUE<span class="paren r">)</span><span style="color:var(--textDim);font-size:12px;margin-left:6px;">· Rockenue Tech — 10 logo concepts</span></div>
+    <div class="note">tech.rockenue.com · pick one</div>
+  </div>
+
+  <div class="head">
+    <div class="eyebrow">Logo concepts</div>
+    <h1 class="h">Rockenue Tech sp. z o.o.</h1>
+    <p class="sub">The Polish entity behind the Direct Booking Platform. Sibling to the main Rockenue brand — same palette, same Inter family, distinct mark.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- 01 — suffix -->
+    <div class="card c01">
+      <div class="label"><span class="n">01</span> Suffix</div>
+      <div class="stage">
+        <div class="lg"><span class="paren teal">(</span><span>ROCKENUE</span><span class="paren gold">)</span><span class="tech">TECH</span></div>
+      </div>
+      <div class="desc">Parent wordmark, then "TECH" in small uppercase gold. Reads as an extension of the main brand.</div>
+    </div>
+
+    <!-- 02 — both inside parens -->
+    <div class="card c02">
+      <div class="label"><span class="n">02</span> Single unit</div>
+      <div class="stage">
+        <div class="lg"><span class="paren teal">(</span><span>ROCKENUE <span class="tech">TECH</span></span><span class="paren gold">)</span></div>
+      </div>
+      <div class="desc">Both words inside the parens. "TECH" in gold for distinction; still feels like one product mark.</div>
+    </div>
+
+    <!-- 03 — square brackets -->
+    <div class="card c03">
+      <div class="label"><span class="n">03</span> Square brackets</div>
+      <div class="stage">
+        <div class="lg" style="gap:10px;"><span class="br l">[</span><span>ROCKENUE <span class="tech">TECH</span></span><span class="br r">]</span></div>
+      </div>
+      <div class="desc">Square brackets replace the curved parens — more technical/data aesthetic, still in the family.</div>
+    </div>
+
+    <!-- 04 — JSX / angle brackets -->
+    <div class="card c04">
+      <div class="label"><span class="n">04</span> JSX</div>
+      <div class="stage">
+        <div class="lg" style="gap:6px;"><span class="ang">&lt;</span><span>ROCKENUE <span class="tech">TECH</span></span><span class="ang"><span class="slash">/</span>&gt;</span></div>
+      </div>
+      <div class="desc">Self-closing tag. Direct, developer-coded vibe — appropriate for a tech sub-brand.</div>
+    </div>
+
+    <!-- 05 — path / lowercase -->
+    <div class="card c05">
+      <div class="label"><span class="n">05</span> Path</div>
+      <div class="stage">
+        <div class="c05"><span class="sl">/</span>rockenue<span class="sl g">/</span>tech</div>
+      </div>
+      <div class="desc">URL/filesystem path. All-lowercase, no parens — quiet, technical, unmistakable as a tech property.</div>
+    </div>
+
+    <!-- 06 — R · T monogram -->
+    <div class="card c06">
+      <div class="label"><span class="n">06</span> Monogram</div>
+      <div class="stage">
+        <div class="c06"><span class="r">R</span><span class="dot"></span><span class="t">T</span></div>
+      </div>
+      <div class="desc">Minimal initials in the two brand colours. Works as an avatar, a favicon, or a 16×16 mark.</div>
+    </div>
+
+    <!-- 07 — (RT) monogram in parens -->
+    <div class="card c07">
+      <div class="label"><span class="n">07</span> (RT)</div>
+      <div class="stage">
+        <div class="c07"><span class="paren l">(</span><span>RT</span><span class="paren r">)</span></div>
+      </div>
+      <div class="desc">Initials inside the family parens. Compact mark, clearly Rockenue-derived.</div>
+    </div>
+
+    <!-- 08 — stacked -->
+    <div class="card c08">
+      <div class="label"><span class="n">08</span> Stacked</div>
+      <div class="stage">
+        <div class="c08"><div class="top">ROCKENUE</div><div class="rule"></div><div class="bottom">TECH</div></div>
+      </div>
+      <div class="desc">Two-line lockup with a thin hairline divider. Quiet, document-style — works well in headers and footers.</div>
+    </div>
+
+    <!-- 09 — middot, no parens -->
+    <div class="card c09">
+      <div class="label"><span class="n">09</span> Middot</div>
+      <div class="stage">
+        <div class="c09"><span>ROCKENUE</span><span class="mid">·</span><span class="tech">TECH</span></div>
+      </div>
+      <div class="desc">No parens — clean horizontal wordmark separated by a gold middot. Most editorial of the set.</div>
+    </div>
+
+    <!-- 10 — gradient dot prefix -->
+    <div class="card c10">
+      <div class="label"><span class="n">10</span> Dot prefix</div>
+      <div class="stage">
+        <div class="c10"><span class="dot"></span><span>ROCKENUE<span class="tech">TECH</span></span></div>
+      </div>
+      <div class="desc">A gradient pill replaces the parens — feels like a status indicator / live system. Tech-product flavour.</div>
+    </div>
+
+  </div>
+
+</body>
+</html>

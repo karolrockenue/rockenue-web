@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — Facebook assets (photo-based)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #14181D;
+    --card: #1C2228;
+    --border: #2A3240;
+    --ink: #F4F2EC;
+    --muted: #8A9099;
+    --textDim: #5F666E;
+    --teal: #38C6BA;
+    --gold: #C8A66E;
+    --darkBand: #0F1215;
+    --heroBg: #111519;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+  .topbar { position: sticky; top: 0; z-index: 50; background: var(--darkBand); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .topbar .brand { display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 300; }
+  .topbar .brand .paren { color: var(--teal); font-size: 20px; }
+  .topbar .brand .paren.r { color: var(--gold); }
+  .topbar .note { font-size: 11px; color: var(--textDim); }
+
+  .head { padding: 80px 64px 24px; max-width: 1280px; margin: 0 auto; text-align: center; }
+  @media (max-width: 760px) { .head { padding: 56px 24px 16px; } }
+  .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 20px; }
+  h1.h { font-weight: 300; color: var(--ink); letter-spacing: -0.02em; line-height: 1.08; font-size: clamp(30px, 4.4vw, 44px); margin: 0 0 14px; }
+  .sub { font-size: 15px; font-weight: 300; line-height: 1.6; color: var(--muted); max-width: 620px; margin: 0 auto; }
+  .credit { font-size: 11px; color: var(--textDim); margin-top: 14px; }
+  .credit a { color: var(--muted); text-decoration: underline; }
+
+  section.block { max-width: 1280px; margin: 0 auto; padding: 48px 64px; }
+  @media (max-width: 760px) { section.block { padding: 32px 24px; } }
+  .block-head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 14px; }
+  .block-head h2 { font-size: 18px; font-weight: 600; color: var(--ink); letter-spacing: -0.2px; }
+  .block-head .dim { font-size: 11px; color: var(--textDim); font-weight: 500; letter-spacing: 1px; text-transform: uppercase; }
+
+  .grid { display: grid; gap: 24px; }
+  .grid.cover { grid-template-columns: repeat(auto-fill, minmax(440px, 1fr)); }
+  .grid.post { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .card .lab { font-size: 11px; font-weight: 600; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; }
+  .card .lab .n { color: var(--teal); margin-right: 6px; }
+  .card .preview { background: #0A0C0F; border-radius: 8px; padding: 14px; display: flex; align-items: center; justify-content: center; min-height: 100px; }
+  .card .preview canvas { display: block; max-width: 100%; height: auto; border-radius: 4px; background: #0A0C0F; }
+  .card .preview .loading { color: var(--textDim); font-size: 12px; }
+  .card .btn { background: var(--teal); color: #0F1215; font-weight: 700; font-size: 12px; padding: 9px 14px; border: none; border-radius: 6px; cursor: pointer; letter-spacing: 0.2px; text-align: center; }
+  .card .btn:hover { filter: brightness(1.07); }
+  .card .btn[disabled] { opacity: .5; cursor: not-allowed; }
+  .card .desc { font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand"><span class="paren">(</span>ROCKENUE<span class="paren r">)</span><span style="color:var(--textDim);font-size:12px;margin-left:6px;">· Facebook assets (photo-based)</span></div>
+    <div class="note">stock photography behind the brand chrome · download as PNG</div>
+  </div>
+
+  <div class="head">
+    <div class="eyebrow">Facebook · with photography</div>
+    <h1 class="h">Photo-led assets.</h1>
+    <p class="sub">Same FB pixel sizes, but with city/hotel stock photography under the brand chrome. All photos are free from <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a>.</p>
+    <p class="credit">Tip: each variant is one of many possible combos — swap the <code>imgUrl</code> in source for any other Unsplash photo to retheme instantly.</p>
+  </div>
+
+  <!-- ════════ COVERS ════════ -->
+  <section class="block">
+    <div class="block-head">
+      <h2>Page cover · with photography</h2>
+      <div class="dim">1640 × 924 · upload at this size</div>
+    </div>
+    <div class="grid cover" id="grid-cover"></div>
+  </section>
+
+  <!-- ════════ POSTS ════════ -->
+  <section class="block">
+    <div class="block-head">
+      <h2>Square post templates · with photography</h2>
+      <div class="dim">1080 × 1080</div>
+    </div>
+    <div class="grid post" id="grid-post"></div>
+  </section>
+
+<script>
+  // ─── palette ────────────────────────────────────────────
+  const C = {
+    bg: "#14181D",
+    ink: "#F4F2EC",
+    muted: "#B0B8C4",
+    teal: "#38C6BA",
+    gold: "#C8A66E",
+  };
+
+  // ─── stock URLs (Unsplash, hotlinked) ───────────────────
+  // The ?w=… params let Unsplash serve right-sized JPEGs.
+  const PHOTO = {
+    dubai: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=2000&q=80&auto=format&fit=crop",
+    london: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=2000&q=80&auto=format&fit=crop",
+    nyc: "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=2000&q=80&auto=format&fit=crop",
+    paris: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=2000&q=80&auto=format&fit=crop",
+    hotelLobby: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=2000&q=80&auto=format&fit=crop",
+    hotelRoom: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=2000&q=80&auto=format&fit=crop",
+    resort: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=2000&q=80&auto=format&fit=crop",
+    skyline: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=2000&q=80&auto=format&fit=crop",
+  };
+
+  // ─── helpers ────────────────────────────────────────────
+  function loadImage(url) {
+    return new Promise((res, rej) => {
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      img.onload = () => res(img);
+      img.onerror = () => rej(new Error("failed: " + url));
+      img.src = url;
+    });
+  }
+  function drawCover(ctx, img, w, h) {
+    const ir = img.naturalWidth / img.naturalHeight;
+    const tr = w / h;
+    let sx = 0, sy = 0, sw = img.naturalWidth, sh = img.naturalHeight;
+    if (ir > tr) {
+      sw = sh * tr; sx = (img.naturalWidth - sw) / 2;
+    } else {
+      sh = sw / tr; sy = (img.naturalHeight - sh) / 2;
+    }
+    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, w, h);
+  }
+  function drawWordmark(ctx, cx, cy, opts) {
+    const { fontSize, leftParenColor, rightParenColor, textColor, parenScale = 1.7, letterSpacing = 0.08 } = opts;
+    const text = "ROCKENUE";
+    const parenSize = Math.round(fontSize * parenScale);
+    ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+
+    ctx.font = `700 ${fontSize}px Inter`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = `${letterSpacing * fontSize}px`;
+    const textW = ctx.measureText(text).width;
+
+    ctx.font = `300 ${parenSize}px Inter`;
+    const lW = ctx.measureText("(").width;
+    const rW = ctx.measureText(")").width;
+    const total = lW + textW + rW;
+    const baseline = cy + fontSize * 0.34;
+    let x = cx - total / 2;
+
+    ctx.font = `300 ${parenSize}px Inter`;
+    ctx.fillStyle = leftParenColor; ctx.fillText("(", x, baseline);
+    x += lW;
+    ctx.font = `700 ${fontSize}px Inter`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = `${letterSpacing * fontSize}px`;
+    ctx.fillStyle = textColor; ctx.fillText(text, x, baseline);
+    x += textW;
+    ctx.font = `300 ${parenSize}px Inter`;
+    ctx.fillStyle = rightParenColor; ctx.fillText(")", x, baseline);
+  }
+  function drawCaption(ctx, cx, cy, text, opts = {}) {
+    const { fontSize = 20, weight = 500, ls = 4, color = C.gold, transform } = opts;
+    ctx.font = `${weight} ${fontSize}px Inter`;
+    if ("letterSpacing" in ctx) ctx.letterSpacing = `${ls}px`;
+    ctx.fillStyle = color; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    ctx.fillText(transform === "upper" ? text.toUpperCase() : text, cx, cy);
+  }
+  function gradientOverlay(ctx, w, h, mode) {
+    let g;
+    if (mode === "bottom") {
+      g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, "rgba(20,24,29,0.30)");
+      g.addColorStop(0.55, "rgba(20,24,29,0.55)");
+      g.addColorStop(1, "rgba(20,24,29,0.90)");
+    } else if (mode === "centered") {
+      g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, "rgba(20,24,29,0.55)");
+      g.addColorStop(1, "rgba(20,24,29,0.80)");
+    } else if (mode === "left") {
+      g = ctx.createLinearGradient(0, 0, w, 0);
+      g.addColorStop(0, "rgba(20,24,29,0.92)");
+      g.addColorStop(0.55, "rgba(20,24,29,0.55)");
+      g.addColorStop(1, "rgba(20,24,29,0.30)");
+    } else if (mode === "uniform-soft") {
+      g = "rgba(20,24,29,0.45)";
+    } else {
+      g = "rgba(20,24,29,0.55)";
+    }
+    if (typeof g === "string") ctx.fillStyle = g;
+    else ctx.fillStyle = g;
+    ctx.fillRect(0, 0, w, h);
+  }
+
+  // ─── COVER VARIANTS (1640 × 924) ────────────────────────
+  const COVERS = [
+    { name: "dubai-centered", label: "Dubai · centered", desc: "Night skyline + dark vignette + logo and tagline centered.",
+      url: PHOTO.dubai,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "centered");
+        drawWordmark(ctx, w / 2, h / 2 - 18, { fontSize: 92, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink });
+        drawCaption(ctx, w / 2, h / 2 + 100, "Hotel management company", { fontSize: 21, weight: 500, ls: 5, color: C.gold, transform: "upper" });
+      }
+    },
+    { name: "london-stats", label: "London · stats overlay", desc: "Cityscape with 3 portfolio stats over a darker vignette.",
+      url: PHOTO.london,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "centered");
+        drawWordmark(ctx, w / 2, 240, { fontSize: 64, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink });
+        const stats = [["58", "Hotels"], ["2,500", "Rooms"], ["£75M+", "Revenue"]];
+        const colW = w / 3; const cy = h - 280;
+        stats.forEach((s, i) => {
+          const cx = colW * (i + 0.5);
+          ctx.fillStyle = (i === 1) ? C.gold : C.teal;
+          ctx.font = `300 92px Inter`;
+          if ("letterSpacing" in ctx) ctx.letterSpacing = "-2px";
+          ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          ctx.fillText(s[0], cx, cy);
+          ctx.font = `500 18px Inter`;
+          if ("letterSpacing" in ctx) ctx.letterSpacing = "2px";
+          ctx.fillStyle = C.muted;
+          ctx.fillText(s[1].toUpperCase(), cx, cy + 78);
+        });
+      }
+    },
+    { name: "lobby-leftblock", label: "Hotel lobby · left block", desc: "Photo on the right; dark text block on the left.",
+      url: PHOTO.hotelLobby,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "left");
+        // wordmark at left
+        ctx.textAlign = "left"; ctx.textBaseline = "alphabetic";
+        const fs = 72;
+        ctx.font = `300 ${Math.round(fs * 1.75)}px Inter`;
+        const lW = ctx.measureText("(").width;
+        const xs = 120;
+        const baseline = h / 2 - 10 + fs * 0.34;
+        ctx.fillStyle = C.teal; ctx.fillText("(", xs, baseline);
+        ctx.font = `700 ${fs}px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = `${fs * 0.08}px`;
+        ctx.fillStyle = C.ink; ctx.fillText("ROCKENUE", xs + lW, baseline);
+        const tW = ctx.measureText("ROCKENUE").width;
+        ctx.font = `300 ${Math.round(fs * 1.75)}px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
+        ctx.fillStyle = C.gold; ctx.fillText(")", xs + lW + tW, baseline);
+        // tag
+        ctx.font = `300 30px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "-0.3px";
+        ctx.fillStyle = C.muted;
+        ctx.fillText("The hotel management company.", xs, h / 2 + 80);
+        ctx.font = `500 15px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "3px";
+        ctx.fillStyle = C.gold;
+        ctx.fillText("DUBAI · 9 MARKETS", xs, h / 2 + 130);
+      }
+    },
+    { name: "resort-bottombar", label: "Resort · bottom bar", desc: "Lighter top; the logo and meta sit in a darker bottom strip.",
+      url: PHOTO.resort,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "bottom");
+        // bottom strip with logo + tagline
+        const stripH = 200; const yT = h - stripH;
+        ctx.fillStyle = "rgba(15,18,21,0.78)";
+        ctx.fillRect(0, yT, w, stripH);
+        drawWordmark(ctx, w / 2, yT + stripH / 2 - 14, { fontSize: 56, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink });
+        drawCaption(ctx, w / 2, yT + stripH / 2 + 52, "Hotel management company", { fontSize: 16, weight: 500, ls: 5, color: C.muted, transform: "upper" });
+      }
+    },
+  ];
+
+  // ─── POST VARIANTS (1080 × 1080) ────────────────────────
+  const POSTS = [
+    { name: "city-announce", label: "City announcement", desc: "Cityscape photo + 'Now in Madrid' style announcement.",
+      url: PHOTO.paris,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "bottom");
+        drawCaption(ctx, w / 2, 180, "Now operating in", { fontSize: 26, weight: 500, ls: 4, color: C.gold, transform: "upper" });
+        ctx.font = `300 130px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "-3px";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillStyle = C.ink;
+        ctx.fillText("Paris.", w / 2, h / 2);
+        drawWordmark(ctx, w / 2, h - 120, { fontSize: 28, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink });
+      }
+    },
+    { name: "hotel-quote", label: "Hotel · quote", desc: "Lobby photo + a line of brand copy in giant parens.",
+      url: PHOTO.hotelLobby,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "centered");
+        // giant parens
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.font = `300 280px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "0px";
+        ctx.fillStyle = C.teal; ctx.fillText("(", 160, h / 2);
+        ctx.fillStyle = C.gold; ctx.fillText(")", w - 160, h / 2);
+        // quote
+        ctx.font = `300 40px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "-0.5px";
+        ctx.fillStyle = C.ink;
+        const lines = ["Built as an alternative", "to global chains."];
+        const lh = 56; const sy = h / 2 - (lines.length - 1) * lh / 2;
+        lines.forEach((l, i) => ctx.fillText(l, w / 2, sy + i * lh));
+        drawWordmark(ctx, w / 2, h - 110, { fontSize: 26, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.muted });
+      }
+    },
+    { name: "room-milestone", label: "Hotel room · milestone", desc: "Interior photo + big stat headline.",
+      url: PHOTO.hotelRoom,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "centered");
+        drawCaption(ctx, w / 2, 180, "Network", { fontSize: 24, weight: 500, ls: 4, color: C.teal, transform: "upper" });
+        // big number gradient
+        const g = ctx.createLinearGradient(w * 0.2, 0, w * 0.8, 0);
+        g.addColorStop(0, C.teal); g.addColorStop(1, C.gold);
+        ctx.fillStyle = g;
+        ctx.font = `300 300px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "-10px";
+        ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("58", w / 2, h / 2 - 20);
+        ctx.font = `300 32px Inter`;
+        if ("letterSpacing" in ctx) ctx.letterSpacing = "-0.3px";
+        ctx.fillStyle = C.ink;
+        ctx.fillText("hotels in the network", w / 2, h / 2 + 180);
+        drawWordmark(ctx, w / 2, h - 110, { fontSize: 26, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink });
+      }
+    },
+    { name: "skyline-brand", label: "Skyline · brand", desc: "Photo backdrop + clean centered logo + city caption.",
+      url: PHOTO.skyline,
+      draw(ctx, img, w, h) {
+        drawCover(ctx, img, w, h);
+        gradientOverlay(ctx, w, h, "centered");
+        drawWordmark(ctx, w / 2, h / 2 - 10, { fontSize: 84, leftParenColor: C.teal, rightParenColor: C.gold, textColor: C.ink });
+        drawCaption(ctx, w / 2, h / 2 + 84, "Hotel management · 9 markets", { fontSize: 19, weight: 500, ls: 4, color: C.gold, transform: "upper" });
+      }
+    },
+  ];
+
+  // ─── render cards ───────────────────────────────────────
+  function makeCard({ index, w, h, name, label, desc, url, draw, group }) {
+    const card = document.createElement("div"); card.className = "card";
+    const lab = document.createElement("div"); lab.className = "lab";
+    lab.innerHTML = `<span class="n">${String(index + 1).padStart(2, "0")}</span>${label}`;
+    const preview = document.createElement("div"); preview.className = "preview";
+    const canvas = document.createElement("canvas");
+    canvas.width = w; canvas.height = h;
+    canvas.style.width = Math.min(w, 420) + "px"; canvas.style.maxWidth = "100%";
+    preview.appendChild(canvas);
+    const descEl = document.createElement("div"); descEl.className = "desc"; descEl.textContent = desc;
+    const btn = document.createElement("button"); btn.className = "btn";
+    btn.textContent = `Download · ${w}×${h}`;
+    btn.disabled = true; btn.textContent = "Loading photo…";
+
+    const filename = `rockenue-fb-${group}-photo-${name}.png`;
+    btn.onclick = () => {
+      try {
+        canvas.toBlob(blob => {
+          if (!blob) { alert("Couldn't export — the image may not have loaded with CORS. Try right-click → Save image as…"); return; }
+          const u = URL.createObjectURL(blob);
+          const a = document.createElement("a"); a.href = u; a.download = filename; document.body.appendChild(a); a.click(); a.remove();
+          URL.revokeObjectURL(u);
+        }, "image/png");
+      } catch (e) {
+        alert("Export blocked (canvas tainted). Try right-click → Save image as…");
+      }
+    };
+
+    card.appendChild(lab); card.appendChild(preview); card.appendChild(descEl); card.appendChild(btn);
+
+    // load image then draw
+    loadImage(url).then(img => {
+      const ctx = canvas.getContext("2d");
+      draw(ctx, img, w, h);
+      btn.disabled = false; btn.textContent = `Download · ${w}×${h}`;
+    }).catch(err => {
+      btn.textContent = "Photo failed — see console";
+      console.warn(err);
+      // draw fallback (dark + logo)
+      const ctx = canvas.getContext("2d");
+      ctx.fillStyle = C.bg; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = C.muted; ctx.font = "400 18px Inter"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("photo failed to load", w / 2, h / 2);
+    });
+
+    return card;
+  }
+
+  document.fonts.ready.then(() => {
+    const cGrid = document.getElementById("grid-cover");
+    COVERS.forEach((v, i) => cGrid.appendChild(makeCard({ index: i, w: 1640, h: 924, group: "cover", ...v })));
+
+    const pGrid = document.getElementById("grid-post");
+    POSTS.forEach((v, i) => pGrid.appendChild(makeCard({ index: i, w: 1080, h: 1080, group: "post", ...v })));
+  });
+</script>
+
+</body>
+</html>
