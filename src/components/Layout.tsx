@@ -11,6 +11,7 @@ const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
   { label: "About", to: "/about" },
   { label: "Partnership", to: "/approach" },
   { label: "Technology", to: "/technology" },
+  { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -19,6 +20,7 @@ const FOOTER_ROUTES: Record<string, string> = {
   Services: "/services",
   Technology: "/technology",
   Contact: "/contact",
+  FAQ: "/faq",
   "Full Service Management": "/services",
   "Leasing & Management": "/services",
   "Hotel Sales & Acquisitions": "/services",

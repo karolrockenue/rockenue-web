@@ -1,4 +1,4 @@
-import { MARKETS, SERVICES, OFFICES } from "./content";
+import { MARKETS, SERVICES, OFFICES, FAQ, LEADERSHIP } from "./content";
 
 export const SITE_URL = "https://rockenue.com";
 export const SITE_NAME = "Rockenue";
@@ -43,6 +43,11 @@ export const PAGE_SEO: Record<string, PageSeo> = {
     description:
       "Talk to Rockenue about managing your hotel, or apply for management. Submission to live operation in 30 days for properties that qualify. London & Dubai.",
   },
+  "/faq": {
+    title: "FAQ — How Rockenue Works with Independent Hotels",
+    description:
+      "Answers on Rockenue's services, onboarding, technology, markets, and commercials — how we manage independent hotels while they keep their own brand.",
+  },
   "/privacy": {
     title: "Privacy Policy — Rockenue",
     description: "How Rockenue International Group collects, uses, and protects your data.",
@@ -62,12 +67,25 @@ export const PAGE_SEO: Record<string, PageSeo> = {
   },
 };
 
-// Organization / ProfessionalService JSON-LD. This is the machine-readable
-// description an AI agent uses to answer e.g. "revenue management consultancy
-// in the UK". Derived from content.ts so it stays in sync with the site.
-export function structuredData(): string {
+// Short breadcrumb labels per route (Home is implicit as the first crumb).
+const BREADCRUMB_LABELS: Record<string, string> = {
+  "/about": "About",
+  "/services": "Services",
+  "/approach": "Partnership",
+  "/technology": "Technology",
+  "/contact": "Contact",
+  "/faq": "FAQ",
+  "/privacy": "Privacy",
+  "/terms": "Terms",
+  "/cookies": "Cookies",
+  "/support/booking-engine": "Booking Engine Support",
+};
+
+// Organization / ProfessionalService — the machine-readable description an AI
+// agent uses to answer e.g. "revenue management consultancy in the UK".
+function organizationLd() {
   const office = OFFICES[0];
-  const data = {
+  return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "@id": `${SITE_URL}/#organization`,
@@ -98,13 +116,58 @@ export function structuredData(): string {
       name: "Hotel management services",
       itemListElement: SERVICES.map((s) => ({
         "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: s.title,
-          description: s.summary,
-        },
+        itemOffered: { "@type": "Service", name: s.title, description: s.summary },
       })),
     },
   };
-  return JSON.stringify(data);
+}
+
+function breadcrumbLd(path: string) {
+  const label = BREADCRUMB_LABELS[path];
+  if (!label) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE_URL}/` },
+      { "@type": "ListItem", position: 2, name: label, item: SITE_URL + path },
+    ],
+  };
+}
+
+function faqLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQ.flatMap((group) =>
+      group.items.map((it) => ({
+        "@type": "Question",
+        name: it.q,
+        acceptedAnswer: { "@type": "Answer", text: it.a },
+      })),
+    ),
+  };
+}
+
+function leadershipLd() {
+  return LEADERSHIP.map((p) => ({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: p.name,
+    jobTitle: p.role,
+    description: p.bio,
+    image: SITE_URL + p.img,
+    worksFor: { "@id": `${SITE_URL}/#organization` },
+  }));
+}
+
+// All JSON-LD blocks for a page, as ready-to-embed JSON strings. Organization
+// is on every page; FAQPage/Person/BreadcrumbList are added where relevant.
+export function pageStructuredData(path: string): string[] {
+  const blocks: object[] = [organizationLd()];
+  const crumb = breadcrumbLd(path);
+  if (crumb) blocks.push(crumb);
+  if (path === "/faq") blocks.push(faqLd());
+  if (path === "/about") blocks.push(...leadershipLd());
+  return blocks.map((b) => JSON.stringify(b));
 }

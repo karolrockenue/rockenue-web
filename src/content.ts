@@ -160,7 +160,7 @@ export const FOOTER = {
     },
     {
       heading: "Resources",
-      links: ["Market Pulse", "Booking Engine Support"],
+      links: ["FAQ", "Market Pulse", "Booking Engine Support"],
     },
   ],
   copyright: "\u00a9 2026 Rockenue International Group. All rights reserved.",
@@ -183,6 +183,109 @@ export const ONGOING = [
   { title: "Investor-grade reporting", desc: "Performance reports built for board tables. Revenue, occupancy, comp set benchmarking, pace analysis, and forward outlook — automated, scheduled, and delivered in the format your stakeholders expect." },
   { title: "Commercial leadership", desc: "Quarterly strategy sessions with our senior team. Market review, rate positioning, distribution performance, and forward planning — structured around your hotel's commercial objectives." },
   { title: "Real-time transparency", desc: "Live access to the same dashboards and intelligence tools we use to operate the portfolio. No interpretation layers, no monthly summaries — real-time, direct, always on." },
+];
+
+// Leadership — single source of truth, used by the About page and the
+// Person structured data (seo.ts).
+export const LEADERSHIP = [
+  { img: "/team/karol.jpg", name: "Karol Zymek", role: "Founder & CEO", bio: "Former Head of Revenue at OYO; previously at Agoda. 20 years in hospitality revenue management." },
+  { img: "/team/magnus.jpg", name: "Magnús Magnússon", role: "Head of Nordics", bio: "Former Country Manager at Booking.com, Nordics (9 years, €150M+ revenue)." },
+  { img: "/team/sunny.jpg", name: "Sunny Singh", role: "Advisor", bio: "Cloudbeds, ex-Keytel, ex-OYO UK. Hospitality sales and partnerships." },
+  { img: "/team/ruslana.jpg", name: "Ruslana Doroshchuk", role: "Director of Operations", bio: "Former Hyatt and InterContinental. 10+ years in hospitality operations." },
+  { img: "/team/zeynep.jpg", name: "Zeynep Taskin", role: "Market Expansion", bio: "Former Duetto and Amazon. King's College London." },
+  { img: "/team/hannah.jpg", name: "Hannah Cuevas", role: "Account Management Lead", bio: "Manages client relationships and day-to-day operations across the portfolio." },
+];
+
+// FAQ — single source of truth, used by the FAQ page and the FAQPage
+// structured data (seo.ts).
+export const FAQ = [
+  {
+    id: "about",
+    category: "About Rockenue",
+    items: [
+      { q: "What is Rockenue?", a: "Rockenue is a hotel management company built specifically for independent hotels. We provide the systems, distribution, revenue management, and market intelligence of a large hotel group — while each hotel keeps its own brand and identity. In short, we run the commercial engine behind your hotel so it can compete with the global chains." },
+      { q: "Who is Rockenue for?", a: "Independent hotels that want chain-level commercial performance without giving up their identity or joining a franchise. We typically work with 3-star-and-above properties of 25 rooms or more, though we consider opportunities of all sizes and stages." },
+      { q: "How is Rockenue different from a global chain or franchise?", a: "A franchise makes you adopt their brand, standards, and fees in exchange for a flag. We do the opposite: you keep your brand, and we supply the infrastructure behind it — pricing, distribution, technology, and reporting. You get the scale benefits of a chain without surrendering what makes your hotel distinct." },
+      { q: "Do I keep my brand and identity?", a: "Yes — this is central to how we work. We operate as the commercial and operational layer behind your existing brand. Guests experience your hotel, not ours." },
+      { q: "Is Rockenue a hotel chain?", a: "No. We don't own or brand hotels under a single flag. We're an operator and management company running a network of independent hotels, each retaining its own identity while connected to shared infrastructure." },
+      { q: "Where is Rockenue based?", a: "Rockenue International Group is headquartered in Dubai, in the Meydan Free Zone, with an operating presence in London. We manage hotels across the UK, Europe, the US, and the Middle East." },
+      { q: "How big is Rockenue's portfolio?", a: "We manage close to 60 properties and around 2,500 rooms, with more than £75M in revenue under management. We're also the #1 independent operator on Booking.com in London." },
+    ],
+  },
+  {
+    id: "services",
+    category: "Services",
+    items: [
+      { q: "What services does Rockenue offer?", a: "Four: Full Service Management, Leasing & Management, Hotel Sales & Acquisitions, and Research & Intelligence. Most hotels engage us for Full Service Management; the others serve owners, investors, and buyers or sellers." },
+      { q: "What is Full Service Management?", a: "It's the core of what we do, and what happens when a hotel joins the network. We take over pricing, distribution, OTA and channel management, reporting, and day-to-day commercial operations centrally, with a dedicated team. You keep your brand; we provide everything behind it." },
+      { q: "What's included in Full Service Management?", a: "Autonomous AI pricing, OTA & channel management, revenue and owner reporting, commercial strategy, front-desk and operations support, and live owner dashboards — all run from chain-level infrastructure." },
+      { q: "What is Leasing & Management?", a: "For asset owners who want hands-off, professionally managed returns. We lease or manage properties on your behalf and take on full commercial and operational responsibility, under fixed or revenue-share structures, with investor-grade reporting." },
+      { q: "What is Hotel Sales & Acquisitions?", a: "We sit at the centre of a large network of hotel buyers, sellers, and investors — including many off-market opportunities. For sellers we position the asset and connect qualified buyers; for buyers we provide market analysis, operational due diligence, and transition support." },
+      { q: "What is Research & Intelligence?", a: "Bespoke market intelligence built on our proprietary platform — forward demand modelling, competitive pricing analysis, supply mapping, event-impact scoring, and flight-corridor data. We produce reports for investors, developers, lenders, and operators, under NDA, to their specification." },
+      { q: "Can I buy a market report without becoming a managed hotel?", a: "Yes. Research & Intelligence is a standalone service. We build reports to your specification, under NDA, on your timeline — you don't need to be a managed hotel." },
+    ],
+  },
+  {
+    id: "partnership",
+    category: "Partnership & Onboarding",
+    items: [
+      { q: "How do I become a Rockenue-managed hotel?", a: "Get in touch through our contact page or apply for management. We sign a mutual NDA, study your property in depth, present our findings and proposed strategy, and — if there's a fit on both sides — formalise the partnership and begin onboarding." },
+      { q: "What does the onboarding process look like?", a: "Six structured steps: (1) NDA & data access, (2) business study, (3) presentation & alignment, (4) agreement, (5) tech-stack & implementation, and (6) go-live. Each stage is transparent, with clear scope and accountability." },
+      { q: "How long does onboarding take?", a: "For properties that qualify, we move from submission to live operation in about 30 days." },
+      { q: "What happens in the business study?", a: "An exhaustive review of your property — revenue, occupancy patterns, comp-set positioning, distribution mix, rate structure, and market context — so every recommendation is grounded in your actual data." },
+      { q: "When does billing start?", a: "Billing begins on your go-live date, when systems are live and pricing is active — not before. You're not charged during the study or implementation." },
+      { q: "What are the qualifying criteria?", a: "Typically 3-star or above with a minimum of 25 rooms; priority to our core markets though we're open to all locations; a full operational handover rather than advisory; and a property in operational condition or near completion." },
+      { q: "Is this advisory, or a full handover?", a: "A full operational handover. We take on commercial responsibility and run it — this isn't a consulting engagement where you implement our advice yourself." },
+      { q: "Do you work with hotels outside your core markets?", a: "Yes. We give priority to our core markets, but we evaluate opportunities anywhere." },
+      { q: "Do I have to sign an NDA?", a: "Yes. We begin with a mutual NDA before you share any performance data, so both sides are protected from the outset." },
+    ],
+  },
+  {
+    id: "markets",
+    category: "Markets & Coverage",
+    items: [
+      { q: "Which markets does Rockenue operate in?", a: "We currently operate across the United Kingdom, United States, United Arab Emirates, Spain, Greece, Turkey, Israel, Poland, Iceland, Denmark, Norway, and Indonesia — spanning three continents, and growing." },
+      { q: "Do you only work in your listed markets?", a: "No — those are our active and priority markets, but we assess opportunities globally." },
+      { q: "Are you expanding into new regions?", a: "Yes — we're actively expanding, including across the Nordics." },
+    ],
+  },
+  {
+    id: "technology",
+    category: "Technology & Market Pulse",
+    items: [
+      { q: "What is Market Pulse?", a: "Market Pulse is our proprietary intelligence platform. It aggregates demand signals, competitor rates, flight-search data, and event calendars into a single operational view, so every pricing and distribution decision is data-driven." },
+      { q: "How does your pricing and revenue management work?", a: "Our pricing engine runs on dedicated AI/GPU hardware, processing flight-search data, event calendars, OTA signals, and booking velocity across entire cities at once. It produces automated rate recommendations refreshed every 15 minutes." },
+      { q: "Is your technology a third-party subscription?", a: "No. Our intelligence layer is built in-house and runs on our own dedicated hardware — it isn't a vendor product or subscription we resell. It's ours, and it's been accumulating a behavioural dataset of hospitality markets since the day we started." },
+      { q: "What PMS do you work with?", a: "We work with the major property-management systems, including Cloudbeds, Mews, and Opera, among others. During onboarding we review your stack and implement changes where needed — including PMS migration if it makes sense." },
+      { q: "Do I get access to live dashboards?", a: "Yes. You get live owner dashboards and real-time access to the same intelligence tools we use to run the portfolio — no interpretation layers, no monthly-summary delays." },
+      { q: "How often are rates updated?", a: "Rate recommendations are refreshed every 15 minutes, driven by live demand and competitor signals." },
+      { q: "What data sources feed the engine?", a: "More than a dozen sources — OTA rates, flight-search and corridor data, event calendars, and booking velocity among them — amounting to millions of data points processed every day." },
+      { q: "Do you offer a direct booking engine?", a: "Yes. We provide a direct booking platform so hotels can grow commission-free direct bookings alongside their OTA channels." },
+    ],
+  },
+  {
+    id: "commercials",
+    category: "Commercials, Reporting & Operations",
+    items: [
+      { q: "How does Rockenue charge?", a: "It depends on the engagement. Management is structured around your hotel's commercial objectives, and leasing arrangements use fixed or revenue-share structures. We agree clear terms, scope, and accountability before anything goes live." },
+      { q: "What reporting will I receive?", a: "Investor-grade reporting built for board tables — revenue, occupancy, comp-set benchmarking, pace analysis, and forward outlook — automated, scheduled, and delivered in the format your stakeholders expect." },
+      { q: "How transparent is the reporting?", a: "Fully. You get real-time access to live dashboards and the same tools we use internally — not filtered monthly summaries." },
+      { q: "Do you manage my OTA and Booking.com relationships?", a: "Yes. Your hotel joins our established network of OTA partnerships and wholesale agreements with chain-level visibility and preferred terms — including our Booking.com chain account, where we're the #1 independent operator in London." },
+      { q: "Will you replace my staff?", a: "No. We work alongside your on-site team — training, systems guidance, process design, and daily operational support — as a direct extension of your staff, not a replacement." },
+      { q: "Who owns the guest relationship?", a: "Your hotel does. Guests experience your brand; we operate the commercial and distribution layer behind it." },
+      { q: "Do you provide commercial strategy beyond pricing?", a: "Yes — quarterly strategy sessions with our senior team covering market review, rate positioning, distribution performance, and forward planning, structured around your objectives." },
+    ],
+  },
+  {
+    id: "getting-started",
+    category: "Getting Started",
+    items: [
+      { q: "How do I get in touch?", a: "Through our contact page — either a general enquiry or a formal application for management. Tell us about your property and what you want to achieve, and we'll take it from there." },
+      { q: "How quickly will I hear back?", a: "We aim to respond within 5 business days." },
+      { q: "What information should I have ready?", a: "Your property name and location, room count, current PMS, recent performance, and what you're looking to achieve. It helps us assess fit quickly, though an initial conversation doesn't require all of it." },
+      { q: "Does my property qualify?", a: "If you're a 3-star-or-above property with 25+ rooms, in operational condition or near completion, you likely meet our baseline criteria — but we assess each property individually and welcome a conversation." },
+    ],
+  },
 ];
 
 export const FORM_FIELDS = [

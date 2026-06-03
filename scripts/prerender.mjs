@@ -13,7 +13,7 @@ const {
   SITE_URL,
   SITE_NAME,
   OG_IMAGE,
-  structuredData,
+  pageStructuredData,
 } = await import(join(root, ".ssr-dist/entry-server.js"));
 
 const esc = (s) =>
@@ -21,7 +21,12 @@ const esc = (s) =>
 const escAttr = (s) => esc(s).replace(/"/g, "&quot;");
 
 const template = readFileSync(join(distDir, "index.html"), "utf-8");
-const jsonLd = structuredData().replace(/</g, "\\u003c");
+
+function jsonLdScripts(path) {
+  return pageStructuredData(path)
+    .map((json) => `<script type="application/ld+json">${json.replace(/</g, "\\u003c")}</script>`)
+    .join("\n    ");
+}
 
 function headFor(path, seo) {
   const url = SITE_URL + (path === "/" ? "/" : path);
@@ -41,7 +46,7 @@ function headFor(path, seo) {
     `<meta name="twitter:title" content="${escAttr(seo.title)}" />`,
     `<meta name="twitter:description" content="${escAttr(seo.description)}" />`,
     `<meta name="twitter:image" content="${escAttr(OG_IMAGE)}" />`,
-    `<script type="application/ld+json">${jsonLd}</script>`,
+    jsonLdScripts(path),
   ].join("\n    ");
 }
 

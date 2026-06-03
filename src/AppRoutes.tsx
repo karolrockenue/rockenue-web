@@ -6,6 +6,7 @@ import { ApproachPage } from "./pages/ApproachPage";
 import { AboutPage } from "./pages/AboutPage";
 import { TechnologyPage } from "./pages/TechnologyPage";
 import { ContactPage } from "./pages/ContactPage";
+import { FaqPage } from "./pages/FaqPage";
 import { PrivacyPage } from "./pages/PrivacyPage";
 import { TermsPage } from "./pages/TermsPage";
 import { CookiesPage } from "./pages/CookiesPage";
@@ -23,6 +24,7 @@ export function AppRoutes() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/technology" element={<TechnologyPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/faq" element={<FaqPage />} />
         <Route path="/apply" element={<Navigate to="/contact" replace />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
@@ -42,6 +44,7 @@ export const PRERENDER_PATHS = [
   "/about",
   "/technology",
   "/contact",
+  "/faq",
   "/privacy",
   "/terms",
   "/cookies",
