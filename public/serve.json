@@ -1,4 +1,6 @@
 {
+  "cleanUrls": ["/", "/about", "/services", "/approach", "/technology", "/contact", "/privacy", "/terms", "/cookies", "/support/booking-engine"],
+  "directoryListing": false,
   "trailingSlash": false,
   "redirects": [
     { "source": "/apply", "destination": "/contact", "type": 301 }
