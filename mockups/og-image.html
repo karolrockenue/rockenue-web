@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue — Open Graph share image</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{ --bg:#14181D; --card:#1C2228; --border:#2A3240; --accent:#F3F5F7; --textMid:#7A8494; --textDim:#4E5868; --teal:#38C6BA; --gold:#C8A66E; }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--bg); color:var(--accent); font-family:'Inter',system-ui,sans-serif; padding:48px 24px 96px; -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:1080px; margin:0 auto; }
+  h1{ font-weight:300; font-size:32px; letter-spacing:-0.02em; color:#F4F2EC; margin-bottom:8px; }
+  .lead{ color:var(--textMid); font-size:14px; font-weight:300; line-height:1.6; max-width:680px; margin-bottom:44px; }
+  .lead b{ color:var(--accent); font-weight:600; }
+  .asset{ margin-bottom:56px; }
+  .asset .head{ display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .asset .head h2{ font-weight:500; font-size:16px; color:var(--accent); letter-spacing:-0.01em; }
+  .asset .head .dim{ font-size:12px; color:var(--teal); font-weight:600; letter-spacing:0.5px; }
+  .asset .head .rec{ font-size:11px; color:#0F1215; background:var(--teal); font-weight:700; letter-spacing:0.4px; padding:2px 8px; border-radius:5px; }
+  .asset .note{ font-size:12px; color:var(--textDim); margin-bottom:18px; max-width:680px; line-height:1.6; }
+  .frame{ display:block; line-height:0; border:1px solid var(--border); border-radius:10px; overflow:hidden; }
+  canvas{ display:block; width:100%; height:auto; }
+  .actions{ margin-top:14px; display:flex; gap:10px; align-items:center; }
+  button{ background:var(--teal); color:#0F1215; border:none; padding:9px 16px; border-radius:7px; font-weight:600; font-size:13px; font-family:inherit; cursor:pointer; }
+  button:hover{ filter:brightness(1.06); }
+  .hint{ font-size:12px; color:var(--textDim); }
+  .ref{ margin-top:8px; padding-top:24px; border-top:1px solid var(--border); font-size:12px; color:var(--textMid); line-height:1.8; }
+  .ref b{ color:var(--accent); font-weight:600; }
+  code{ color:var(--gold); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Rockenue — Open Graph share image</h1>
+  <p class="lead">The preview card shown when <b>rockenue.com</b> is shared on LinkedIn, WhatsApp, iMessage, Slack, X, etc. Four concepts, all rendered at the spec size <b>1200 × 630&nbsp;px</b>. Pick one — its PNG goes to <code>public/og-image.png</code> and gets wired into the site's meta tags. Right-click → “Save image as…” or use the Download button.</p>
+
+  <!-- 01 -->
+  <div class="asset">
+    <div class="head"><h2>01 · Editorial — headline led</h2><span class="dim">1200 × 630</span><span class="rec">Recommended</span></div>
+    <div class="note">Wordmark top-left, the positioning line as a large headline, URL footer. Communicates what Rockenue does at a glance — best for cold shares where the reader doesn't know the brand yet.</div>
+    <div class="frame"><canvas id="c1"></canvas></div>
+    <div class="actions"><button onclick="dl('c1','rockenue-og-1200x630.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+  </div>
+
+  <!-- 02 -->
+  <div class="asset">
+    <div class="head"><h2>02 · Centred wordmark + tagline</h2><span class="dim">1200 × 630</span></div>
+    <div class="note">Minimal and brand-forward: large centred <span style="color:var(--teal)">(</span>ROCKENUE<span style="color:var(--gold)">)</span> lockup, tagline beneath, corner glow. Cleanest, most "brand" of the four.</div>
+    <div class="frame"><canvas id="c2"></canvas></div>
+    <div class="actions"><button onclick="dl('c2','rockenue-og-1200x630.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+  </div>
+
+  <!-- 03 -->
+  <div class="asset">
+    <div class="head"><h2>03 · Credibility line</h2><span class="dim">1200 × 630</span></div>
+    <div class="note">Same centred lockup, but trades the tagline for hard proof — portfolio scale and reach. Strong for B2B / investor shares.</div>
+    <div class="frame"><canvas id="c3"></canvas></div>
+    <div class="actions"><button onclick="dl('c3','rockenue-og-1200x630.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+  </div>
+
+  <!-- 04 -->
+  <div class="asset">
+    <div class="head"><h2>04 · Gradient side panel</h2><span class="dim">1200 × 630</span></div>
+    <div class="note">Editorial left, teal→gold gradient panel right with a large <b>(R)</b> mark. More design-forward; stands out in a busy feed.</div>
+    <div class="frame"><canvas id="c4"></canvas></div>
+    <div class="actions"><button onclick="dl('c4','rockenue-og-1200x630.png')">Download PNG</button><span class="hint">or right-click → Save image as…</span></div>
+  </div>
+
+  <div class="ref">
+    <b>Spec</b> — Open Graph / Twitter (X) summary-large-image · <code>1200 × 630</code> (1.91:1) · PNG · under ~1&nbsp;MB. Referenced via <code>&lt;meta property="og:image"&gt;</code> + <code>&lt;meta name="twitter:image"&gt;</code>.
+  </div>
+</div>
+
+<script>
+  var TEAL="#38C6BA", GOLD="#C8A66E", WHITE="#F3F5F7", IVORY="#F4F2EC", BG="#14181D", DARK="#111519", MUTED="#7A8494", DIM="#4E5868";
+  var W=1200, H=630;
+
+  // (ROCKENUE) lockup centred at cx,cy. `base` = wordmark font px.
+  function lockup(ctx, cx, cy, base, col){
+    col = col || { left: TEAL, word: WHITE, right: GOLD };
+    var parenF = "300 " + (base*2.15) + "px 'Inter', sans-serif";
+    var wordF  = "700 " + base + "px 'Inter', sans-serif";
+    var ls = base*0.09, gap = base*0.34;
+    ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    ctx.font = parenF; ctx.letterSpacing = "0px";
+    var wL = ctx.measureText("(").width, wR = ctx.measureText(")").width;
+    ctx.font = wordF; ctx.letterSpacing = ls + "px";
+    var wW = ctx.measureText("ROCKENUE").width;
+    var total = wL + gap + wW + gap + wR;
+    var x = Math.round(cx - total/2);
+    var pdy = base*0.02;
+    ctx.font = parenF; ctx.letterSpacing = "0px"; ctx.fillStyle = col.left;
+    ctx.fillText("(", x, cy + pdy); x += wL + gap;
+    ctx.font = wordF; ctx.letterSpacing = ls + "px"; ctx.fillStyle = col.word;
+    ctx.fillText("ROCKENUE", x, cy); x += wW + gap;
+    ctx.font = parenF; ctx.letterSpacing = "0px"; ctx.fillStyle = col.right;
+    ctx.fillText(")", x, cy + pdy);
+    ctx.letterSpacing = "0px";
+  }
+
+  // Left-aligned lockup starting at x, baseline cy.
+  function lockupLeft(ctx, x, cy, base, col){
+    col = col || { left: TEAL, word: WHITE, right: GOLD };
+    var parenF = "300 " + (base*2.15) + "px 'Inter', sans-serif";
+    var wordF  = "700 " + base + "px 'Inter', sans-serif";
+    var ls = base*0.09, gap = base*0.34, pdy = base*0.02;
+    ctx.textBaseline = "middle"; ctx.textAlign = "left";
+    ctx.font = parenF; ctx.letterSpacing="0px"; var wL = ctx.measureText("(").width;
+    ctx.font = wordF; ctx.letterSpacing = ls+"px"; var wW = ctx.measureText("ROCKENUE").width;
+    ctx.font = parenF; ctx.letterSpacing="0px"; ctx.fillStyle = col.left; ctx.fillText("(", x, cy+pdy); x += wL + gap;
+    ctx.font = wordF; ctx.letterSpacing = ls+"px"; ctx.fillStyle = col.word; ctx.fillText("ROCKENUE", x, cy); x += wW + gap;
+    ctx.font = parenF; ctx.letterSpacing="0px"; ctx.fillStyle = col.right; ctx.fillText(")", x, cy+pdy);
+    ctx.letterSpacing = "0px";
+  }
+
+  function glow(ctx, x, y, r, color, alpha){
+    var g = ctx.createRadialGradient(x,y,0,x,y,r);
+    var c = color==="teal" ? "56,198,186" : "200,166,110";
+    g.addColorStop(0,"rgba("+c+","+alpha+")");
+    g.addColorStop(1,"rgba("+c+",0)");
+    ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+  }
+
+  function gradFill(ctx, x0,y0,x1,y1){
+    var g = ctx.createLinearGradient(x0,y0,x1,y1);
+    g.addColorStop(0, TEAL); g.addColorStop(1, GOLD); return g;
+  }
+
+  function setup(id){
+    var c = document.getElementById(id); c.width=W; c.height=H;
+    return c.getContext("2d");
+  }
+
+  // 01 — Editorial, headline led
+  function draw1(){
+    var ctx = setup("c1");
+    ctx.fillStyle = DARK; ctx.fillRect(0,0,W,H);
+    glow(ctx, W-60, 40, 720, "teal", 0.16);
+    glow(ctx, 80, H-20, 720, "gold", 0.14);
+    // top wordmark
+    lockupLeft(ctx, 90, 120, 30);
+    // eyebrow
+    ctx.textAlign="left"; ctx.textBaseline="alphabetic";
+    ctx.fillStyle = GOLD; ctx.font = "600 18px 'Inter', sans-serif"; ctx.letterSpacing="3px";
+    ctx.fillText("INDEPENDENT HOTEL OPERATOR", 92, 290);
+    ctx.letterSpacing="0px";
+    // headline
+    ctx.fillStyle = IVORY; ctx.font = "300 60px 'Inter', sans-serif"; ctx.letterSpacing="-1.2px";
+    ctx.fillText("The hotel management company", 90, 372);
+    // "for independent hotels." with gradient
+    ctx.fillStyle = gradFill(ctx, 90, 0, 760, 0);
+    ctx.fillText("for independent hotels.", 90, 440);
+    ctx.letterSpacing="0px";
+    // footer rule + url
+    ctx.strokeStyle = "rgba(122,132,148,0.25)"; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(92,520); ctx.lineTo(W-90,520); ctx.stroke();
+    ctx.fillStyle = MUTED; ctx.font = "500 22px 'Inter', sans-serif"; ctx.letterSpacing="0.5px";
+    ctx.fillText("rockenue.com", 90, 568);
+    ctx.textAlign="right";
+    ctx.fillStyle = DIM; ctx.font = "500 18px 'Inter', sans-serif"; ctx.letterSpacing="2px";
+    ctx.fillText("LONDON · DUBAI", W-90, 567);
+    ctx.textAlign="left"; ctx.letterSpacing="0px";
+  }
+
+  // 02 — Centred wordmark + tagline
+  function draw2(){
+    var ctx = setup("c2");
+    ctx.fillStyle = DARK; ctx.fillRect(0,0,W,H);
+    glow(ctx, W-40, 30, 760, "teal", 0.16);
+    glow(ctx, 40, H-10, 760, "gold", 0.16);
+    lockup(ctx, W/2, 280, 64);
+    // divider dot row
+    ctx.textAlign="center"; ctx.textBaseline="middle";
+    ctx.fillStyle = MUTED; ctx.font = "300 30px 'Inter', sans-serif"; ctx.letterSpacing="-0.4px";
+    ctx.fillText("The hotel management company for independent hotels.", W/2, 396);
+    ctx.fillStyle = DIM; ctx.font = "600 16px 'Inter', sans-serif"; ctx.letterSpacing="3px";
+    ctx.fillText("ROCKENUE.COM", W/2, 470);
+    ctx.letterSpacing="0px";
+  }
+
+  // 03 — Credibility line
+  function draw3(){
+    var ctx = setup("c3");
+    ctx.fillStyle = DARK; ctx.fillRect(0,0,W,H);
+    glow(ctx, W-40, 30, 760, "teal", 0.16);
+    glow(ctx, 40, H-10, 760, "gold", 0.16);
+    lockup(ctx, W/2, 232, 58);
+    ctx.textAlign="center"; ctx.textBaseline="middle";
+    ctx.fillStyle = MUTED; ctx.font = "300 26px 'Inter', sans-serif"; ctx.letterSpacing="-0.3px";
+    ctx.fillText("The hotel management company for independent hotels.", W/2, 332);
+    // stat row
+    var stats = [["58","Hotels managed"],["£75M+","Revenue managed"],["7","Countries"],["#1","Independent · Booking.com London"]];
+    var n = stats.length, colW = 250, startX = W/2 - ((n-1)*colW)/2, sy = 440;
+    for(var i=0;i<n;i++){
+      var x = startX + i*colW;
+      if(i>0){ ctx.strokeStyle="rgba(122,132,148,0.22)"; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(x-colW/2, sy-14); ctx.lineTo(x-colW/2, sy+46); ctx.stroke(); }
+      ctx.fillStyle = gradFill(ctx, x-70,0,x+70,0); ctx.font="700 46px 'Inter', sans-serif"; ctx.letterSpacing="-1px";
+      ctx.fillText(stats[i][0], x, sy);
+      ctx.fillStyle = DIM; ctx.font="600 13px 'Inter', sans-serif"; ctx.letterSpacing="0.5px";
+      ctx.fillText(stats[i][1], x, sy+44);
+    }
+    ctx.letterSpacing="0px";
+  }
+
+  // 04 — Gradient side panel with (R)
+  function draw4(){
+    var ctx = setup("c4");
+    ctx.fillStyle = DARK; ctx.fillRect(0,0,W,H);
+    glow(ctx, 60, H, 620, "gold", 0.10);
+    // right gradient panel
+    var panelX = 820;
+    ctx.fillStyle = gradFill(ctx, panelX,0,W,H);
+    ctx.fillRect(panelX,0,W-panelX,H);
+    // big (R) on panel
+    ctx.textAlign="center"; ctx.textBaseline="middle";
+    var px = panelX + (W-panelX)/2;
+    ctx.fillStyle="rgba(15,18,21,0.92)";
+    ctx.font = "300 150px 'Inter', sans-serif"; ctx.letterSpacing="0px";
+    var lw = ctx.measureText("(").width, rw = ctx.measureText(")").width, gap=44;
+    ctx.font = "700 118px 'Inter', sans-serif"; var mw = ctx.measureText("R").width;
+    var tot = lw+gap+mw+gap+rw, sx = Math.round(px - tot/2), cy=H/2;
+    ctx.textAlign="left";
+    ctx.font="300 150px 'Inter', sans-serif"; ctx.fillText("(", sx, cy+4); sx+=lw+gap;
+    ctx.font="700 118px 'Inter', sans-serif"; ctx.fillText("R", sx, cy); sx+=mw+gap;
+    ctx.font="300 150px 'Inter', sans-serif"; ctx.fillText(")", sx, cy+4);
+    // left content
+    lockupLeft(ctx, 90, 132, 28);
+    ctx.textAlign="left"; ctx.textBaseline="alphabetic";
+    ctx.fillStyle = GOLD; ctx.font = "600 16px 'Inter', sans-serif"; ctx.letterSpacing="3px";
+    ctx.fillText("INDEPENDENT HOTEL OPERATOR", 92, 300);
+    ctx.letterSpacing="0px";
+    ctx.fillStyle = IVORY; ctx.font = "300 52px 'Inter', sans-serif"; ctx.letterSpacing="-1px";
+    ctx.fillText("The hotel management", 90, 372);
+    ctx.fillText("company for", 90, 432);
+    ctx.fillStyle = gradFill(ctx, 90,0,640,0);
+    ctx.fillText("independent hotels.", 90, 492);
+    ctx.fillStyle = MUTED; ctx.font = "500 20px 'Inter', sans-serif"; ctx.letterSpacing="0.5px";
+    ctx.fillText("rockenue.com", 92, 560);
+    ctx.letterSpacing="0px";
+  }
+
+  function dl(id, name){
+    var a = document.createElement("a");
+    a.download = name; a.href = document.getElementById(id).toDataURL("image/png"); a.click();
+  }
+
+  Promise.all([
+    document.fonts.load("300 150px Inter"),
+    document.fonts.load("700 118px Inter"),
+    document.fonts.load("600 16px Inter")
+  ]).then(function(){ return document.fonts.ready; })
+    .then(function(){ draw1(); draw2(); draw3(); draw4(); });
+</script>
+</body>
+</html>

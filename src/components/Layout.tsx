@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { R } from "../theme";
@@ -40,6 +40,9 @@ export function Layout() {
   const m = useIsMobile();
   const [menuOpen, setMenuOpen] = useState(false);
   const px = m ? "0 24px" : "0 64px";
+
+  // Reset scroll on route change (formerly App's <ScrollToTop />).
+  useEffect(() => { window.scrollTo(0, 0); }, [location.pathname]);
 
   return (
     <div style={{ minHeight: "100vh", background: R.bg, color: R.white, fontFamily: "'Inter', system-ui, -apple-system, sans-serif", display: "flex", flexDirection: "column" }}>

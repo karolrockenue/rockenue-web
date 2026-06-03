@@ -1,0 +1,23 @@
+# Rockenue
+
+> Rockenue is the hotel management company for independent hotels. Built as an alternative to global chains, it gives independent hotels the systems, distribution, revenue management, and market intelligence of a large operator — while each hotel keeps its own brand and identity. Rockenue operates across 7 countries and 3 continents (United Kingdom, United Arab Emirates, United States, Poland, Iceland, Denmark, Norway) and is the #1 independent operator on Booking.com in London.
+
+Rockenue International Group is headquartered in Dubai (Meydan Free Zone), with operational presence in London. It manages a portfolio of independent hotels, providing chain-level commercial infrastructure: autonomous AI-driven pricing, OTA and channel management, distribution partnerships, investor-grade reporting, and a proprietary market-intelligence platform (Market Pulse) running on dedicated AI hardware.
+
+## Services
+- [Full Service Management](https://rockenue.com/services): End-to-end commercial operations — pricing, distribution, OTA/channel management, reporting, and day-to-day operations, run centrally while the hotel keeps its brand.
+- [Leasing & Management](https://rockenue.com/services): Leasing or managing properties on behalf of owners who want hands-off, professionally managed returns, with full operational accountability.
+- [Hotel Sales & Acquisitions](https://rockenue.com/services): Off-market deal flow, buyer/seller introductions, asset positioning, valuation, and operational due diligence.
+- [Research & Intelligence](https://rockenue.com/services): Bespoke hospitality market reports — forward demand modelling, competitive pricing analysis, supply mapping, and event impact scoring.
+
+## Key pages
+- [Home](https://rockenue.com/): Overview, portfolio scale, and what Rockenue does for independent hotels.
+- [About](https://rockenue.com/about): Who Rockenue is — independent hotel operator, leadership, and markets.
+- [Partnership & Onboarding](https://rockenue.com/approach): How hotels join — from NDA and business study through to go-live in 30 days.
+- [Technology](https://rockenue.com/technology): The Market Pulse intelligence platform and the direct booking engine.
+- [Contact](https://rockenue.com/contact): Get in touch or apply for hotel management.
+
+## Contact
+- Website: https://rockenue.com
+- Headquarters: Rockenue International Group, Nad Al Sheba 1, Dubai, United Arab Emirates
+- Operating presence: London, United Kingdom

@@ -12,19 +12,25 @@ has a **Download** button (or right-click → "Save image as…") that exports a
   Company logo (300 × 300), company banner (1128 × 191), personal profile
   banner (1584 × 396), plus a range of logo variations (colour-flipped, bright,
   large `(R)` monogram) across solid / gradient / split / radial backgrounds.
-- **`facebook-assets.html`** — Facebook brand assets, brand-only (no
-  photography). Profile picture (360 × 360, six variants), page cover
-  (1640 × 924, four variants), square post templates (1080 × 1080, four
-  variants — brand, stat, quote, announcement).
-- **`facebook-photo-assets.html`** — Same Facebook sizes, but with **Unsplash
-  stock photography** behind the brand chrome. Four photo-led page covers and
-  four photo-led posts (city announcement, hotel quote, milestone, etc.). Photo
-  URLs are at the top of the script — swap to retheme any variant.
+- **`facebook-assets.html`** — Combined Facebook brand-asset generator.
+  - **Profile picture** (360 × 360) — six brand-only variants.
+  - **Page cover** (1640 × 924) — four brand-only (solid / gradient / split /
+    editorial) plus four photo-led (Dubai · London · hotel lobby · resort)
+    with Unsplash photography under the brand chrome.
+  - **Square posts** (1080 × 1080) — four brand-only (brand / stat / quote /
+    announcement) plus four photo-led (city announcement · hotel quote ·
+    milestone · skyline). Photo URLs live at the top of the script — swap to
+    retheme any variant.
 - **`tech-logos.html`** — Ten logo concepts for **Rockenue Tech sp. z o.o.**
   (the Polish entity behind `tech.rockenue.com`). Families range from
   "stays close to parent brand" (parens / suffix variations) through
   "tech-coded" (square brackets, JSX, path style) to standalone marks
   (monogram, stacked lockup, gradient-dot prefix).
+- **`og-image.html`** — Open Graph / social share-card generator (1200 × 630).
+  Four concepts: editorial headline-led, centred wordmark + tagline, credibility
+  (stat row), and gradient side panel. The chosen concept (01, editorial) is
+  exported to `public/og-image.png` and wired into every page's `og:image` /
+  `twitter:image` meta tags by the SEO build.
 
 ## Letterheads & business documents
 

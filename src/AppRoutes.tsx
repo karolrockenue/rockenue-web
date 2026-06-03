@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { HomePage } from "./pages/HomePage";
 import { ServicesPage } from "./pages/ServicesPage";
@@ -12,13 +11,9 @@ import { TermsPage } from "./pages/TermsPage";
 import { CookiesPage } from "./pages/CookiesPage";
 import { BookingEngineSupportPage } from "./pages/BookingEngineSupportPage";
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
-  return null;
-}
-
-function AppRoutes() {
+// Router-agnostic route table. Wrapped by <BrowserRouter> on the client
+// (entry: main.tsx) and <StaticRouter> on the server (entry: entry-server.tsx).
+export function AppRoutes() {
   return (
     <Routes>
       <Route element={<Layout />}>
@@ -38,11 +33,17 @@ function AppRoutes() {
   );
 }
 
-export default function App() {
-  return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <AppRoutes />
-    </BrowserRouter>
-  );
-}
+// Static list of paths to prerender (kept in sync with the routes above).
+// `/apply` is intentionally omitted — it's a redirect, not a page.
+export const PRERENDER_PATHS = [
+  "/",
+  "/services",
+  "/approach",
+  "/about",
+  "/technology",
+  "/contact",
+  "/privacy",
+  "/terms",
+  "/cookies",
+  "/support/booking-engine",
+];

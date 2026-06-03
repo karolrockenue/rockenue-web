@@ -1,4 +1,8 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/apply", "destination": "/contact", "type": 301 }
+  ],
   "headers": [
     {
       "source": "**",
