@@ -2,6 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Analytics self-exclusion: visit ?notrack once to opt this browser out
+         permanently (visit ?track to re-enable). Sets Google's official
+         ga-disable flag so no hits are sent at all. Must run before gtag. -->
+    <script>
+      (function () {
+        try {
+          var p = new URLSearchParams(location.search);
+          if (p.has('notrack')) {
+            document.cookie = 'rockenue_notrack=1; Max-Age=315360000; Path=/; SameSite=Lax';
+            alert('Analytics disabled on this browser — you will no longer be counted as a visitor.');
+          } else if (p.has('track')) {
+            document.cookie = 'rockenue_notrack=; Max-Age=0; Path=/';
+            alert('Analytics re-enabled on this browser.');
+          }
+          if (document.cookie.indexOf('rockenue_notrack=1') !== -1) {
+            window['ga-disable-G-8Y83WKCDQ9'] = true;
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!-- Google tag (gtag.js) with Consent Mode v2 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8Y83WKCDQ9"></script>
     <script>
