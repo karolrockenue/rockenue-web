@@ -11,7 +11,6 @@ const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
   { label: "About", to: "/about" },
   { label: "Partnership", to: "/approach" },
   { label: "Technology", to: "/technology" },
-  { label: "FAQ", to: "/faq" },
   { label: "Contact", to: "/contact" },
 ];
 
