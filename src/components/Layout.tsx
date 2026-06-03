@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { R } from "../theme";
 import { FOOTER } from "../content";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { CookieConsent } from "./CookieConsent";
 
 const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
   { label: "Home", to: "/" },
@@ -148,14 +149,22 @@ export function Layout() {
           </div>
           <div style={{ padding: "20px 0", display: "flex", flexDirection: m ? "column" : "row", justifyContent: "space-between", alignItems: m ? "flex-start" : "center", gap: m ? 12 : 0 }}>
             <span style={{ fontSize: 12, color: R.textDim }}>{FOOTER.copyright}</span>
-            <div style={{ display: "flex", gap: 24 }}>
+            <div style={{ display: "flex", gap: 24, alignItems: "center" }}>
               {FOOTER.legalLinks.map((item) => (
                 <Link key={item} to={LEGAL_ROUTES[item] || "/"} style={{ fontSize: 12, color: R.textDim, textDecoration: "none" }}>{item}</Link>
               ))}
+              <button
+                onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+                style={{ fontSize: 12, color: R.textDim, background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: "inherit" }}
+              >
+                Cookie Settings
+              </button>
             </div>
           </div>
         </div>
       </footer>
+
+      <CookieConsent />
     </div>
   );
 }
