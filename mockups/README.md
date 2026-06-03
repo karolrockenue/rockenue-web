@@ -64,6 +64,9 @@ export to PDF, send, and delete.
 - **`tech.html`** — Technology page mockup. Split layout: Market Pulse on the
   left (teal) and Direct Booking Platform on the right (gold); each panel
   links to its app. Basis of the live `/technology` route.
+- **`faq.html`** — FAQ page content mockup. 45 Q&As across 7 categories with a
+  sticky category nav; the approved content was ported to the live `/faq` route
+  (`src/content.ts` → `FAQ`, rendered by `src/pages/FaqPage.tsx`).
 
 ## Notes
 

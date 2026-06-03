@@ -15,76 +15,80 @@ browser (no build step needed). Most relevant:
 
 ---
 
-## React + TypeScript + Vite
+## Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + TypeScript + Vite 8, react-router 7 (library mode), `lucide-react` for icons.
+Inline styles throughout (no CSS framework); the brand palette and shared `heading()` helper
+live in `src/theme.ts`. All page copy is centralised in `src/content.ts`.
 
-Currently, two official plugins are available:
+## Static prerendering (the important part)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The site is a client-side SPA, but it is **prerendered to static HTML per route at build time**
+so AI crawlers and search engines get full content without running JavaScript. This was built
+custom (not a framework / not `vite-react-ssg`, which is incompatible with react-router 7).
 
-## React Compiler
+Build pipeline (`npm run build`):
+1. `tsc -b` — typecheck.
+2. `vite build` — client bundle + `dist/index.html` template.
+3. `vite build --ssr src/entry-server.tsx --outDir .ssr-dist` — server bundle.
+4. `node scripts/prerender.mjs` — renders each route to `dist/<route>/index.html`, injects
+   per-page `<head>` (title/description/canonical/OG/Twitter) + JSON-LD, and generates `sitemap.xml`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Key files:
+- `src/AppRoutes.tsx` — router-agnostic `<Routes>` (used by both entries) + `PRERENDER_PATHS`.
+- `src/main.tsx` — client entry (`hydrateRoot` + `BrowserRouter`).
+- `src/entry-server.tsx` — server entry (`renderToString` + `StaticRouter`); re-exports SEO data.
+- `src/seo.ts` — per-route titles/descriptions (`PAGE_SEO`) + `pageStructuredData(path)` (JSON-LD).
+- `scripts/prerender.mjs` — the prerender + sitemap generator.
 
-## Expanding the ESLint configuration
+`useIsMobile` initialises to `false` (the SSR/desktop default) to avoid hydration mismatches.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Adding a new page — checklist
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+A new route must be registered in **five** places or it will break:
+1. `src/AppRoutes.tsx` — add the `<Route>` **and** add the path to `PRERENDER_PATHS`.
+2. `src/seo.ts` — add a `PAGE_SEO` entry (title + description); optionally a `BREADCRUMB_LABELS` entry.
+3. `public/serve.json` — add the path to the `cleanUrls` array (**or it 404s in production**).
+4. `src/components/Layout.tsx` — add to `NAV_ITEMS` and/or the footer route maps if it should be linked.
+5. `src/content.ts` — add it to `FOOTER.columns` if it belongs in the footer.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## SEO & structured data
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Per-page meta + canonical + Open Graph / Twitter tags injected by the prerender.
+- JSON-LD via `pageStructuredData(path)`: `ProfessionalService` (Organization) on every page,
+  plus `FAQPage` on `/faq`, `Person` nodes (leadership) on `/about`, and `BreadcrumbList` on inner pages.
+- `public/robots.txt` explicitly allows AI crawlers (GPTBot, ClaudeBot, PerplexityBot, etc.).
+- `public/llms.txt` — curated brief for LLM crawlers.
+- OG image: `public/og-image.png` (1200×630), generated from `mockups/og-image.html`.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Analytics & cookie consent
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- GA4 (`G-8Y83WKCDQ9`) in `index.html` with **Consent Mode v2**: `analytics_storage` defaults to
+  `denied`; granted only after the user accepts via the consent banner (`src/components/CookieConsent.tsx`).
+- Consent choice stored in a `cookie_consent` cookie; "Cookie Settings" footer link reopens the banner.
+- **Self-exclusion:** visiting `?notrack` sets a `rockenue_notrack` cookie and Google's
+  `ga-disable-G-8Y83WKCDQ9` flag (zero hits sent on that browser); `?track` re-enables. See `index.html`.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Contact form
+
+`src/pages/ContactPage.tsx` posts to **Web3Forms** (`WEB3FORMS_ACCESS_KEY`), which emails
+submissions to karol@rockenue.com. Two tabs (enquiry / apply), validation, loading/success/error
+states, spam honeypot. Note: Web3Forms blocks datacenter IPs, so submissions can only be tested
+from a real browser/connection, not from CI or a cloud host.
+
+## Deployment (Railway)
+
+- Hosted on Railway; auto-deploys on push to `main`. Domain: `rockenue.com` (canonical) + `www`.
+- Build: `npm run build`. Start: `npm start` → `serve dist -p ${PORT}`.
+- **Two serving gotchas (do not regress):**
+  1. `serve.json` must live in `public/` so the build copies it into `dist/` — `serve` reads it
+     from the served directory, not the repo root.
+  2. Do **not** use `serve -s` (the `--single` flag rewrites every route to `index.html` and
+     destroys per-route prerendering). `/apply` → `/contact` is a 301 in `serve.json`.
+
+## Commands
+
+- `npm run dev` — Vite dev server (SPA only, no prerender).
+- `npm run build` — full typecheck + client + SSR + prerender into `dist/`.
+- `npm start` — serve the built `dist/` (production command).
+- `npm run lint` — ESLint.
