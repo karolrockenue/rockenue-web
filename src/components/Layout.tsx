@@ -11,6 +11,7 @@ const NAV_ITEMS: { label: string; to: string; external?: boolean }[] = [
   { label: "About", to: "/about" },
   { label: "Partnership", to: "/approach" },
   { label: "Technology", to: "/technology" },
+  { label: "Rockenue Tech", to: "https://tech.rockenue.com", external: true },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -130,6 +131,14 @@ export function Layout() {
                 <span style={{ color: R.gold, fontSize: 26, fontWeight: 300, lineHeight: 1 }}>)</span>
               </Link>
               <p style={{ fontSize: 13, color: R.textDim, maxWidth: 280, lineHeight: 1.6, margin: 0 }}>{FOOTER.tagline}</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16, marginTop: 24 }}>
+                {FOOTER.addresses.map((addr) => (
+                  <div key={addr.name}>
+                    <div style={{ fontSize: 12, fontWeight: 600, color: R.textMid, marginBottom: 4 }}>{addr.name}</div>
+                    <div style={{ fontSize: 12, color: R.textDim, lineHeight: 1.6, whiteSpace: "pre-line" }}>{addr.line}</div>
+                  </div>
+                ))}
+              </div>
             </div>
             {FOOTER.columns.map((col, idx) => {
               const headingColor = idx === 1 ? R.gold : R.teal;

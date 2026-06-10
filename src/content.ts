@@ -144,6 +144,16 @@ export const OFFICES = [
 
 export const FOOTER = {
   tagline: "The hotel management company for independent hotels.",
+  addresses: [
+    {
+      name: "Rockenue International Group",
+      line: "5842+632 Grand Stand\nNad Al Sheba 1\nDubai, United Arab Emirates",
+    },
+    {
+      name: "Rockenue Tech sp. z o.o.",
+      line: "ul. Józefa Chełmońskiego 118/4\n31-348 Kraków, Poland\nNIP: 9452331438 · KRS: 0001246600\nREGON: 544967330",
+    },
+  ],
   columns: [
     {
       heading: "Company",
