@@ -51,6 +51,10 @@ export to PDF, send, and delete.
 
 ## Page design mockups (one-off design explorations)
 
+- **`iceland-landing.html`** — Iceland market-entry landing page (`rockenue.com/iceland`),
+  the destination for Magnús's cold-email outreach to Reykjavík hotel owners. Mobile-first,
+  dark, styled after the UK company-profile deck. Magnús front and centre, one CTA
+  (book a 15-min call). Placeholders pending: RevPAR figure, booking link, magnus@ address.
 - **`homepage.html`** — Full homepage design mockup.
 - **`first-fold.html`** — Homepage hero "first fold" concept explorations (the
   country-presence list / "spinner" variations that fed the live homepage hero).

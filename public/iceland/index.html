@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rockenue is coming to Iceland — revenue management for independent hotels</title>
+<!-- PREVIEW GUARD: page is unlisted + noindex while awaiting approval. Remove the robots tag at launch. -->
+<meta name="robots" content="noindex" />
+<meta name="description" content="Rockenue — London's #1 independent hotel operator on Booking.com — is launching in Iceland. The expertise, technology and relationships of a chain, for independent hotels." />
+<link rel="canonical" href="https://rockenue.com/iceland" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<!--
+  MOCKUP — rockenue.com/iceland landing page (Iceland market entry).
+  Visual reference: market-pulse/output/rockenue-profile-uk.html (UK company profile deck).
+
+  PLACEHOLDERS — must be resolved before this ships:
+    1. Booking link — all "Book a call" CTAs point to #book (Calendly/Cal.com URL TBD).
+    2. Photo path /team/magnus.jpg is mockup-only; the live page uses /team/magnus.jpg.
+
+  NOTE — Steinthor removed entirely (still at Booking.com). Magnús is positioned as the
+  Icelandic co-founder / credibility anchor, NOT as the personal point of contact — all
+  CTAs are generic ("book an intro call" / "reply to the email").
+
+  NOTE — hotel count aligned to the live homepage (58 properties), per Karol 2026-06-10.
+
+  i18n: EN copy lives in the markup; the IS translation lives in the `IS` selector map in the
+  script at the bottom. A language modal shows on every visit; the header EN/IS pill switches
+  live. The Icelandic copy is a DRAFT — Magnús must proofread it before launch.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14181D; --card:#1C2228; --cardHover:#222830; --border:#2A3240;
+    --ivory:#F4F2EC; --accent:#F3F5F7; --text:#B0B8C4; --textMid:#7A8494; --textDim:#4E5868;
+    --teal:#38C6BA; --gold:#C8A66E; --heroBg:#111519; --darkBand:#0F1215;
+  }
+  *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+  html{ -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; scroll-behavior:smooth; }
+  body{
+    background:var(--bg); color:var(--accent);
+    font-family:'Inter','Helvetica Neue',Arial,system-ui,-apple-system,sans-serif;
+    font-feature-settings:"ss01","cv01","tnum";
+  }
+  img{ display:block; max-width:100%; }
+  a{ color:inherit; }
+
+  .wrap{ max-width:1080px; margin:0 auto; padding:0 22px; }
+
+  /* ---------- wordmark ---------- */
+  .mark{ font-weight:700; letter-spacing:1.6px; color:var(--accent); font-size:14px; display:inline-flex; align-items:center; gap:6px; text-decoration:none; }
+  .mark .b{ font-weight:300; font-size:24px; line-height:1; }
+  .mark .b.l{ color:var(--teal); } .mark .b.r{ color:var(--gold); }
+
+  /* ---------- shared type ---------- */
+  .eyebrow{ font-size:11px; font-weight:600; letter-spacing:2.4px; text-transform:uppercase; color:var(--gold); }
+  .eyebrow.muted{ color:var(--textMid); }
+  h1,h2{ font-weight:300; color:var(--ivory); letter-spacing:-.02em; line-height:1.08; }
+  h1{ font-size:clamp(38px,8vw,64px); }
+  h2{ font-size:clamp(28px,5vw,42px); }
+  h1 .thin, h2 .thin{ color:var(--textMid); }
+  .lead{ color:var(--text); font-weight:300; line-height:1.7; font-size:clamp(16px,2.2vw,18px); max-width:68ch; }
+  .lead b{ color:var(--accent); font-weight:500; }
+
+  /* ---------- buttons ---------- */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    font-size:15px; font-weight:600; letter-spacing:.2px; text-decoration:none;
+    border-radius:10px; padding:16px 26px; transition:.18s; }
+  .btn.primary{ background:var(--gold); color:#14181D; }
+  .btn.primary:hover{ background:#D6B67E; }
+  .btn.ghost{ border:1px solid var(--border); color:var(--accent); font-weight:500; }
+  .btn.ghost:hover{ border-color:var(--textMid); background:var(--card); }
+  .cta-note{ font-size:12.5px; color:var(--textMid); margin-top:14px; line-height:1.5; }
+
+  /* ---------- header ---------- */
+  header{ position:sticky; top:0; z-index:40; background:rgba(20,24,29,.86); backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border); }
+  .head-in{ display:flex; justify-content:space-between; align-items:center; padding:14px 0; }
+  .head-right{ display:flex; align-items:center; gap:14px; }
+  .lang{ display:inline-flex; border:1px solid var(--border); border-radius:999px; overflow:hidden; font-size:11px; font-weight:600; letter-spacing:1px; }
+  .lang span{ padding:6px 12px; color:var(--textDim); }
+  .lang span + span{ border-left:1px solid var(--border); }
+  .lang span.on{ background:var(--card); color:var(--accent); }
+  .head-cta{ font-size:12.5px; font-weight:600; color:var(--gold); text-decoration:none; letter-spacing:.3px; }
+  .head-cta:hover{ color:#D6B67E; }
+
+  /* ---------- hero ---------- */
+  .hero{ background:var(--heroBg); position:relative; overflow:hidden; }
+  .hero::before{ content:""; position:absolute; inset:0;
+    background:radial-gradient(110% 80% at 0% 0%, rgba(56,198,186,.06), transparent 45%),
+               radial-gradient(90% 70% at 100% 100%, rgba(200,166,110,.05), transparent 50%);
+    pointer-events:none; }
+  .hero-in{ position:relative; padding:72px 0 64px; }
+  .hero .tag{ display:inline-flex; align-items:center; gap:9px; font-size:12px; color:var(--text);
+    border:1px solid var(--border); border-radius:999px; padding:7px 14px; margin-bottom:28px; }
+  .hero .tag .dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); }
+  .hero h1{ max-width:22ch; }
+  .hero .lead{ margin-top:24px; }
+  .hero-ctas{ display:flex; flex-direction:column; gap:12px; margin-top:36px; max-width:420px; }
+
+  /* ---------- proof ---------- */
+  .proof{ padding:64px 0; border-bottom:1px solid var(--border); }
+  .stats{ display:grid; grid-template-columns:1fr 1fr; gap:30px 26px; margin-top:40px; }
+  .ws{ border-top:2px solid var(--border); padding-top:18px; position:relative; }
+  .ws.gold{ border-top-color:var(--gold); }
+  .ws .v{ font-size:clamp(34px,6vw,46px); font-weight:300; color:var(--ivory); letter-spacing:-.025em; line-height:1; }
+  .ws.gold .v{ color:var(--gold); }
+  .ws .l{ font-size:13px; color:var(--textMid); margin-top:12px; line-height:1.5; }
+  .ph-chip{ position:absolute; top:-11px; right:0; font-size:9px; font-weight:700; letter-spacing:1.2px;
+    color:#14181D; background:var(--gold); border-radius:4px; padding:3px 7px; text-transform:uppercase; }
+  .markets-line{ margin-top:38px; padding-top:20px; border-top:1px solid var(--border);
+    font-size:13px; color:var(--textMid); line-height:1.8; }
+  .markets-line b{ color:var(--text); font-weight:500; }
+
+  /* ---------- Magnús ---------- */
+  .magnus{ padding:72px 0; border-bottom:1px solid var(--border); }
+  .magnus-grid{ display:grid; grid-template-columns:1fr; gap:36px; margin-top:40px; }
+  .portrait{ background:var(--card); border:1px solid var(--border); border-radius:16px; overflow:hidden; max-width:420px; }
+  .portrait img{ width:100%; aspect-ratio:4/4.4; object-fit:cover; filter:saturate(.92); }
+  .portrait .cap{ padding:18px 22px; border-top:1px solid var(--border); }
+  .portrait .nm{ font-size:19px; font-weight:400; color:var(--ivory); letter-spacing:-.01em; }
+  .portrait .rl{ font-size:12.5px; color:var(--gold); margin-top:5px; letter-spacing:.3px; }
+  .magnus .bio p{ font-size:15.5px; color:var(--text); font-weight:300; line-height:1.75; }
+  .magnus .bio p + p{ margin-top:16px; }
+  .magnus .bio b{ color:var(--accent); font-weight:500; }
+  .quote{ margin-top:28px; padding:20px 22px; border:1px solid var(--border); border-left:2px solid var(--gold);
+    border-radius:10px; background:rgba(200,166,110,.045); }
+  .quote p{ font-size:15.5px; color:var(--ivory); font-weight:300; line-height:1.65; font-style:italic; }
+  .quote .who{ margin-top:12px; font-size:12px; color:var(--textMid); letter-spacing:.4px; font-style:normal; }
+  .magnus-cta{ margin-top:30px; display:flex; flex-direction:column; gap:12px; max-width:420px; }
+
+  /* ---------- pillars ---------- */
+  .what{ padding:72px 0; border-bottom:1px solid var(--border); }
+  .pillars{ display:grid; grid-template-columns:1fr; gap:16px; margin-top:40px; }
+  .pillar{ background:var(--card); border:1px solid var(--border); border-radius:12px; padding:26px 24px; }
+  .pillar .n{ font-size:12px; color:var(--gold); font-weight:600; letter-spacing:1px; }
+  .pillar h3{ font-size:18px; font-weight:400; color:var(--ivory); margin-top:14px; letter-spacing:-.01em; }
+  .pillar p{ font-size:13.5px; color:var(--textMid); line-height:1.65; margin-top:10px; }
+  .anchor{ margin-top:26px; display:flex; align-items:flex-start; gap:14px; }
+  .anchor .pip{ width:7px; height:7px; border-radius:50%; background:var(--teal); flex:none; margin-top:7px; }
+  .anchor p{ font-size:14.5px; color:var(--text); line-height:1.6; }
+  .anchor p b{ color:var(--accent); font-weight:500; }
+
+  /* ---------- tech ---------- */
+  .tech{ padding:72px 0; border-bottom:1px solid var(--border); background:var(--heroBg); }
+  .live{ display:inline-flex; align-items:center; gap:8px; font-size:11px; color:var(--teal); font-weight:600; letter-spacing:1.2px; text-transform:uppercase; }
+  .live .d{ width:7px; height:7px; border-radius:50%; background:var(--teal); animation:pulse 2.4s infinite; }
+  @keyframes pulse{ 0%{box-shadow:0 0 0 0 rgba(56,198,186,.5)} 70%{box-shadow:0 0 0 8px rgba(56,198,186,0)} 100%{box-shadow:0 0 0 0 rgba(56,198,186,0)} }
+  .facts{ margin-top:26px; max-width:560px; }
+  .facts .f{ display:flex; align-items:baseline; gap:11px; padding:13px 0; font-size:14.5px; color:var(--text); line-height:1.5; }
+  .facts .f + .f{ border-top:1px solid var(--border); }
+  .facts .f .k{ color:var(--gold); font-size:12px; flex:none; }
+  .facts .f b{ color:var(--accent); font-weight:500; }
+  .tech-grid{ display:grid; grid-template-columns:1fr; gap:36px; margin-top:8px; align-items:center; }
+  .tech-panel{ background:linear-gradient(160deg,#171D24,#12161B); border:1px solid var(--border); border-radius:16px; padding:26px; position:relative; overflow:hidden; }
+  .tech-panel::after{ content:""; position:absolute; inset:0; background:radial-gradient(90% 60% at 100% 0%, rgba(200,166,110,.07), transparent 50%); pointer-events:none; }
+  .tech-mini{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .tech-mini .v{ font-size:clamp(20px,4vw,26px); font-weight:300; color:var(--ivory); letter-spacing:-.02em; }
+  .tech-mini .l{ font-size:11px; color:var(--textMid); margin-top:5px; line-height:1.4; }
+  .tech-panel .cap{ margin-top:20px; padding-top:16px; border-top:1px solid var(--border); font-size:11.5px; color:var(--textMid); line-height:1.5; }
+  .tech-panel .cap b{ color:var(--text); font-weight:600; }
+  @media (min-width:760px){ .tech-grid{ grid-template-columns:1.1fr 0.9fr; gap:54px; } }
+
+  /* ---------- steps ---------- */
+  .how{ padding:72px 0; border-bottom:1px solid var(--border); }
+  .steps{ margin-top:40px; }
+  .step{ display:grid; grid-template-columns:64px 1fr; gap:20px; padding:26px 0; align-items:start; }
+  .step + .step{ border-top:1px solid var(--border); }
+  .step .num{ font-size:32px; font-weight:200; color:var(--textDim); letter-spacing:-.02em; line-height:1; }
+  .step h3{ font-size:17px; font-weight:400; color:var(--ivory); letter-spacing:-.01em; }
+  .step p{ font-size:13.5px; color:var(--textMid); line-height:1.65; margin-top:8px; max-width:52ch; }
+  .step p b{ color:var(--text); font-weight:500; }
+
+  /* ---------- terms ---------- */
+  .terms{ padding:72px 0; border-bottom:1px solid var(--border); }
+  .why-grid{ display:grid; grid-template-columns:1fr; gap:28px; margin-top:40px; }
+  .why{ border-top:2px solid var(--gold); padding-top:18px; }
+  .why h3{ font-size:17px; font-weight:400; color:var(--ivory); letter-spacing:-.01em; }
+  .why p{ font-size:13.5px; color:var(--textMid); line-height:1.65; margin-top:10px; }
+
+  /* ---------- final CTA ---------- */
+  .close{ background:var(--darkBand); padding:84px 0; text-align:center; }
+  .close h2{ font-size:clamp(34px,7vw,52px); }
+  .close .sub{ margin-top:16px; font-size:16px; color:var(--text); font-weight:300; line-height:1.65; max-width:46ch; margin-left:auto; margin-right:auto; }
+  .close-ctas{ display:flex; flex-direction:column; gap:12px; margin:36px auto 0; max-width:420px; }
+  .close .mini{ margin-top:44px; display:inline-flex; align-items:center; gap:14px; text-align:left; }
+  .close .mini img{ width:52px; height:52px; border-radius:50%; object-fit:cover; border:1px solid var(--border); }
+  .close .mini .nm{ font-size:14.5px; color:var(--ivory); font-weight:500; }
+  .close .mini .rl{ font-size:12px; color:var(--textMid); margin-top:3px; }
+
+  /* ---------- footer ---------- */
+  footer{ border-top:1px solid var(--border); background:var(--darkBand); padding:34px 0 40px; }
+  .foot-in{ display:flex; flex-direction:column; gap:16px; }
+  .foot-in .t{ font-size:12px; color:var(--textDim); letter-spacing:.4px; line-height:1.7; }
+  .foot-in a{ color:var(--textMid); text-decoration:none; }
+  .foot-in a:hover{ color:var(--text); }
+
+  /* ---------- language modal ---------- */
+  .lang span{ cursor:pointer; }
+  button.btn{ font:inherit; cursor:pointer; background:none; border:1px solid transparent; }
+  .lang-modal{ position:fixed; inset:0; z-index:100; background:rgba(15,18,21,.82); backdrop-filter:blur(8px);
+    display:flex; align-items:center; justify-content:center; padding:22px; }
+  .lang-card{ background:var(--card); border:1px solid var(--border); border-radius:16px; padding:38px 32px;
+    max-width:380px; width:100%; text-align:center; box-shadow:0 40px 120px -40px rgba(0,0,0,.8); }
+  .lang-card .lm-t{ margin:22px 0 26px; font-size:19px; font-weight:300; color:var(--ivory); letter-spacing:-.01em; }
+  .lang-card .lm-t span{ display:block; margin-top:6px; font-size:13px; color:var(--textMid); }
+  .lm-btns{ display:flex; flex-direction:column; gap:10px; }
+  .lm-btns .btn{ width:100%; }
+
+  /* ---------- ≥760px ---------- */
+  @media (min-width:760px){
+    .hero-in{ padding:110px 0 96px; }
+    .hero-ctas{ flex-direction:row; max-width:none; }
+    .stats{ grid-template-columns:repeat(4,1fr); }
+    .magnus-grid{ grid-template-columns:0.9fr 1.1fr; gap:54px; align-items:start; }
+    .magnus-cta{ flex-direction:row; max-width:none; }
+    .pillars{ grid-template-columns:repeat(3,1fr); }
+    .why-grid{ grid-template-columns:repeat(3,1fr); gap:48px; }
+    .close-ctas{ flex-direction:row; justify-content:center; max-width:none; }
+    .foot-in{ flex-direction:row; justify-content:space-between; align-items:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap head-in">
+    <a class="mark" href="https://rockenue.com"><span class="b l">(</span>ROCKENUE<span class="b r">)</span></a>
+    <div class="head-right">
+      <div class="lang"><span id="langEN" class="on" onclick="setLang('en')">EN</span><span id="langIS" onclick="setLang('is')">IS</span></div>
+      <a class="head-cta" href="#book">Book a call →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="tag"><span class="dot"></span>Rockenue — now launching in Iceland</div>
+    <h1>London's #1 independent hotel operator <span class="thin">is coming to Iceland.</span></h1>
+    <p class="lead" style="margin-top:24px; max-width:78ch;"><b>The expertise, technology and relationships of a chain — for independent hotels.</b> Rockenue isn't a software company or a consultancy — it's a new kind of hotel group, running the full commercial engine behind <b>58 independent hotels</b> across Europe, the Middle East and the US.<br><br>Behind it sits <b>one of the most advanced technology platforms in the hotel market today — exclusive to Rockenue</b>.</p>
+    <div class="hero-ctas">
+      <a class="btn primary" href="#book">Book a 15-minute intro call</a>
+      <a class="btn ghost" href="#magnus">Co-founded in Iceland →</a>
+    </div>
+    <p class="cta-note">15 minutes. No pitch deck, no obligation.</p>
+  </div>
+</section>
+
+<!-- ============ PROOF ============ -->
+<section class="proof">
+  <div class="wrap">
+    <div class="eyebrow muted">01 — Who we are</div>
+    <h2 style="margin-top:16px;">Proven abroad.<br><span class="thin">Now coming to Iceland.</span></h2>
+    <p class="lead" style="margin-top:22px;">Everything a global chain gives its hotels — the systems, the distribution relationships, the revenue expertise — built for independents who keep their own name.<br><br>We hold official <b>Booking.com chain partner status</b> and rank as the <b>#1 independent operator on Booking.com in London</b>.</p>
+    <div class="stats">
+      <div class="ws gold"><div class="v">58</div><div class="l">Hotels under management</div></div>
+      <div class="ws"><div class="v">€85M+</div><div class="l">Revenue under management</div></div>
+      <div class="ws gold"><div class="v">0.5%</div><div class="l">Every hotel we run ranks in the top 0.5% of its local market on Booking.com</div></div>
+      <div class="ws gold"><div class="v">+25%</div><div class="l">Average RevPAR uplift after we take over</div></div>
+    </div>
+    <div class="markets-line">7 countries, 3 continents — the <b>United Kingdom</b> · <b>United Arab Emirates</b> · <b>Poland</b> · <b>United States</b> and more. Now the <b>Nordics</b>, starting with Iceland.</div>
+  </div>
+</section>
+
+<!-- ============ MAGNÚS ============ -->
+<section class="magnus" id="magnus">
+  <div class="wrap">
+    <div class="eyebrow">02 — The Icelandic co-founder</div>
+    <h2 style="margin-top:16px;">Co-founded in Iceland, by someone<br>who knows your market.</h2>
+    <div class="magnus-grid">
+      <div>
+        <div class="portrait">
+          <img src="/team/magnus.jpg" alt="Magnús Magnússon, co-founder of Rockenue Iceland">
+          <div class="cap">
+            <div class="nm">Magnús Magnússon</div>
+            <div class="rl">Co-founder, Rockenue Iceland · ex-Booking.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="bio">
+        <p>Rockenue Iceland isn't a foreign operator parachuting in. It's <b>co-founded in Iceland, by an Icelander</b> — Magnús Magnússon, who spent <b>nine years at Booking.com</b>, most recently as Country Manager for the Nordics, responsible for <b>€150M+ in hotel revenue</b>.</p>
+        <p>He has worked directly with hundreds of Nordic hotels — many of them here in Iceland — and has seen from the inside how Icelandic hotels win, and lose, on the OTAs.</p>
+        <p>Magnús co-founded Rockenue Iceland to bring that experience home — <b>local knowledge in front, the full Rockenue platform behind it</b>.</p>
+        <div class="magnus-cta">
+          <a class="btn primary" href="#book">Book a 15-minute intro call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT WE DO ============ -->
+<section class="what">
+  <div class="wrap">
+    <div class="eyebrow muted">03 — What we do</div>
+    <h2 style="margin-top:16px;">We take over the commercial side<span class="thin"> — completely.</span></h2>
+    <p class="lead" style="margin-top:24px;">Pricing, distribution and OTA performance, run for your hotel every day — on <b>Market Pulse</b>, our own technology that tracks every hotel, every rate and every demand signal in your market. <b>Your name stays on the door, your team stays in place, your guests stay yours.</b> We're the engine behind it.</p>
+  </div>
+</section>
+
+<!-- ============ TERMS ============ -->
+<section class="terms">
+  <div class="wrap">
+    <div class="eyebrow muted">04 — Terms</div>
+    <h2 style="margin-top:16px;">Straightforward terms.</h2>
+    <div class="why-grid">
+      <div class="why"><h3>One monthly fee</h3><p>A single fixed monthly fee. No setup costs, no commission stacked on top, no surprises.</p></div>
+      <div class="why"><h3>No lock-in</h3><p>No long-term contract. The partnership stands on performance — you can leave at any point.</p></div>
+      <div class="why"><h3>Cheaper than hiring</h3><p>Everything a big hotel group's commercial team does, for less than it costs to hire one revenue manager.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="close" id="book">
+  <div class="wrap">
+    <div class="eyebrow">Tölum saman</div>
+    <h2 style="margin-top:18px;">Fifteen minutes.<br><span class="thin">That's all it takes to find out.</span></h2>
+    <p class="sub">Book a short intro call. If there's upside in your numbers, we'll show you where. If there isn't, we'll tell you that too.</p>
+    <div class="close-ctas">
+      <!-- PLACEHOLDER: replace #book with the real Calendly/Cal.com booking URL -->
+      <a class="btn primary" href="#book">Book a 15-minute intro call</a>
+      <a class="btn ghost" href="#">Or simply reply to the email you received</a>
+    </div>
+    <div class="mini">
+      <img src="/team/magnus.jpg" alt="">
+      <div>
+        <div class="nm">Magnús Magnússon</div>
+        <div class="rl">Co-founder, Rockenue Iceland · ex-Booking.com · based in Iceland</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-in">
+    <a class="mark" href="https://rockenue.com" style="font-size:12px;"><span class="b l" style="font-size:19px;">(</span>ROCKENUE<span class="b r" style="font-size:19px;">)</span></a>
+    <div class="t">Rockenue International Group · <a href="https://rockenue.com">rockenue.com</a><br>Reykjavík &nbsp;|&nbsp; London &nbsp;|&nbsp; Dubai · Meydan Free Zone</div>
+  </div>
+</footer>
+
+<!-- ============ LANGUAGE MODAL (shown on every visit) ============ -->
+<div class="lang-modal" id="langModal" onclick="setLang('en')">
+  <div class="lang-card" onclick="event.stopPropagation()">
+    <span class="mark"><span class="b l">(</span>ROCKENUE<span class="b r">)</span></span>
+    <div class="lm-t">Veldu tungumál<span>Choose your language</span></div>
+    <div class="lm-btns">
+      <button class="btn primary" onclick="setLang('is')">Íslenska</button>
+      <button class="btn ghost" onclick="setLang('en')">English</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // IS copy — DRAFT translation, must be proofread by Magnús before launch.
+  // English is captured from the DOM on first switch, so the markup above stays the
+  // single source of truth for EN.
+  const IS = [
+    ['.head-cta', 'Bóka símtal →'],
+    ['.hero .tag', '<span class="dot"></span>Rockenue — opnar nú á Íslandi'],
+    ['.hero h1', 'Óháði hótelrekstraraðilinn nr. 1 í London <span class="thin">er á leið til Íslands.</span>'],
+    ['.hero .lead', '<b>Sérþekking, tækni og sambönd hótelkeðju — fyrir sjálfstæð hótel.</b> Rockenue er hvorki hugbúnaðarfyrirtæki né ráðgjafarstofa — heldur ný tegund af hótelsamstæðu, sem rekur tekjuhliðina hjá <b>58 sjálfstæðum hótelum</b> í Evrópu, Mið-Austurlöndum og Bandaríkjunum.<br><br>Að baki liggur <b>ein fullkomnasta tæknilausn hótelmarkaðarins í dag — eingöngu hjá Rockenue</b>.'],
+    ['.hero-ctas .btn.primary', 'Bókaðu 15 mínútna kynningarsímtal'],
+    ['.hero-ctas .btn.ghost', 'Meðstofnað á Íslandi →'],
+    ['.hero .cta-note', '15 mínútur. Engin sölukynning, engin skuldbinding.'],
+    ['.proof .eyebrow', '01 — Hver við erum'],
+    ['.proof h2', 'Sannað erlendis.<br><span class="thin">Nú á leið til Íslands.</span>'],
+    ['.proof .lead', 'Allt sem alþjóðleg keðja veitir sínum hótelum — kerfin, dreifisamböndin, sérþekkingin í tekjustýringu — byggt fyrir sjálfstæð hótel sem halda eigin nafni.<br><br>Við höfum opinbera <b>keðjustöðu hjá Booking.com</b> og erum <b>óháði rekstraraðilinn nr. 1 á Booking.com í London</b>.'],
+    ['.stats .ws:nth-child(1) .l', 'Hótel í rekstri'],
+    ['.stats .ws:nth-child(2) .l', 'Tekjur í umsjón okkar'],
+    ['.stats .ws:nth-child(3) .l', 'Hvert hótel sem við rekum er í efstu 0,5% á sínum markaði á Booking.com'],
+    ['.stats .ws:nth-child(4) .l', 'Meðalhækkun RevPAR eftir að við tökum við'],
+    ['.markets-line', '7 lönd, 3 heimsálfur — <b>Bretland</b> · <b>Sameinuðu arabísku furstadæmin</b> · <b>Pólland</b> · <b>Bandaríkin</b> og fleiri. Nú <b>Norðurlöndin</b>, með Ísland fyrst.'],
+    ['.magnus .eyebrow', '02 — Íslenski meðstofnandinn'],
+    ['.magnus h2', 'Meðstofnað á Íslandi, af manni<br>sem þekkir markaðinn þinn.'],
+    ['.portrait .rl', 'Meðstofnandi Rockenue Iceland · áður hjá Booking.com'],
+    ['.magnus .bio p:nth-of-type(1)', 'Rockenue Iceland er ekki erlent fyrirtæki sem stekkur inn á markaðinn. Það er <b>meðstofnað á Íslandi, af Íslendingi</b> — Magnúsi Magnússyni, sem starfaði í <b>níu ár hjá Booking.com</b>, síðast sem Country Manager Norðurlandanna með ábyrgð á <b>yfir 150 milljónum evra í hóteltekjum</b>.'],
+    ['.magnus .bio p:nth-of-type(2)', 'Hann hefur unnið beint með hundruðum norrænna hótela — mörgum þeirra hér á Íslandi — og þekkir innan frá hvernig íslensk hótel vinna, og tapa, á bókunarsíðunum.'],
+    ['.magnus .bio p:nth-of-type(3)', 'Magnús stofnaði Rockenue Iceland ásamt okkur til að færa þessa reynslu heim — <b>staðarþekking í forgrunni, öll Rockenue-tæknin að baki</b>.'],
+    ['.magnus-cta .btn.primary', 'Bókaðu 15 mínútna kynningarsímtal'],
+    ['.what .eyebrow', '03 — Hvað við gerum'],
+    ['.what h2', 'Við tökum yfir tekjuhliðina<span class="thin"> — að fullu.</span>'],
+    ['.what .lead', 'Verðlagning, dreifing og árangur á bókunarsíðunum — rekið fyrir hótelið þitt á hverjum degi, knúið af <b>Market Pulse</b>, okkar eigin tækni sem fylgist með hverju hóteli, hverju verði og hverri hreyfingu í eftirspurn á markaðnum þínum. <b>Nafnið þitt er áfram á húsinu, teymið þitt heldur sínu og gestirnir eru áfram þínir.</b> Við erum vélin þar að baki.'],
+    ['.terms .eyebrow', '04 — Kjör'],
+    ['.terms h2', 'Einföld kjör.'],
+    ['.why-grid .why:nth-child(1) h3', 'Eitt mánaðargjald'],
+    ['.why-grid .why:nth-child(1) p', 'Eitt fast mánaðargjald. Enginn upphafskostnaður, engin þóknun ofan á, engar óvæntar uppákomur.'],
+    ['.why-grid .why:nth-child(2) h3', 'Engin binding'],
+    ['.why-grid .why:nth-child(2) p', 'Enginn langtímasamningur. Samstarfið stendur og fellur með árangri — þú getur hætt hvenær sem er.'],
+    ['.why-grid .why:nth-child(3) h3', 'Ódýrara en að ráða'],
+    ['.why-grid .why:nth-child(3) p', 'Allt sem tekjuteymi stórrar hótelkeðju gerir — fyrir minna en það kostar að ráða einn tekjustjóra.'],
+    ['.close h2', 'Fimmtán mínútur.<span class="thin"><br>Meira þarf ekki.</span>'],
+    ['.close .sub', 'Bókaðu stutt kynningarsímtal. Ef það er svigrúm í tölunum þínum sýnum við þér hvar það liggur. Ef ekki, þá segjum við þér það líka.'],
+    ['.close-ctas .btn.primary', 'Bókaðu 15 mínútna kynningarsímtal'],
+    ['.close-ctas .btn.ghost', 'Eða svaraðu einfaldlega tölvupóstinum sem þú fékkst'],
+    ['.close .mini .rl', 'Meðstofnandi Rockenue Iceland · áður hjá Booking.com · búsettur á Íslandi'],
+  ];
+  const TITLES = {
+    en: document.title,
+    is: 'Rockenue er á leið til Íslands — tekjustýring fyrir sjálfstæð hótel',
+  };
+  function setLang(l){
+    IS.forEach(([sel, html]) => {
+      document.querySelectorAll(sel).forEach(el => {
+        if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+        el.innerHTML = (l === 'is') ? html : el.dataset.en;
+      });
+    });
+    document.documentElement.lang = l;
+    document.title = TITLES[l];
+    document.getElementById('langEN').classList.toggle('on', l === 'en');
+    document.getElementById('langIS').classList.toggle('on', l === 'is');
+    const m = document.getElementById('langModal');
+    if (m) m.remove();
+  }
+</script>
+</body>
+</html>

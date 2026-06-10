@@ -1,5 +1,5 @@
 {
-  "cleanUrls": ["/", "/about", "/services", "/approach", "/technology", "/contact", "/faq", "/privacy", "/terms", "/cookies", "/support/booking-engine"],
+  "cleanUrls": ["/", "/about", "/services", "/approach", "/technology", "/contact", "/faq", "/privacy", "/terms", "/cookies", "/support/booking-engine", "/iceland"],
   "directoryListing": false,
   "trailingSlash": false,
   "redirects": [
